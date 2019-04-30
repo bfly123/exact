@@ -604,7 +604,7 @@ zexternalshared.code.tex))
 No auxiliary output files.
 
 \w@pgfexternal@auxout=\write4
-No file Tikz-figure4.aux.
+No file Tikz-figure8.aux.
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
 LaTeX Font Info:    ... okay on input line 18.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
@@ -635,58 +635,57 @@ A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
-\openout4 = `Tikz-figure4.dpth'.
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+\openout4 = `Tikz-figure8.dpth'.
 
-LaTeX Font Info:    Try loading font information for OML+zplm on input line 94.
-
+LaTeX Font Info:    Try loading font information for OML+zplm on input line 167
+.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlzplm.fd
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMS+zplm on input line 94.
-
+LaTeX Font Info:    Try loading font information for OMS+zplm on input line 167
+.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omszplm.fd
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMX+zplm on input line 94.
-
+LaTeX Font Info:    Try loading font information for OMX+zplm on input line 167
+.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxzplm.fd
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 94.
+(Font)              scaled to size 10.42007pt on input line 167.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 94.
+(Font)              scaled to size 7.91925pt on input line 167.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 94.
+(Font)              scaled to size 6.25204pt on input line 167.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 94.
+(Font)              scaled to size 10.42007pt on input line 167.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 94.
+(Font)              scaled to size 7.91925pt on input line 167.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 94.
-LaTeX Font Info:    Try loading font information for OT1+zplm on input line 94.
-
+(Font)              scaled to size 6.25204pt on input line 167.
+LaTeX Font Info:    Try loading font information for OT1+zplm on input line 167
+.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1zplm.fd
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 ) [1
 
-]
-A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
-isable this.
-A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
-isable this.
-A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
-isable this.
-A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
-isable this.
- ) 
+] ) 
 Here is how much of TeX's memory you used:
- 24024 strings out of 493030
- 635270 string characters out of 6136260
+ 24018 strings out of 493030
+ 635123 string characters out of 6136260
  773609 words of memory out of 5000000
- 27158 multiletter control sequences out of 15000+600000
+ 27152 multiletter control sequences out of 15000+600000
  12149 words of font info for 39 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 63i,7n,77p,754b,624s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 63i,7n,77p,754b,628s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Tikz-figure4.dvi (1 page, 8588 bytes).
+Output written on Tikz-figure8.dvi (1 page, 7644 bytes).

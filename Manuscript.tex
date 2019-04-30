@@ -499,6 +499,7 @@ And the shock speed is given as
 By the above deductions of the shock wave, we can get that, if the density after the shock is known, all the unknowns can be solved out.
 
 \section{Exact Riemann solver}\label{sec:riemann}
+
 %Althoughx HLLCE Riemann solver can simulate the elastic-plastic flow effectively and efficiently without iterations, but the plastic structure is not considered in and  there are some assumptions that are not so reasonable, especially in the interface between different materials. For example, the normal stresses $\sigma_x$ are  always equavalent across the interface, but the pressures are not always equal, and the consequent evaluation of $\widetilde{s}^*$ may   be of large error.
 
 Now we consider the constructing details of the exact  Riemann  solver. For  the Riemann problem in Section \ref{sec:riemann}, there are  $6\times 6$ possible  cases in the Riemann solution with different wave structures. Now we consider the  left six cases as shown in Fig.\ref{fig:cases}.
@@ -531,19 +532,18 @@ There are mainly three parts in the soluting process.
 
 Firstly, a pre-evaluation need to  be done to detect the left cases in Fig.\ref{fig:cases} and the corresponding right cases. This is done in Section (\ref{sec:eva}) with shock-contact-shock waves assumption.  
 
-Secondly, for the cases with two waves in one side (i.e.  case c and case f in Fig.\ref{fig:cases}),we need to  solve  the states in the region $\tilde{\mathbf{Q}}_L$ and $\tilde{\mathbf{Q}}_R$. This is done in Section \ref{sec:tilde}.
+Secondly,  we solve functions $s_{xx}(\rho)$, $p(\rho)$ and $u(\rho)$ in cases (a,b,d,e) in Section \ref{sec:one} and in cases (c,f) in Section \ref{sec:two}.
 
-At last,   we know all  the states besides $Q^*_L$ and $Q^*_R$. According to the knowledge in Section \ref{sec:rarefaction} and Section \ref{sec:shock}, if we  know the densities $\rho^*_L$ and $\rho^*_R$, we can solve all other unknowns out.
-Also, by the informations in Section \ref{sec:contact}, the velocities and the Cauchy stresses  in the two sides of the contact must be equal. So there are two equations 
+At last,  we use  the informations in Section \ref{sec:contact}, the velocities and the Cauchy stresses  in the two sides of the contact must be equal. So there are two equations 
 \begin{equation}\label{eq:fus}
   \begin{align}
 	f_u(\rho^*_L,\rho^*_R) = u_L^* -u_R^* = 0,\\
 	f_\sigma(\rho^*_L,\rho^*_R) = \sigma_L^* -\sigma_R^* = 0,
 \end{align}
 \end{equation}
-and two unknowns $\rho_L^*$ and $\rho_R^*$. Equation (\ref{eq:fus}) is implicit, we have use a Newton iteration method to solve it, this process is given in Section \ref{sec:iteration}. The details of $f_u$ and $f_\sigma$ are listed in Section \ref{sec:fufs}.
+and two unknowns $\rho_L^*$ and $\rho_R^*$. Equation (\ref{eq:fus}) is implicit, we have to use a Newton iteration method to solve it, this process is given in Section \ref{sec:iteration}.
 \subsection{Pre-evaluation and case classfication}\label{sec:eva}
-At first, we assume that there are only one shock wave in the left side and one shock in the right side as shown in Fig.\ref{fig:HLLC}. According to the conservation relations across the shocks, we have    
+At first, we assume that there are only one elastic shock wave in the left side and another one  elastic shock in the right side as shown in Fig.\ref{fig:HLLC}. According to the conservation relations across the shocks, we have    
 \begin{equation}
   \left\{
   \begin{align}
@@ -561,7 +561,11 @@ and
   \end{align}
 \right.
 \end{equation}
-
+\begin{figure}
+  \centering
+  \includegraphics[width=8cm]{Tikz-figure7.eps}
+  \caption{Pre-evaluation with a three-waves structure.}
+\end{figure}
 Using the relation across the interface,
 \begin{equation}
   \hat{u}_L^* = \hat{u}_R^* =\hat{s}^*,\quad \hat{\sigma}_L^* = \hat{\sigma}_R^*.
@@ -599,7 +603,7 @@ By  the relation of $\hat{\rho}_{L(R)}$ and  $\hat{s}_{xxL(R)}$ we can classify 
 \label{tab:cases}
 \end{table}
 
-\subsection{States for one wave cases (a,b, d,e)}
+\subsection{States for one wave cases (a,b, d,e)}\label{sec:one}
 For cases (a,b,d,e) in Fig.\ref{fig:cases}, the material is totally yielding or totally not yielding, if we give a density $\rho_L^*$ in the region $\mathbf{Q}_L^*$, by the deductions in Section \ref{sec:rarefaction} and Section \ref{sec:shock}, all the unknowns in region $\mathbf{Q}_L^*$ can be solved out.
 
 \subsubsection{Rarefaction  wave cases (a,b)}
@@ -608,14 +612,19 @@ For Rarefaction wave, we not only  need to solve the state after the wave in reg
 First we give the function of $s_{xx}$,
 \begin{equation}
   s_{xx}(\rho) = \left\{\begin{aligned}
-	& -\frac{4}{3}\mu\text{ln}\left(\frac{\rho}{\rho_{L(R)}}\right)+s_{xxL(R)} \quad  &\text{case (a)},\\
-	& \frac{2}{3}Y_0 &\text{case (b)}.
+	  & -\frac{4}{3}\mu\text{ln}\left(\frac{\rho}{\rho_{L(R)}}\right)+s_{xxL(R)}, \quad & \rho_{L(R)} \ge \rho \ge \rho_{L(R)}^*,  \quad &\text{case (a)},\\
+	  & \frac{2}{3}Y_0,  \quad & \rho_{L(R)} \ge \rho \ge \rho_{L(R)}^*,  \quad &\text{case (b)}.
   \end{aligned} \right.
   \end{equation}
 Then we give the pressure,
 \begin{equation}
   p(\rho)=p_{L(R)}e^{\frac{\lambda_1}{\rho_{L(R)}}-\frac{\lambda_1}{\rho}} +e^{-\frac{\lambda_1}{\rho}}\int_{\rho_{L(R)}}^{\rho} f_2(x) e^{\frac{\lambda_1}{x}}dx. \quad & \text{case (a,b)}.
 \end{equation}
+where 
+\begin{equation}
+  \lambda_1 = \rho_0 \Gamma_0 \quad f_2(\rho) = a_0^2\frac{\partial f}{\partial \eta}- \lambda_1\frac{s_{xx}(\rho)}{\rho^2}.
+\end{equation}
+
 and sonic speed,
 \begin{equation}
   c(\rho) = \left\{ \begin{aligned}
@@ -626,8 +635,8 @@ and sonic speed,
 Then we can get  the  function of  velocity
 \begin{equation}
   u(\rho) =\left\{ \begin{aligned} 
-	&u_L - \int_{\rho_L}^{\rho} \frac{c}{\rho} d\rho \quad \text{case (a,b) Left} , \\
-	 &u_R + \int_{\rho_R}^{\rho} \frac{c}{\rho} d\rho \quad   \rho_R^* \le \rho \le \rho_R \quad \text{case (a,b) Right}, \\
+	  &u_L - \int_{\rho_L}^{\rho} \frac{c(x)}{x} dx, \quad  & \rho_L \ge \rho \ge \rho_L^*,   \quad &\text{case (a,b)} , \\
+	  &u_R + \int_{\rho_R}^{\rho} \frac{c(x)}{x} dx, \quad  & \rho_R \ge \rho \ge \rho_R^*, \quad &\text{case (a,b)}, \\
 	\end{aligned}
   \right.
 \end{equation}
@@ -637,46 +646,43 @@ Then we can get  the  function of  velocity
 For shock waves, the function of deviatoric is given as 
 \begin{equation}
   s_{xx}(\rho) = \left\{\begin{aligned}
-	& \begin{aligned}
-	  & s_{xxL(R)} \quad  &\rho = \rho_{L(R)}\\
-	& -\frac{4}{3}\mu\text{ln}\left(\frac{\rho}{\rho_{L(R)}}\right)+s_{xxL(R)}\quad &  \rho =\rho_{L(R)}^* \end{aligned}
+	  & -\frac{4}{3}\mu\text{ln}\left(\frac{\rho}{\rho_{L(R)}}\right)+s_{xxL(R)},\quad   &\rho =\rho_{L(R)},\rho_{L(R)}^*,
 	\quad  &\text{case (d)},\\
-	& \frac{2}{3}Y_0 &\text{case (e)}.
+	& -\frac{2}{3}Y_0,   \quad & \rho =\rho_{L(R)},\rho_{L(R)}^*, \quad
+ &\text{case (e)}.
   \end{aligned} \right.
   \end{equation}
 And the pressure is given as
 \begin{equation}
-  p(\rho)= \left\{\begin{aligned} 
-	& p_{L(R)}   \quad  & \rho = \rho_{L(R)} \\
-	& \frac{2t(c_1f(\rho/\rho_0)+e_L)-(\sigma_{L(R)}+s_{xx}(\rho))}{2tc_0-1} \quad  &  \rho=\rho_{L(R)}^* 
-  \end{aligned}\right.
+  p(\rho)= 
+  \frac{2t(c_1f(\rho/\rho_0)+e_L)-(\sigma_{L(R)}+s_{xx}(\rho))}{2tc_0-1}, \quad  \rho=\rho_{L(R)},\rho_{L(R)}^*, \quad 
   \text{ case (d,e)},
 \end{equation}
 where $c_0 = \frac{1}{\rho_0\Gamma_0}$ and $c_1 = \frac{a_0^2}{\Gamma_0}$ and $ t=\frac{\rho_{L(R)} \rho_{L(R)}^*}{\rho_{L(R)}^*-\rho_{L(R)}}$. 
 The velocity is given as
 \begin{equation}
-  u(\rho) = \left\{ \begin{aligned} u_{L(R)} \quad  &\rho =\rho_{L(R)}\\
-	u_L -\sqrt{\frac{\sigma_L-\sigma(\rho)}{t}} \quad &\rho = \rho_L^*\\ 
-	u_R +\sqrt{\frac{\sigma_R-\sigma(\rho)}{t}} \quad & \rho = \rho_R^*\\
+  u(\rho) = \left\{ \begin{aligned}
+	  u_L -\sqrt{\frac{\sigma_L-\sigma(\rho)}{t}} \quad &\rho =\rho_L, \rho_L^*\\ 
+	  u_R +\sqrt{\frac{\sigma_R-\sigma(\rho)}{t}} \quad & \rho =\rho_R, \rho_R^*\\
   \end{aligned}
-  \right.
+\right. \quad \text{case (d,e)}
 \end{equation}
 
-\subsection{States for two wave cases (c,f)}
+\subsection{States for two wave cases (c,f)}\label{sec:two}
 
 For cases (c,f), the meterial periods a yielding process from elastic to plastic. There are two waves and  one more state $\tilde{\mathbf{Q}}_{L(R)}$ exists. In state $\tilde{\mathbf{Q}}_{L(R)}$, the derivative stress achieves the elastic limit. 
 \begin{equation}
  \tilde{s}_{xxL(R)} = \left\{ \begin{align}
-	  &\frac{2}{3}Y_0 \quad  &\text{Case c},\\
-	  &-\frac{2}{3}Y_0 \quad &\text{Case f},\\
+	 &\frac{2}{3}Y_0 \quad  &\text{Case (c)},\\
+	 &-\frac{2}{3}Y_0 \quad &\text{Case (f)},\\
 	\end{align}
   \right.
 \end{equation}
 By (\ref{eq:rhosxx}),at state $\tilde{\mathbf{Q}}_{L(R)}$ we can solve the density out as 
 \begin{equation}
   \tilde{\rho}_{L(R)}= \left\{ \begin{align}
-	  &\widetilde{\rho}_{L(R)} = \rho_{L(R)} \text{exp}\left(-\frac{Y_0}{2\mu}+\frac{3 s_{xxL(R)}}{4\mu}\right), \quad  & \text{Case c}, \\ 
-	  &\widetilde{\rho}_{L(R)} = \rho_{L(R)} \text{exp}\left(\frac{Y_0}{2\mu}+\frac{3 s_{xxL(R)}}{4\mu}\right), \quad  & \text{Case f}. 
+	  &\widetilde{\rho}_{L(R)} = \rho_{L(R)} \text{exp}\left(-\frac{Y_0}{2\mu}+\frac{3 s_{xxL(R)}}{4\mu}\right), \quad  & \text{Case (c)}, \\ 
+	  &\widetilde{\rho}_{L(R)} = \rho_{L(R)} \text{exp}\left(\frac{Y_0}{2\mu}+\frac{3 s_{xxL(R)}}{4\mu}\right), \quad  & \text{Case (f)}. 
 	\end{align}
   \right.
 	\end{equation}
@@ -686,9 +692,23 @@ we give the function of $s_{xx}$ at first,
 \begin{equation}
   s_{xx}(\rho) = \left\{\begin{aligned}
 	& -\frac{4}{3}\mu\text{ln}\left(\frac{\rho}{\rho_{L(R)}}\right)+s_{xxL(R)} \quad  & \rho_{L(R)} \ge \rho \ge \tilde{\rho}_{L(R)}  ,\\
-	& \frac{2}{3}Y_0 & \tilde{\rho}_{L(R)} \ge \rho \ge \rho_{L(R)}^* .
+	& \frac{2}{3}Y_0, & \tilde{\rho}_{L(R)} \ge \rho \ge \rho_{L(R)}^*.\\
   \end{aligned} \right. \quad \text{case (c)}.
   \end{equation}
+
+The pressure is given as 
+\begin{equation}
+  p(\rho)= \left\{ \begin{aligned}
+	  p_{L(R)}e^{\frac{\lambda_1}{\rho_{L(R)}}-\frac{\lambda_1}{\rho}} +e^{-\frac{\lambda_1}{\rho}}\int_{\rho_{L(R)}}^{\rho} f_2(x) e^{\frac{\lambda_1}{x}}dx,\quad & \rho_{L(R)}\ge \rho \ge \tilde{\rho}_{L(R)},\\
+	  \tilde{p}_{L(R)}e^{\frac{\lambda_1}{\tilde{\rho}_{L(R)}}-\frac{\lambda_1}{\rho}} +e^{-\frac{\lambda_1}{\rho}}\int_{\tilde{\rho}_{L(R)}}^{\rho} f_2(x) e^{\frac{\lambda_1}{x}}dx,  \quad & \tilde{\rho}_{L(R)}\ge \rho \ge \rho_{L(R)}^*,
+  \end{aligned} \right.
+  \text{case (c)},
+\end{equation}
+where 
+\begin{equation}
+  \lambda_1 = \rho_0 \Gamma_0 \quad f_2(\rho) = a_0^2\frac{\partial f}{\partial \eta}- \lambda_1\frac{s_{xx}(\rho)}{\rho^2}.
+\end{equation}
+
 And sonic speed,
 \begin{equation}
   c(\rho) = \left\{ \begin{aligned}
@@ -708,30 +728,28 @@ Then we can get  the   function of  velocity
 For shock waves the function of deviatoric is given as 
 \begin{equation}
   s_{xx}(\rho) = \left\{\begin{aligned}
-  & -\frac{4}{3}\mu\text{ln}\left(\frac{\rho}{\rho_{L(R)}}\right)+s_{xxL(R)}\quad &  \rho =\rho_{L(R)}, \tilde{\rho}_{L(R)},\\
-	& \frac{2}{3}Y_0 &\rho = \rho_{L(R)}^*,
+	  & -\frac{4}{3}\mu\text{ln}\left(\frac{\rho}{\rho_{L(R)}}\right)+s_{xxL(R)},\quad &  \rho =\rho_{L(R)},\tilde{\rho}_{L(R)},\\
+	  & -\frac{2}{3}Y_0, \quad  & \rho = \rho_{L(R)}^*,
   \end{aligned} \right. \quad  \text{case (f)}.
   \end{equation}
 
 And the pressure is given as
 \begin{equation}
   p(\rho)= \left\{\begin{aligned} 
-	& p_{L(R)}   \quad  & \rho = \rho_{L(R)} \\
-	& \frac{2t(c_1f(\rho/\rho_0)+e_L)-(\sigma_{L(R)}+s_{xx}(\rho))}{2t_1c_0-1} \quad  &  \rho=\tilde{\rho}_{L(R)}\\ 
-	& \frac{2t(c_1f(\rho/\rho_0)+\tilde{e}_L)-(\tilde{\sigma}_{L(R)}+s_{xx}(\rho))}{2t_2c_0-1} \quad  &  \rho=\rho_{L(R)}^*\\ 
+	  & \frac{2t(c_1f(\rho/\rho_0)+e_L)-(\sigma_{L(R)}+s_{xx}(\rho))}{2t_1c_0-1}, \quad  &  \rho=\rho_{L(R)},\tilde{\rho}_{L(R)},\\ 
+	  & \frac{2t(c_1f(\rho/\rho_0)+\tilde{e}_L)-(\tilde{\sigma}_{L(R)}+s_{xx}(\rho))}{2t_2c_0-1}, \quad  &  \rho=\rho_{L(R)}^*,\\ 
   \end{aligned}\right.
   \text{ case (f)},
 \end{equation}
-where $c_0 = \frac{1}{\rho_0\Gamma_0}$ and $c_1 = \frac{a_0^2}{\Gamma_0}$ and $ t_2=\frac{\rho_{L(R)} \tilde{\rho}_{L(R)}}{\tilde{\rho}_{L(R)}-\rho_{L(R)}}$, $ t_1=\frac{\tilde{\rho}_{L(R)} \rho_{L(R)}^*}{\rho_{L(R)}^*-\tilde{\rho}_{L(R)}}$
+where $c_0 = \frac{1}{\rho_0\Gamma_0}$ and $c_1 = \frac{a_0^2}{\Gamma_0}$ and $ t_1=\frac{\rho_{L(R)} \tilde{\rho}_{L(R)}}{\tilde{\rho}_{L(R)}-\rho_{L(R)}}$, $ t_2=\frac{\tilde{\rho}_{L(R)} \rho_{L(R)}^*}{\rho_{L(R)}^*-\tilde{\rho}_{L(R)}}$.
 
 The velocity is given as
 \begin{equation}
   u(\rho) = \left\{ \begin{array}{ll}
-	u_{L(R)} \quad  & \rho =\rho_{L(R)}\\
-		u_L -\sqrt{\frac{\sigma_L-\sigma(\rho)}{t_1}} \quad &\rho = \tilde{\rho}_L\\ 
-		\tilde{u}_L -\sqrt{\frac{\tilde{\sigma}_L-\sigma(\rho)}{t_2}} \quad &\rho = \rho_L^*\\ 
-		u_R +\sqrt{\frac{\sigma_R-\sigma(\rho)}{t_1}} \quad &\rho = \tilde{\rho}_R\\ 
-  \tilde{u}_R +\sqrt{\frac{\tilde{\sigma}_R-\sigma(\rho)}{t_2}} \quad &\rho = \rho_R^*\\ \end{array}
+	  u_L -\sqrt{\frac{\sigma_L-\sigma(\rho)}{t_1}}, \quad &\rho = \rho_L,\tilde{\rho}_L,\\ 
+	  \tilde{u}_L -\sqrt{\frac{\tilde{\sigma}_L-\sigma(\rho)}{t_2}}, \quad &\rho = \rho_L^*,\\ 
+	  u_R +\sqrt{\frac{\sigma_R-\sigma(\rho)}{t_1}}, \quad &\rho = \rho_R, \tilde{\rho}_R, \\ 
+	\tilde{u}_R +\sqrt{\frac{\tilde{\sigma}_R-\sigma(\rho)}{t_2}}, \quad &\rho = \rho_R^*, \end{array}
   \right. \quad \text{case (f)}.
 \end{equation}
 
@@ -739,7 +757,27 @@ The velocity is given as
 
   \subsection{An iteration process of $\rho^*_L$ and $\rho^*_R$}\label{sec:iteration}
 
-  As the states in regions $\mathbf{Q}_L$ and $\mathbf{Q}_R$ are known, for cases (c,f) with two waves in one side, regions $\hat{\mathbf{Q}}_L$  and $\hat{\mathbf{Q}}_L$ are also solved in the above section, by the relaions in Section \ref{sec:rarefaction} and Section \ref{sec:shock}, if we know the densities $\rho_L^*$ and $\rho_R^*$, states in regions $\mathbf{Q}_L^*$ and $\mathbf{Q}_R^*$ can be deduced out. Till then, the  whole Riemann problem is solved.  
+For a given  $\rho_L^*$ and a given $\rho_R^*$,
+\begin{equation}
+  \begin{aligned}
+ & u_L^* = u(\rho_L^*),\quad u_R^*= u(\rho_R^*) ,\\
+ & \sigma_L^* = -p(\rho_L^*)+s_{xx}(\rho_L^*),\quad \sigma_R^*= -p(\rho_R^*)+s_{xx}(\rho_R^*) ,\\
+\end{aligned}
+\end{equation}
+ by relations of 
+\begin{equation}
+  \begin{aligned}
+	f_u(\rho_L^*,\rho_R^*)_=  u_L^* -u_R^* =0,\\ 
+	f_\sigma(\rho_L^*,\rho_R^*)_=  \sigma_L^* -\sigma_R^* =0,\\ 
+\end{aligned}
+\end{equation}
+and used a Newton iteration method, we can solve the densities $\rho_L^*$ and $\rho_R^*$ out.
+\begin{figure}
+  \centering
+  \includegraphics[width= 10cm] {Tikz-figure6.eps}
+  \caption{A flow chat of the Newton iteration process.}
+  \label{fig:newton}
+\end{figure}
 
 The Newton iteration to evaluate $\rho_L^*$ and $\rho_R^*$ is given as
 \begin{equation}
@@ -791,141 +829,24 @@ where $\Delta \rho$ is a little quatity, we can choose it as
   \Delta \rho_{L(R)} = \frac{\rho_{L(R),(0)}^*}{100}.
 \end{equation}
 
-A flow chat of this process is shown in Fig.
+A flow chat of this process is shown in Fig.\ref{fig:newton}.
+\section{Half Riemann problem and  solver}
+Some times we need to analyse a half Riemann problem with a given velocity or Cauchy stress in one side. Shown in Fig.\ref{fig:half} , in these cases, we only need to solve the states in another side. There are six possible cases just like them in Section \ref{sec:riemann}.
 
+\begin{figure}
+  \centering
+  \includegraphics[width= 10cm] {Tikz-figure8.eps}
+  \caption{Half Riemann problem  with a given left velocity or Cauchy stress..}
+  \label{fig:half}
+\end{figure}
 
-\subsection{Summary of MHLLCEP}
-Here, we present all the procedures of MHLLCEP in a more simple way.
-\begin{enumerate}
-  \item  Assume  that there are three  waves in the Riemann solver. Based on this assumption, we perform the following evaluations:
-  \begin{enumerate}
-    \item evaluate  $\hat{s}^*$
-    \begin{equation*}
-       \hat{s}^* = \frac{\sigma_L-\sigma_R+\rho_L u_L(s_L-u_L)-\rho_R u_R(s_R-u_R)}{\rho_L(s_L-u_L)-\rho_R(s_R-u_R)}.
-   \end{equation*}
-    \item Evaluate  $\hat{\rho}_L^*$ and $\hat{\rho}_R^*$
-    \begin{equation*}
-       \hat{\rho}_L^* = \frac{\rho_L(u_L-s_L)}{s^*-s_L}, \hspace{0.3cm}  \hat{\rho}_R^* = \frac{\rho_R(u_R-s_R)}{s^*-s_R}.
-    \end{equation*}
-    \item Evaluate  the deviatoric stress
-       \begin{equation*}
-        \hat{s}_{xxL}^*=-\frac{4}{3}\mu\text{ln}(\frac{\hat{\rho}_L^*}{\rho_L})+s_{xxL},\hspace{0.2cm}  \hat{s}_{xxR}^*=-\frac{4}{3}\mu\text{ln}(\frac{\hat{\rho}_R^*}{\rho_R})+s_{xxR}.
-      \end{equation*}
-    \item Evaluate the pressure
-  \end{enumerate}
-  \item Decide whether the state reach the elastic limit or not
-        \begin{enumerate}
-          \item If $|s_{xxL}| < \frac{2}{3}Y_0 \le |\hat{s}_{xxL}^*| $, there are two waves exist in the left, we need to  evaluate the left yielding state.
+The process of solving a half Riemann problem is in three step:
 
-          The deviatoric stress, density and pressure behind the left elastic  wave are given as
-\begin{equation*}
-  \widetilde{s}_{xxL} =\left\{ \begin{aligned}
-      -\frac{2}{3}Y_0, \hspace{0.3cm} \text{if} \hspace{0.3cm} \rho_L^* > \rho_L,\\
-      \frac{2}{3}Y_0, \hspace{0.3cm} \text{if} \hspace{0.3cm} \rho_L^* < \rho_L,\\
-    \end{aligned}\right.
- \end{equation*}
- \begin{equation*}    
-     \widetilde{\rho}_{L} = \left\{ \begin{aligned}
-      & \rho_L \text{exp}\left(\frac{Y_0}{2\mu}+\frac{3 s_{xxL}}{4\mu}\right)  \hspace{0.5cm} \text{if} \hspace{0.3cm} \rho_L^* > \rho_L,\\
-& \rho_L \text{exp}\left(-\frac{Y_0}{2\mu}+\frac{3 s_{xxL}}{4\mu}\right)
-\hspace{0.3cm} \text{if} \hspace{0.3cm} \rho_L^* < \rho_L,\\
-  \end{aligned}\right.
- \end{equation*}
- 
-\begin{equation*}
-  \widetilde{p}_L= \frac{2t(c_1f(\widetilde{\rho}_L)+e_L)-(\sigma_L+\widetilde{s}_{xxL})}{2tc_0-1}, \hspace{0.3cm}
-t=\frac{\rho_L \widetilde{\rho}_L}{\widetilde{\rho}_L-\rho_L},
-\end{equation*}
-and the Cauchy stress and velocity are
-\begin{equation*}
-\widetilde{\sigma}_L = -\widetilde{p}_L+\widetilde{s}_{xxL},
-\end{equation*}
-\begin{equation*}
-  \widetilde{u}_L= \left\{
-  \begin{aligned}
-    u_L-\sqrt{\frac{\sigma_L-\widetilde{\sigma}_L}{t}} \hspace{0.2cm} \text{if} \hspace{0.2cm} \rho_L^* >\rho_L,\\
-    u_L+\sqrt{\frac{\sigma_L-\widetilde{\sigma}_L}{t}} \hspace{0.2cm} \text{if} \hspace{0.2cm} \rho_L^* <\rho_L.\\
-\end{aligned} \right.
-\end{equation*}
-If not,
-\begin{equation*}
-  \widetilde{\mathbf{Q}}_L = \mathbf{Q}_L.
-\end{equation*}
-          \item If $|s_{xxR}| < \frac{2}{3}Y_0 \le |\hat{s}_{xxR}^*| $, right  elastic and plastic wave exist, we need to  evaluate the right yielding state.
+First we need evaluate the density in the star region $\mathbf{Q}^*$ with a  elastic shock assumption.  Then using the relation of $\sigma(\rho^*) = \sigma^*$. We can solve the evaluated density $\hat{\rho}$ out. A  Newton iteration process will be used.
 
-                           The deviatoric stress, density and pressure  behind the right elastic  wave are given as
-\begin{equation*}
-  \widetilde{s}_{xxR} =\left\{ \begin{aligned}
-      -\frac{2}{3}Y_0, \hspace{0.3cm} \text{if} \hspace{0.3cm} \rho_R^* > \rho_R,\\
-      \frac{2}{3}Y_0, \hspace{0.3cm} \text{if} \hspace{0.3cm} \rho_R^* < \rho_R,\\
-    \end{aligned}\right.
-    \hspace{0.2cm} \widetilde{\rho}_{R} = \left\{ \begin{aligned}
-      & \rho_R \text{exp}\left(\frac{Y_0}{2\mu}+\frac{3 s_{xxR}}{4\mu}\right)  \hspace{0.5cm} \text{if} \hspace{0.3cm} \rho_R^* > \rho_R,\\
-& \rho_R \text{exp}\left(-\frac{Y_0}{2\mu}+\frac{3 s_{xxR}}{4\mu}\right)
-\hspace{0.3cm} \text{if} \hspace{0.3cm} \rho_R^* < \rho_R,\\
-  \end{aligned}\right.
- \end{equation*}
-\begin{equation*}
-  \widetilde{p}_R= \frac{2t(c_1f(\widetilde{\rho}_R)+e_R)-(\sigma_R+\widetilde{s}_{xxR})}{2tc_0-1}, \hspace{0.3cm}
-t=\frac{\rho_R \widetilde{\rho}_R}{\widetilde{\rho}_R-\rho_R},
-\end{equation*}
-and the Cauchy stress and velocity are
-\begin{equation*}
-\widetilde{\sigma}_R = -\widetilde{p}_R+\widetilde{s}_{xxR},
-\end{equation*}
-\begin{equation*}
-  \widetilde{u}_R= \left\{
-  \begin{aligned}
-    u_R+\sqrt{\frac{\sigma_R-\widetilde{\sigma}_R}{t}} \hspace{0.2cm} \text{if} \hspace{0.2cm} \rho_R^* >\rho_R,\\
-    u_R-\sqrt{\frac{\sigma_R-\widetilde{\sigma}_R}{t}} \hspace{0.2cm} \text{if} \hspace{0.2cm} \rho_R^* <\rho_R.\\
-\end{aligned} \right.
-\end{equation*}
-If not,
-\begin{equation*}
-  \widetilde{\mathbf{Q}}_R = \mathbf{Q}_R.
-\end{equation*}
+Second, we can determine the case by the same condition in Table \ref{tab:cases}. 
 
-        \end{enumerate}
-  \item Re-evaluate the states in the star regions on both sides of the contact wave
-  \begin{enumerate}
-    \item Evaluate the wave speeds:
-\begin{equation*}
-  s_L = \text{min} (\widetilde{u}_L-\widetilde{c}_L, \widetilde{u}_R-\widetilde{c}_R,0), \hspace{0.3cm} s_R = \text{max}(\widetilde{u}_L+\widetilde{c}_L, \widetilde{u}_R+\widetilde{c}_R,0),
-    \end{equation*}
-    \begin{equation*}
-      s^* = \frac{\widetilde{\sigma}_L-\widetilde{\sigma}_R+\widetilde{\rho}_L \widetilde{u}_L(s_L-\widetilde{u}_L)-\widetilde{\rho}_R \widetilde{u}_R(s_R-\widetilde{u}_R)}{\widetilde{\rho}_L(s_L-\widetilde{u}_L)-\widetilde{\rho}_R(s_R-\widetilde{u}_R)}.
-\end{equation*}
+At last, as we know the type of the structures, we can use the  iteration process again to solve the real density in region $\mathbf{Q}^*$ out. With the density, the pressure and the devaitoric stress are also can be solved. 
 
-    \item Evaluate the densities:
-\begin{equation*}
-  \rho_L^* = \frac{\widetilde{\rho}_L(\widetilde{u}_L-s_L)}{s^*-s_L}, \hspace{0.3cm}  \rho_R^* = \frac{\widetilde{\rho}_R(\widetilde{u}_R-s_R)}{s^*-s_R},
-\end{equation*}
-
-    \item Evaluate the deviatoric stresses:
- \begin{align*}
-   \widetilde{s}_{xxL}^* = \left\{\begin{array}{cc}
-                       \widetilde{s}_{xxL} & if \ |\hat{s}_{xxL}^{*}|\geq \frac{2}{3}Y_{0} \\
-                        -\frac{4}{3}\mu \text{ln}\left( \frac{\rho_L^*}{\widetilde{\rho}_L}  \right)+\widetilde{s}_{xxL} & otherwise
-                     \end{array}\right.
-   ,\\
-   \widetilde{s}_{xxR}^* =  \left\{\begin{array}{cc}
-                       \widetilde{s}_{xxR} & if \ |\hat{s}_{xxR}^{*}| \geq \frac{2}{3}Y_{0} \\
-                        -\frac{4}{3}\mu \text{ln}\left( \frac{\rho_R^*}{\widetilde{\rho}_R}  \right)+\widetilde{s}_{xxR} & otherwise
-                     \end{array}\right.
-    ,
-\end{align*}
-then using  the von Mises' yielding condition
-\begin{equation*}
-  s_{xxL}^* = \Upsilon(\widetilde{s}_{xxL}^*) , \hspace{0.3cm}  s_{xxR}^* = \Upsilon(\widetilde{s}_{xxR}^*).
-\end{equation*}
-
-    \item Solving the Cauchy stresses:
-\begin{equation*}
-  \sigma_L^*=\sigma_R^*=\widetilde{\sigma}_L -\widetilde{\rho_L} (s_L-\widetilde{u}_L)(s^*-\widetilde{u}_L).
-\end{equation*}
-
-     \item The pressure is given by $p =s_{xx}-\sigma$.
-  \end{enumerate}
-\end{enumerate}
-
+\subsection{}
 \end{document}

@@ -1,6 +1,6 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2019.3.28)  25 APR 2019 08:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.3.28)  30 APR 2019 21:00
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **Tikz.tex
 (./Tikz.tex
@@ -63,18 +63,19 @@ Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
 File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
-Package graphics Info: Driver file: xetex.def on input line 95.
+Package graphics Info: Driver file: pdftex.def on input line 95.
 
-(/usr/share/texlive/texmf-dist/tex/xelatex/xetex-def/xetex.def
-File: xetex.def 2015/09/11 v4.06 LaTeX color/graphics driver for XeTeX (TeX Liv
-e/RRM/JK)
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 )
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
-)))
+)
+\Gread@gobject=\count87
+))
 \Gin@req@height=\dimen105
 \Gin@req@width=\dimen106
 )
@@ -100,29 +101,24 @@ ex
 \pgf@yc=\dimen114
 \w@pgf@writea=\write3
 \r@pgf@reada=\read1
-\c@pgf@counta=\count87
-\c@pgf@countb=\count88
-\c@pgf@countc=\count89
-\c@pgf@countd=\count90
+\c@pgf@counta=\count88
+\c@pgf@countb=\count89
+\c@pgf@countc=\count90
+\c@pgf@countd=\count91
 \t@pgf@toka=\toks19
 \t@pgf@tokb=\toks20
 \t@pgf@tokc=\toks21
  (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
 )
-Driver file for pgf: pgfsys-xetex.def
+Driver file for pgf: pgfsys-pdftex.def
 
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-xetex.def
-File: pgfsys-xetex.def 2014/07/09  (rcs-revision 1.11)
-
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-dvipdfmx.def
-File: pgfsys-dvipdfmx.def 2014/07/09  (rcs-revision 1.14)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2014/10/11  (rcs-revision 1.35)
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.de
 f
 File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
-)
-\pgfsys@objnum=\count91
 )))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.
 tex
@@ -139,8 +135,9 @@ Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
-Package xcolor Info: Driver file: xetex.def on input line 225.
+Package xcolor Info: Driver file: pdftex.def on input line 225.
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
 Package xcolor Info: Model `RGB' extended on input line 1353.
 Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
 Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
@@ -393,11 +390,7 @@ fshading.code.tex
 \c@pgfplotslibrarysurf@no=\count112
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surf
-shading.pgfsys-xetex.def
-(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surf
-shading.pgfsys-dvipdfmx.def
-\c@pgfplotslibrarysurf@streamlen=\count113
-))))
+shading.pgfsys-pdftex.def)))
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.
 tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex
@@ -426,7 +419,7 @@ e.tex
 \pgfdecoratedinputsegmentcompleteddistance=\dimen154
 \pgfdecoratedinputsegmentremainingdistance=\dimen155
 \pgf@decorate@distancetomove=\dimen156
-\pgf@decorate@repeatstate=\count114
+\pgf@decorate@repeatstate=\count113
 \pgfdecorationsegmentamplitude=\dimen157
 \pgfdecorationsegmentlength=\dimen158
 )
@@ -440,7 +433,7 @@ decorations.pathmorphing.code.tex))
 zlibrarydecorations.pathreplacing.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrary
 decorations.pathreplacing.code.tex))
-\pgfplots@numplots=\count115
+\pgfplots@numplots=\count114
 \pgfplots@xmin@reg=\dimen159
 \pgfplots@xmax@reg=\dimen160
 \pgfplots@ymin@reg=\dimen161
@@ -475,13 +468,13 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
-\inf@bad=\count116
+\inf@bad=\count115
 LaTeX Info: Redefining \frac on input line 199.
-\uproot@=\count117
-\leftroot@=\count118
+\uproot@=\count116
+\leftroot@=\count117
 LaTeX Info: Redefining \overline on input line 297.
-\classnum@=\count119
-\DOTSCASE@=\count120
+\classnum@=\count118
+\DOTSCASE@=\count119
 LaTeX Info: Redefining \ldots on input line 394.
 LaTeX Info: Redefining \dots on input line 397.
 LaTeX Info: Redefining \cdots on input line 518.
@@ -490,15 +483,15 @@ LaTeX Info: Redefining \cdots on input line 518.
 \big@size=\dimen167
 LaTeX Font Info:    Redeclaring font encoding OML on input line 630.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 631.
-\macc@depth=\count121
-\c@MaxMatrixCols=\count122
+\macc@depth=\count120
+\c@MaxMatrixCols=\count121
 \dotsspace@=\muskip10
-\c@parentequation=\count123
-\dspbrk@lvl=\count124
+\c@parentequation=\count122
+\dspbrk@lvl=\count123
 \tag@help=\toks32
-\row@=\count125
-\column@=\count126
-\maxfields@=\count127
+\row@=\count124
+\column@=\count125
+\maxfields@=\count126
 \andhelp@=\toks33
 \eqnshift@=\dimen168
 \alignsep@=\dimen169
@@ -632,13 +625,12 @@ Package ifluatex Info: LuaTeX not detected.
 )
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in PDF mode is not detected.
+Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
 Package pdftexcmds Info: LuaTeX not detected.
-Package pdftexcmds Info: pdfTeX >= 1.30 not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode not found.
+Package pdftexcmds Info: \pdfdraftmode found.
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zexternalshared.code.tex))
@@ -665,35 +657,78 @@ LaTeX Font Info:    Try loading font information for OT1+ppl on input line 18.
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )
 ABD: EveryShipout initializing macros
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count127
+\scratchdimen=\dimen179
+\scratchbox=\box60
+\nofMPsegments=\count128
+\nofMParguments=\count129
+\everyMPshowfont=\toks36
+\MPscratchCnt=\count130
+\MPscratchDim=\dimen180
+\MPnumerator=\count131
+\makeMPintoPDFobject=\count132
+\everyMPtoPDFconversion=\toks37
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.13} into 
 your preamble.
  on input line 18.
 
+\openout3 = `Tikz-figure0.md5'.
 
-! Package tikz Warning: The key 'up to date check=md5' is impossible, there is 
-no macro to compute MD5. Falling back to 'up to date check=diff'.
-===== 'mode=convert with system call': Invoking 'latex -halt-on-error -interact
-ion=batchmode -jobname "Tikz-figure0" "\def\tikzexternalrealjob{Tikz}\input{Tik
-z}"; dvips -o "Tikz-figure0".eps "Tikz-figure0".dvi' ========
+===== 'mode=convert with system call': Invoking 'latex -shell-escape -halt-on-e
+rror -interaction=batchmode -jobname "Tikz-figure0" "\def\tikzexternalrealjob{T
+ikz}\input{Tikz}"; dvips -o "Tikz-figure0".eps "Tikz-figure0".dvi' ========
 \openout3 = `Tikz.auxlock'.
 
-runsystem(latex -halt-on-error -interaction=batchmode -jobname "Tikz-figure0" "
-\def\tikzexternalrealjob{Tikz}\input{Tikz}"; dvips -o "Tikz-figure0".eps "Tikz-
-figure0".dvi)...disabled (restricted).
+runsystem(latex -shell-escape -halt-on-error -interaction=batchmode -jobname "T
+ikz-figure0" "\def\tikzexternalrealjob{Tikz}\input{Tikz}"; dvips -o "Tikz-figur
+e0".eps "Tikz-figure0".dvi)...executed.
 
 \openout3 = `Tikz.auxlock'.
 
 
-! Package tikz Error: Sorry, the system call 'latex -halt-on-error -interaction
-=batchmode -jobname "Tikz-figure0" "\def\tikzexternalrealjob{Tikz}\input{Tikz}"
-; dvips -o "Tikz-figure0".eps "Tikz-figure0".dvi' did NOT result in a usable ou
-tput file 'Tikz-figure0' (expected one of .pdf:.jpg:.jpeg:.png:.bmp:). Please v
-erify that you have enabled system calls. For pdflatex, this is 'pdflatex -shel
-l-escape'. Sometimes it is also named 'write 18' or something like that. Or may
-be the command simply failed? Error messages can be found in 'Tikz-figure0.log'
-. If you continue now, I'll try to typeset the picture.
+! Package tikz Error: Sorry, the system call 'latex -shell-escape -halt-on-erro
+r -interaction=batchmode -jobname "Tikz-figure0" "\def\tikzexternalrealjob{Tikz
+}\input{Tikz}"; dvips -o "Tikz-figure0".eps "Tikz-figure0".dvi' did NOT result 
+in a usable output file 'Tikz-figure0' (expected one of .pdf:.jpg:.jpeg:.png:).
+ Please verify that you have enabled system calls. For pdflatex, this is 'pdfla
+tex -shell-escape'. Sometimes it is also named 'write 18' or something like tha
+t. Or maybe the command simply failed? Error messages can be found in 'Tikz-fig
+ure0.log'. If you continue now, I'll try to typeset the picture.
 
 See the tikz package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -733,26 +768,29 @@ LaTeX Font Info:    Try loading font information for OT1+zplm on input line 1.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1zplm.fd
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 )
-===== 'mode=convert with system call': Invoking 'latex -halt-on-error -interact
-ion=batchmode -jobname "Tikz-figure1" "\def\tikzexternalrealjob{Tikz}\input{Tik
-z}"; dvips -o "Tikz-figure1".eps "Tikz-figure1".dvi' ========
+\openout3 = `Tikz-figure1.md5'.
+
+
+===== 'mode=convert with system call': Invoking 'latex -shell-escape -halt-on-e
+rror -interaction=batchmode -jobname "Tikz-figure1" "\def\tikzexternalrealjob{T
+ikz}\input{Tikz}"; dvips -o "Tikz-figure1".eps "Tikz-figure1".dvi' ========
 \openout3 = `Tikz.auxlock'.
 
-runsystem(latex -halt-on-error -interaction=batchmode -jobname "Tikz-figure1" "
-\def\tikzexternalrealjob{Tikz}\input{Tikz}"; dvips -o "Tikz-figure1".eps "Tikz-
-figure1".dvi)...disabled (restricted).
+runsystem(latex -shell-escape -halt-on-error -interaction=batchmode -jobname "T
+ikz-figure1" "\def\tikzexternalrealjob{Tikz}\input{Tikz}"; dvips -o "Tikz-figur
+e1".eps "Tikz-figure1".dvi)...executed.
 
 \openout3 = `Tikz.auxlock'.
 
 
-! Package tikz Error: Sorry, the system call 'latex -halt-on-error -interaction
-=batchmode -jobname "Tikz-figure1" "\def\tikzexternalrealjob{Tikz}\input{Tikz}"
-; dvips -o "Tikz-figure1".eps "Tikz-figure1".dvi' did NOT result in a usable ou
-tput file 'Tikz-figure1' (expected one of .pdf:.jpg:.jpeg:.png:.bmp:). Please v
-erify that you have enabled system calls. For pdflatex, this is 'pdflatex -shel
-l-escape'. Sometimes it is also named 'write 18' or something like that. Or may
-be the command simply failed? Error messages can be found in 'Tikz-figure1.log'
-. If you continue now, I'll try to typeset the picture.
+! Package tikz Error: Sorry, the system call 'latex -shell-escape -halt-on-erro
+r -interaction=batchmode -jobname "Tikz-figure1" "\def\tikzexternalrealjob{Tikz
+}\input{Tikz}"; dvips -o "Tikz-figure1".eps "Tikz-figure1".dvi' did NOT result 
+in a usable output file 'Tikz-figure1' (expected one of .pdf:.jpg:.jpeg:.png:).
+ Please verify that you have enabled system calls. For pdflatex, this is 'pdfla
+tex -shell-escape'. Sometimes it is also named 'write 18' or something like tha
+t. Or maybe the command simply failed? Error messages can be found in 'Tikz-fig
+ure1.log'. If you continue now, I'll try to typeset the picture.
 
 See the tikz package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -766,26 +804,28 @@ Overfull \hbox (141.00128pt too wide) in paragraph at lines 20--53
 [][] [] 
  []
 
-===== 'mode=convert with system call': Invoking 'latex -halt-on-error -interact
-ion=batchmode -jobname "Tikz-figure2" "\def\tikzexternalrealjob{Tikz}\input{Tik
-z}"; dvips -o "Tikz-figure2".eps "Tikz-figure2".dvi' ========
+\openout3 = `Tikz-figure2.md5'.
+
+===== 'mode=convert with system call': Invoking 'latex -shell-escape -halt-on-e
+rror -interaction=batchmode -jobname "Tikz-figure2" "\def\tikzexternalrealjob{T
+ikz}\input{Tikz}"; dvips -o "Tikz-figure2".eps "Tikz-figure2".dvi' ========
 \openout3 = `Tikz.auxlock'.
 
-runsystem(latex -halt-on-error -interaction=batchmode -jobname "Tikz-figure2" "
-\def\tikzexternalrealjob{Tikz}\input{Tikz}"; dvips -o "Tikz-figure2".eps "Tikz-
-figure2".dvi)...disabled (restricted).
+runsystem(latex -shell-escape -halt-on-error -interaction=batchmode -jobname "T
+ikz-figure2" "\def\tikzexternalrealjob{Tikz}\input{Tikz}"; dvips -o "Tikz-figur
+e2".eps "Tikz-figure2".dvi)...executed.
 
 \openout3 = `Tikz.auxlock'.
 
 
-! Package tikz Error: Sorry, the system call 'latex -halt-on-error -interaction
-=batchmode -jobname "Tikz-figure2" "\def\tikzexternalrealjob{Tikz}\input{Tikz}"
-; dvips -o "Tikz-figure2".eps "Tikz-figure2".dvi' did NOT result in a usable ou
-tput file 'Tikz-figure2' (expected one of .pdf:.jpg:.jpeg:.png:.bmp:). Please v
-erify that you have enabled system calls. For pdflatex, this is 'pdflatex -shel
-l-escape'. Sometimes it is also named 'write 18' or something like that. Or may
-be the command simply failed? Error messages can be found in 'Tikz-figure2.log'
-. If you continue now, I'll try to typeset the picture.
+! Package tikz Error: Sorry, the system call 'latex -shell-escape -halt-on-erro
+r -interaction=batchmode -jobname "Tikz-figure2" "\def\tikzexternalrealjob{Tikz
+}\input{Tikz}"; dvips -o "Tikz-figure2".eps "Tikz-figure2".dvi' did NOT result 
+in a usable output file 'Tikz-figure2' (expected one of .pdf:.jpg:.jpeg:.png:).
+ Please verify that you have enabled system calls. For pdflatex, this is 'pdfla
+tex -shell-escape'. Sometimes it is also named 'write 18' or something like tha
+t. Or maybe the command simply failed? Error messages can be found in 'Tikz-fig
+ure2.log'. If you continue now, I'll try to typeset the picture.
 
 See the tikz package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -794,26 +834,28 @@ Type  H <return>  for immediate help.
 l.76 \end{tikzpicture}
                       
 ? 
-===== 'mode=convert with system call': Invoking 'latex -halt-on-error -interact
-ion=batchmode -jobname "Tikz-figure3" "\def\tikzexternalrealjob{Tikz}\input{Tik
-z}"; dvips -o "Tikz-figure3".eps "Tikz-figure3".dvi' ========
+\openout3 = `Tikz-figure3.md5'.
+
+===== 'mode=convert with system call': Invoking 'latex -shell-escape -halt-on-e
+rror -interaction=batchmode -jobname "Tikz-figure3" "\def\tikzexternalrealjob{T
+ikz}\input{Tikz}"; dvips -o "Tikz-figure3".eps "Tikz-figure3".dvi' ========
 \openout3 = `Tikz.auxlock'.
 
-runsystem(latex -halt-on-error -interaction=batchmode -jobname "Tikz-figure3" "
-\def\tikzexternalrealjob{Tikz}\input{Tikz}"; dvips -o "Tikz-figure3".eps "Tikz-
-figure3".dvi)...disabled (restricted).
+runsystem(latex -shell-escape -halt-on-error -interaction=batchmode -jobname "T
+ikz-figure3" "\def\tikzexternalrealjob{Tikz}\input{Tikz}"; dvips -o "Tikz-figur
+e3".eps "Tikz-figure3".dvi)...executed.
 
 \openout3 = `Tikz.auxlock'.
 
 
-! Package tikz Error: Sorry, the system call 'latex -halt-on-error -interaction
-=batchmode -jobname "Tikz-figure3" "\def\tikzexternalrealjob{Tikz}\input{Tikz}"
-; dvips -o "Tikz-figure3".eps "Tikz-figure3".dvi' did NOT result in a usable ou
-tput file 'Tikz-figure3' (expected one of .pdf:.jpg:.jpeg:.png:.bmp:). Please v
-erify that you have enabled system calls. For pdflatex, this is 'pdflatex -shel
-l-escape'. Sometimes it is also named 'write 18' or something like that. Or may
-be the command simply failed? Error messages can be found in 'Tikz-figure3.log'
-. If you continue now, I'll try to typeset the picture.
+! Package tikz Error: Sorry, the system call 'latex -shell-escape -halt-on-erro
+r -interaction=batchmode -jobname "Tikz-figure3" "\def\tikzexternalrealjob{Tikz
+}\input{Tikz}"; dvips -o "Tikz-figure3".eps "Tikz-figure3".dvi' did NOT result 
+in a usable output file 'Tikz-figure3' (expected one of .pdf:.jpg:.jpeg:.png:).
+ Please verify that you have enabled system calls. For pdflatex, this is 'pdfla
+tex -shell-escape'. Sometimes it is also named 'write 18' or something like tha
+t. Or maybe the command simply failed? Error messages can be found in 'Tikz-fig
+ure3.log'. If you continue now, I'll try to typeset the picture.
 
 See the tikz package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -822,26 +864,28 @@ Type  H <return>  for immediate help.
 l.91 \end{tikzpicture}
                       
 ? 
-===== 'mode=convert with system call': Invoking 'latex -halt-on-error -interact
-ion=batchmode -jobname "Tikz-figure4" "\def\tikzexternalrealjob{Tikz}\input{Tik
-z}"; dvips -o "Tikz-figure4".eps "Tikz-figure4".dvi' ========
+\openout3 = `Tikz-figure4.md5'.
+
+===== 'mode=convert with system call': Invoking 'latex -shell-escape -halt-on-e
+rror -interaction=batchmode -jobname "Tikz-figure4" "\def\tikzexternalrealjob{T
+ikz}\input{Tikz}"; dvips -o "Tikz-figure4".eps "Tikz-figure4".dvi' ========
 \openout3 = `Tikz.auxlock'.
 
-runsystem(latex -halt-on-error -interaction=batchmode -jobname "Tikz-figure4" "
-\def\tikzexternalrealjob{Tikz}\input{Tikz}"; dvips -o "Tikz-figure4".eps "Tikz-
-figure4".dvi)...disabled (restricted).
+runsystem(latex -shell-escape -halt-on-error -interaction=batchmode -jobname "T
+ikz-figure4" "\def\tikzexternalrealjob{Tikz}\input{Tikz}"; dvips -o "Tikz-figur
+e4".eps "Tikz-figure4".dvi)...executed.
 
 \openout3 = `Tikz.auxlock'.
 
 
-! Package tikz Error: Sorry, the system call 'latex -halt-on-error -interaction
-=batchmode -jobname "Tikz-figure4" "\def\tikzexternalrealjob{Tikz}\input{Tikz}"
-; dvips -o "Tikz-figure4".eps "Tikz-figure4".dvi' did NOT result in a usable ou
-tput file 'Tikz-figure4' (expected one of .pdf:.jpg:.jpeg:.png:.bmp:). Please v
-erify that you have enabled system calls. For pdflatex, this is 'pdflatex -shel
-l-escape'. Sometimes it is also named 'write 18' or something like that. Or may
-be the command simply failed? Error messages can be found in 'Tikz-figure4.log'
-. If you continue now, I'll try to typeset the picture.
+! Package tikz Error: Sorry, the system call 'latex -shell-escape -halt-on-erro
+r -interaction=batchmode -jobname "Tikz-figure4" "\def\tikzexternalrealjob{Tikz
+}\input{Tikz}"; dvips -o "Tikz-figure4".eps "Tikz-figure4".dvi' did NOT result 
+in a usable output file 'Tikz-figure4' (expected one of .pdf:.jpg:.jpeg:.png:).
+ Please verify that you have enabled system calls. For pdflatex, this is 'pdfla
+tex -shell-escape'. Sometimes it is also named 'write 18' or something like tha
+t. Or maybe the command simply failed? Error messages can be found in 'Tikz-fig
+ure4.log'. If you continue now, I'll try to typeset the picture.
 
 See the tikz package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -850,26 +894,28 @@ Type  H <return>  for immediate help.
 l.105 \end{tikzpicture}
                        
 ? 
-===== 'mode=convert with system call': Invoking 'latex -halt-on-error -interact
-ion=batchmode -jobname "Tikz-figure5" "\def\tikzexternalrealjob{Tikz}\input{Tik
-z}"; dvips -o "Tikz-figure5".eps "Tikz-figure5".dvi' ========
+\openout3 = `Tikz-figure5.md5'.
+
+===== 'mode=convert with system call': Invoking 'latex -shell-escape -halt-on-e
+rror -interaction=batchmode -jobname "Tikz-figure5" "\def\tikzexternalrealjob{T
+ikz}\input{Tikz}"; dvips -o "Tikz-figure5".eps "Tikz-figure5".dvi' ========
 \openout3 = `Tikz.auxlock'.
 
-runsystem(latex -halt-on-error -interaction=batchmode -jobname "Tikz-figure5" "
-\def\tikzexternalrealjob{Tikz}\input{Tikz}"; dvips -o "Tikz-figure5".eps "Tikz-
-figure5".dvi)...disabled (restricted).
+runsystem(latex -shell-escape -halt-on-error -interaction=batchmode -jobname "T
+ikz-figure5" "\def\tikzexternalrealjob{Tikz}\input{Tikz}"; dvips -o "Tikz-figur
+e5".eps "Tikz-figure5".dvi)...executed.
 
 \openout3 = `Tikz.auxlock'.
 
 
-! Package tikz Error: Sorry, the system call 'latex -halt-on-error -interaction
-=batchmode -jobname "Tikz-figure5" "\def\tikzexternalrealjob{Tikz}\input{Tikz}"
-; dvips -o "Tikz-figure5".eps "Tikz-figure5".dvi' did NOT result in a usable ou
-tput file 'Tikz-figure5' (expected one of .pdf:.jpg:.jpeg:.png:.bmp:). Please v
-erify that you have enabled system calls. For pdflatex, this is 'pdflatex -shel
-l-escape'. Sometimes it is also named 'write 18' or something like that. Or may
-be the command simply failed? Error messages can be found in 'Tikz-figure5.log'
-. If you continue now, I'll try to typeset the picture.
+! Package tikz Error: Sorry, the system call 'latex -shell-escape -halt-on-erro
+r -interaction=batchmode -jobname "Tikz-figure5" "\def\tikzexternalrealjob{Tikz
+}\input{Tikz}"; dvips -o "Tikz-figure5".eps "Tikz-figure5".dvi' did NOT result 
+in a usable output file 'Tikz-figure5' (expected one of .pdf:.jpg:.jpeg:.png:).
+ Please verify that you have enabled system calls. For pdflatex, this is 'pdfla
+tex -shell-escape'. Sometimes it is also named 'write 18' or something like tha
+t. Or maybe the command simply failed? Error messages can be found in 'Tikz-fig
+ure5.log'. If you continue now, I'll try to typeset the picture.
 
 See the tikz package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -880,30 +926,30 @@ l.121 \end{tikzpicture}
 ? 
 [1
 
-]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 \openout3 = `Tikz-figure6.md5'.
 
 
-===== 'mode=convert with system call': Invoking 'latex -halt-on-error -interact
-ion=batchmode -jobname "Tikz-figure6" "\def\tikzexternalrealjob{Tikz}\input{Tik
-z}"; dvips -o "Tikz-figure6".eps "Tikz-figure6".dvi' ========
+===== 'mode=convert with system call': Invoking 'latex -shell-escape -halt-on-e
+rror -interaction=batchmode -jobname "Tikz-figure6" "\def\tikzexternalrealjob{T
+ikz}\input{Tikz}"; dvips -o "Tikz-figure6".eps "Tikz-figure6".dvi' ========
 \openout3 = `Tikz.auxlock'.
 
-runsystem(latex -halt-on-error -interaction=batchmode -jobname "Tikz-figure6" "
-\def\tikzexternalrealjob{Tikz}\input{Tikz}"; dvips -o "Tikz-figure6".eps "Tikz-
-figure6".dvi)...disabled (restricted).
+runsystem(latex -shell-escape -halt-on-error -interaction=batchmode -jobname "T
+ikz-figure6" "\def\tikzexternalrealjob{Tikz}\input{Tikz}"; dvips -o "Tikz-figur
+e6".eps "Tikz-figure6".dvi)...executed.
 
 \openout3 = `Tikz.auxlock'.
 
 
-! Package tikz Error: Sorry, the system call 'latex -halt-on-error -interaction
-=batchmode -jobname "Tikz-figure6" "\def\tikzexternalrealjob{Tikz}\input{Tikz}"
-; dvips -o "Tikz-figure6".eps "Tikz-figure6".dvi' did NOT result in a usable ou
-tput file 'Tikz-figure6' (expected one of .pdf:.jpg:.jpeg:.png:.bmp:). Please v
-erify that you have enabled system calls. For pdflatex, this is 'pdflatex -shel
-l-escape'. Sometimes it is also named 'write 18' or something like that. Or may
-be the command simply failed? Error messages can be found in 'Tikz-figure6.log'
-. If you continue now, I'll try to typeset the picture.
+! Package tikz Error: Sorry, the system call 'latex -shell-escape -halt-on-erro
+r -interaction=batchmode -jobname "Tikz-figure6" "\def\tikzexternalrealjob{Tikz
+}\input{Tikz}"; dvips -o "Tikz-figure6".eps "Tikz-figure6".dvi' did NOT result 
+in a usable output file 'Tikz-figure6' (expected one of .pdf:.jpg:.jpeg:.png:).
+ Please verify that you have enabled system calls. For pdflatex, this is 'pdfla
+tex -shell-escape'. Sometimes it is also named 'write 18' or something like tha
+t. Or maybe the command simply failed? Error messages can be found in 'Tikz-fig
+ure6.log'. If you continue now, I'll try to typeset the picture.
 
 See the tikz package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -912,14 +958,86 @@ Type  H <return>  for immediate help.
 l.148 \end{tikzpicture}
                        
 ? 
-[2] (./Tikz.aux) ) 
-Here is how much of TeX's memory you used:
- 24238 strings out of 493638
- 639491 string characters out of 6146796
- 804691 words of memory out of 5000000
- 27217 multiletter control sequences out of 15000+600000
- 11692 words of font info for 38 fonts, out of 8000000 for 9000
- 1328 hyphenation exceptions out of 8191
- 62i,7n,77p,1073b,632s stack positions out of 5000i,500n,10000p,200000b,80000s
+\openout3 = `Tikz-figure7.md5'.
 
-Output written on Tikz.pdf (2 pages).
+===== 'mode=convert with system call': Invoking 'latex -shell-escape -halt-on-e
+rror -interaction=batchmode -jobname "Tikz-figure7" "\def\tikzexternalrealjob{T
+ikz}\input{Tikz}"; dvips -o "Tikz-figure7".eps "Tikz-figure7".dvi' ========
+\openout3 = `Tikz.auxlock'.
+
+runsystem(latex -shell-escape -halt-on-error -interaction=batchmode -jobname "T
+ikz-figure7" "\def\tikzexternalrealjob{Tikz}\input{Tikz}"; dvips -o "Tikz-figur
+e7".eps "Tikz-figure7".dvi)...executed.
+
+\openout3 = `Tikz.auxlock'.
+
+
+! Package tikz Error: Sorry, the system call 'latex -shell-escape -halt-on-erro
+r -interaction=batchmode -jobname "Tikz-figure7" "\def\tikzexternalrealjob{Tikz
+}\input{Tikz}"; dvips -o "Tikz-figure7".eps "Tikz-figure7".dvi' did NOT result 
+in a usable output file 'Tikz-figure7' (expected one of .pdf:.jpg:.jpeg:.png:).
+ Please verify that you have enabled system calls. For pdflatex, this is 'pdfla
+tex -shell-escape'. Sometimes it is also named 'write 18' or something like tha
+t. Or maybe the command simply failed? Error messages can be found in 'Tikz-fig
+ure7.log'. If you continue now, I'll try to typeset the picture.
+
+See the tikz package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.161 \end{tikzpicture}
+                       
+? 
+\openout3 = `Tikz-figure8.md5'.
+
+===== 'mode=convert with system call': Invoking 'latex -shell-escape -halt-on-e
+rror -interaction=batchmode -jobname "Tikz-figure8" "\def\tikzexternalrealjob{T
+ikz}\input{Tikz}"; dvips -o "Tikz-figure8".eps "Tikz-figure8".dvi' ========
+\openout3 = `Tikz.auxlock'.
+
+runsystem(latex -shell-escape -halt-on-error -interaction=batchmode -jobname "T
+ikz-figure8" "\def\tikzexternalrealjob{Tikz}\input{Tikz}"; dvips -o "Tikz-figur
+e8".eps "Tikz-figure8".dvi)...executed.
+
+\openout3 = `Tikz.auxlock'.
+
+
+! Package tikz Error: Sorry, the system call 'latex -shell-escape -halt-on-erro
+r -interaction=batchmode -jobname "Tikz-figure8" "\def\tikzexternalrealjob{Tikz
+}\input{Tikz}"; dvips -o "Tikz-figure8".eps "Tikz-figure8".dvi' did NOT result 
+in a usable output file 'Tikz-figure8' (expected one of .pdf:.jpg:.jpeg:.png:).
+ Please verify that you have enabled system calls. For pdflatex, this is 'pdfla
+tex -shell-escape'. Sometimes it is also named 'write 18' or something like tha
+t. Or maybe the command simply failed? Error messages can be found in 'Tikz-fig
+ure8.log'. If you continue now, I'll try to typeset the picture.
+
+See the tikz package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.177 \end{tikzpicture}
+                       
+? 
+[2] [3] (./Tikz.aux) ) 
+Here is how much of TeX's memory you used:
+ 24876 strings out of 493029
+ 648716 string characters out of 6136234
+ 799504 words of memory out of 5000000
+ 27948 multiletter control sequences out of 15000+600000
+ 18443 words of font info for 56 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 62i,7n,77p,1073b,630s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.en
+c}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+urw/palatino/uplri8a.pfb>
+Output written on Tikz.pdf (3 pages, 52371 bytes).
+PDF statistics:
+ 42 PDF objects out of 1000 (max. 8388607)
+ 30 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+

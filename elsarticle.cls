@@ -202,7 +202,7 @@
       \ifx\@fnmark\@empty\else\unskip\sep\@fnmark\let\sep=,\fi
       \ifx\@corref\@empty\else\unskip\sep\@corref\let\sep=,\fi
       }%
-    \def\authorsep{\unskip,\space}%
+    \def\authorsep{\unskip  \space}%
     \global\let\sep\@empty\global\let\@corref\@empty
     \global\let\@fnmark\@empty}%
     \@eadauthor={#2}
