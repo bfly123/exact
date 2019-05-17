@@ -1,0 +1,66 @@
+\begin{thebibliography}{10}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{wilkins1963calculation}
+M.~L. Wilkins, Calculation of elastic-plastic flow, Tech. rep., California Univ
+  Livermore Radiation Lab (1963).
+
+\bibitem{gavrilyuk2008modelling}
+S.~L. Gavrilyuk, N.~Favrie, R.~Saurel, Modelling wave dynamics of compressible
+  elastic materials, Journal of computational physics 227~(5) (2008)
+  2941--2969.
+
+\bibitem{cheng2015high}
+J.-B. Cheng, E.~F. Toro, S.~Jiang, M.~Yu, W.~Tang, A high-order cell-centered
+  {L}agrangian scheme for one-dimensional elastic--plastic problems, Computers
+  \& Fluids 122 (2015) 136--152.
+
+\bibitem{cheng2016harten}
+J.~Cheng, Harten-{L}ax-van {L}eer-contact ({HLLC}) approximation {R}iemann
+  solver with elastic waves for one-dimensional elastic-plastic problems,
+  Applied Mathematics and Mechanics 37~(11) (2016) 1517--1538.
+
+\bibitem{liumulti}
+L.~Liu, J.-b. Cheng, A multi-material hllc riemann solver with both elastic and
+  plastic waves for 1d elastic-plastic flows.
+
+\bibitem{godunov1959difference}
+S.~K. Godunov, A difference method for numerical calculation of discontinuous
+  solutions of the equations of hydrodynamics, Matematicheskii Sbornik 89~(3)
+  (1959) 271--306.
+
+\bibitem{garaizar1991solution}
+X.~Garaizar, Solution of a {R}iemann problem for elasticity, Journal of
+  elasticity 26~(1) (1991) 43--63.
+
+\bibitem{miller2004iterative}
+G.~H. Miller, An iterative riemann solver for systems of hyperbolic
+  conservation laws, with application to hyperelastic solid mechanics, Journal
+  of Computational Physics 193~(1) (2004) 198--225.
+
+\bibitem{gao20171d}
+S.~Gao, T.~Liu, 1d exact elastic-perfectly plastic solid {R}iemann solver and
+  its multi-material application, Advances in Applied Mathematics and Mechanics
+  9~(3) (2017) 621--650.
+
+\bibitem{gao2018complete}
+S.~Gao, T.~Liu, C.~Yao, A complete list of exact solutions for one-dimensional
+  elastic-perfectly plastic solid riemann problem without vacuum,
+  Communications in Nonlinear Science and Numerical Simulation 63 (2018)
+  205--227.
+
+\bibitem{xiao1996numerical}
+L.~Xiao, Numerical computation of stress waves in solids, Akademie Verlag Gmbh,
+  Berlin.
+
+\bibitem{maire2013nominally}
+P.-H. Maire, R.~Abgrall, J.~Breil, R.~Loub{\`e}Re, B.~Rebourcet, A nominally
+  second-order cell-centered {L}agrangian scheme for simulating
+  elastic--plastic flows on two-dimensional unstructured grids, Journal of
+  Computational Physics 235 (2013) 626--665.
+
+\end{thebibliography}

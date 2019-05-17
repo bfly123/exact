@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.3.28)  30 APR 2019 21:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.3.28)  5 MAY 2019 10:09
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1018,23 +1018,55 @@ Type  H <return>  for immediate help.
 l.177 \end{tikzpicture}
                        
 ? 
-[2] [3] (./Tikz.aux) ) 
+[2]
+\openout3 = `Tikz-figure9.md5'.
+
+
+===== 'mode=convert with system call': Invoking 'latex -shell-escape -halt-on-e
+rror -interaction=batchmode -jobname "Tikz-figure9" "\def\tikzexternalrealjob{T
+ikz}\input{Tikz}"; dvips -o "Tikz-figure9".eps "Tikz-figure9".dvi' ========
+\openout3 = `Tikz.auxlock'.
+
+runsystem(latex -shell-escape -halt-on-error -interaction=batchmode -jobname "T
+ikz-figure9" "\def\tikzexternalrealjob{Tikz}\input{Tikz}"; dvips -o "Tikz-figur
+e9".eps "Tikz-figure9".dvi)...executed.
+
+\openout3 = `Tikz.auxlock'.
+
+
+! Package tikz Error: Sorry, the system call 'latex -shell-escape -halt-on-erro
+r -interaction=batchmode -jobname "Tikz-figure9" "\def\tikzexternalrealjob{Tikz
+}\input{Tikz}"; dvips -o "Tikz-figure9".eps "Tikz-figure9".dvi' did NOT result 
+in a usable output file 'Tikz-figure9' (expected one of .pdf:.jpg:.jpeg:.png:).
+ Please verify that you have enabled system calls. For pdflatex, this is 'pdfla
+tex -shell-escape'. Sometimes it is also named 'write 18' or something like tha
+t. Or maybe the command simply failed? Error messages can be found in 'Tikz-fig
+ure9.log'. If you continue now, I'll try to typeset the picture.
+
+See the tikz package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.190 \end{tikzpicture}
+                       
+? 
+[3] (./Tikz.aux) ) 
 Here is how much of TeX's memory you used:
- 24876 strings out of 493029
- 648716 string characters out of 6136234
+ 24877 strings out of 493029
+ 648728 string characters out of 6136234
  799504 words of memory out of 5000000
  27948 multiletter control sequences out of 15000+600000
  18443 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,7n,77p,1073b,630s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.en
-c}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-urw/palatino/uplri8a.pfb>
-Output written on Tikz.pdf (3 pages, 52371 bytes).
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/font
+s/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
+palatino/uplri8a.pfb>
+Output written on Tikz.pdf (3 pages, 52605 bytes).
 PDF statistics:
  42 PDF objects out of 1000 (max. 8388607)
  30 compressed objects within 1 object stream

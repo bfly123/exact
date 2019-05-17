@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2019.3.28)  30 APR 2019 21:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2019.3.28)  5 MAY 2019 10:09
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -679,12 +679,14 @@ File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 ]
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
  ) 
 Here is how much of TeX's memory you used:
- 24023 strings out of 493030
- 635252 string characters out of 6136260
+ 24024 strings out of 493030
+ 635264 string characters out of 6136260
  774609 words of memory out of 5000000
- 27157 multiletter control sequences out of 15000+600000
+ 27158 multiletter control sequences out of 15000+600000
  12149 words of font info for 39 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,7n,77p,754b,628s stack positions out of 5000i,500n,10000p,200000b,80000s

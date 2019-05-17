@@ -19,13 +19,14 @@
 \usepackage{setspace}
 \graphicspath{{picture/}}
 \graphicspath{{TikzFig/}}
+\usepackage{hyperref}
 
 %\journal{Journal of Computational Physics}
 \bibliographystyle{elsarticle-num}
 
 \begin{document}
 
-\title{A multi-material HLLC Riemann solver with both elastic and plastic waves for 1D  elastic-plastic flows}
+\title{An exact Riemann solver for  multi-material   elastic-plastic flows with Mie-Gr\"uneisen equation of state}
 \author{Li Liu$^1$, Jun-bo Cheng $^{1,*}$, Jiequan Li $^{1}$}
 %\cortext[mycorrespondingauthor]{
 %Correspondence to: Junbo Cheng, Institute of Applied Physics and Computational Mathematics, Beijing 100094, China. E-mail: Cheng\_junbo@iapcm.ac.cn}
@@ -46,41 +47,23 @@
 
 \section{Introduction}
 
-In this paper, a multi-material elastic-plastic HLLC-type approximate Riemann solver(MHLLCEP) is developed, with the capability of resolving both elastic and plastic waves, to simulate one-dimensional  multi-material elastic-plastic solid problems with the isotropic elastic-plastic model \cite{wilkins1963calculation} and  the von Mises' yielding condition in the framework of the  high-order cell-centered Lagrangian scheme.
+In this paper, an exact  Riemann solver is built with the consideration of both elastic and plastic waves, for one-dimensional  multi-material elastic-plastic materials with the Mie-Gr\"uneisen EOS, isotropic elastic-plastic model \cite{wilkins1963calculation} and  the von Mises' yielding condition.
 
-Generally, elastic-plastic flows can be mainly simulated in three ways, Eulerian methods \cite{trangenstein1991higher,miller2001high,barton2009exact}, staggered Lagrangian schemes \cite{wilkins1963calculation} and cell-centered Lagrangian schemes \cite{burton2013cell,kluth2010discretization,maire2013nominally,cheng2017third} that  is considered in this paper. Comparing with the staggered Lagrangian scheme, cell-centered Lagrangian  schemes  have many advantages. Firstly, it's no necessary to add  extra artificial viscosity  which  must be used in the staggered Lagrangian schemes; Secondly, it is easy to guarantee the total energy conservation; Besides, it can also be used to simulate the problems with both  hyper-elastic and hypo-elastic models  \cite{burton2013cell,kluth2010discretization,maire2013nominally,cheng2017third}  as a Lagrangian scheme.
+The  elastic-plastic flow  is  used to describe the deformation process of solid materials under strong dynamics loading, such as explosive or high-speed impact. The simulation of elastic-plastic flows has important application backgrounds, espially in the Implosion Dynamics weapon and Innertial Confine Fusion (ICF). The first try of simulating the elastic-plastic flows was given by  Wilkins \cite{wilkins1963calculation} in 1960s.  
 
-%In the  Godunov-type method
-For a cell-centered Lagrangian scheme, a core process is to move the node of grids with the speed of fluids
- % and to construct the conservative flux
- by solving a Riemann problem at each cell face. As the Riemann problem contains many physical structures, especially in elastic-plastic flows, such as elastic waves, plastic waves and contact waves
-  %or interfaces between different materials
-  , the property of the approximate Riemann solver is of great importance in the simulation. Recently, a lot of works have been done in
-  this area. For example, Gavrilyuk et al. \cite{gavrilyuk2008modelling} analyzed the structure of the Riemann solution and construct a Riemann solver for the linear elastic system  of hyperbolic non-conservative models for transverse waves, wherein, an extra evolution equation was added in order to make the elastic transformations reversible in the absence of shock waves. Despres \cite{despres2007geometrical} built a shock solution to a non-conservations reversible system of hypo-elasticity models and found that a sonic point is necessary to construct  the compression solution that begins at a constrained compressed state.  Cheng et al.  \cite{cheng2015high} analyzed the wave structures of one-dimensional elastic-plastic flows and developed an effective two-rarefaction approximate Riemann solver with elastic waves (TRRSE) and built a  second-order and  a third-order cell-centered Lagrangian schemes based on the TRRSE, but the TRRSE is a little  expensive as  the iteration method is used.
-In \cite{cheng2016harten}, for one-dimensional elastic-plastic flows, Cheng introduced a HLLCE Riemann solver, which is fast and efficient in resolving elastic waves and plastic waves. In the HLLCE,  Cheng evaluated the deviatoric stresses from the following \emph{assumption: a pressure is continuous across the contact wave}. This assumption is valid for pure fluids, but  in  elastic-plastic flows, this assumption may lead to some errors. There are three cases we need  to consider.
-\begin{enumerate}
-  \item If states in the star regions on both sides of the contact wave are elastic, this assumption does not result in errors;
-  \item If both states reach the elastic limit, there are two cases need  to be taken into account:
-  \begin{enumerate}
-    \item if both  materials in both sides of the interface are same, this assumption does not result in errors either.
-    \item if  materials are different, this assumption will result in big errors because the yielding strengths of different materials are different;
-  \end{enumerate}
-  \item If one state in one side of the interface reaches the elastic limit, but another is  not,  this assumption will  also result in big errors.
-\end{enumerate}
+Although the control equations of elastic-plastic flow is samilar to the equations in computational fluid dynamics (CFD). But there are mainly three difficulties  of constructing  Riemann solvers in elastic-plastic flows.  Firstly, the constitutive models used in elastic-plastic flows are more complicated. Secondly, the EOS for solid materials are also with more characters. Finally, the yielding process of materials may lead to more wave structures.
 
-%For above considerations,
-In this paper, in order to eliminate these errors,
- we want to construct a new HLLC-type Riemann solver for 1D multi-material elastic-plastic flows. In the new solver, both the elastic waves and plastic waves are correctly resolved and the assumption in \cite{cheng2016harten} that the pressure is continuous across the interface is deleted; Correspondingly, the errors introduced by the assumption will also be eliminated.
+Recently, a lot of works have been done in constructing  approximate Riemann solvers for elastic-plastic flows with the considering of structures in the Riemann problem.  For example, Gavrilyuk et al. \cite{gavrilyuk2008modelling} analyzed the structure of the Riemann solution and constructed a Riemann solver for the linear elastic system  of hyperbolic non-conservative models for transverse waves.   Cheng et al. \cite{cheng2015high} analyzed the wave structures of one-dimensional elastic-plastic flows and developed an effective two-rarefaction approximate Riemann solver with elastic waves (TRRSE). 
+In \cite{cheng2016harten}, for one-dimensional elastic-plastic flows, Cheng introduced a HLLCE Riemann solver, which is fast and efficient in resolving elastic waves and plastic waves. Then in \cite{liumulti}, Liu et.al remove the unreasonable assumution in HLLCE  which may cause big error in solving  multi-material problems and construct a multi-material HLLC elastic-plastic (MHLLCEP) solver. 
 
-Based on the MHLLCEP, we develop a high-order elastic-plastic cell-centered Lagrangian scheme for one-dimensional multi-material elastic-plastic flows. If we directly use the WENO reconstruction method \cite{liu2018novel} for multi-material elastic-plastic problems,
-%With a high-order reconstruction scheme,
-the spacial stencil may cross the material interface
-% and in a multi-material state, and  will cause oscillation
- and numerical oscillations may be caused near the interface. In order to delete the numerical oscillations neat the material interface, a ghost cell method is used
-   %in the  multi-material system to obtain a stable high-order reconstruction.
-   Combined with an improved third-order WENO scheme\cite{liu2018novel} and the third-order Runge-Kutta scheme, a high-order cell-centered Lagrangian scheme is given in this paper for one-dimensional multi-material elastic-plastic flows.
+As we know, in hydrodynamic  numerical system, the exact Riemann solver is developed before approximate Riemann solvers \cite{godunov1959difference}, and it gives a guide and reference to the development of approximate solvers. However, in the elastic-plastic flows, for its complexity, there are only a few works have been done in constructing the exact Riemann solver. For example, 
+Garaizar \cite{garaizar1991solution} designed an exact Riemann solution of isotropic hyperelastic material theoretically.  Miller \cite{miller2004iterative} presented a generial iterative method for the solution of the Riemann problem for hyperbolic elastic systems. Gao and Liu \cite{gao20171d,gao2018complete} firstly considered the yielding condition in, and proposed an exact elastic-perfectly plastic solid Riemann solver with both elastic and plastic states. As many as thirty-six \cite{gao20171d} and sixty-four \cite{gao2018complete} different solution types are considered in their works.
+However, in their papers,  a linear  "stiffened-gas" EOS was used in the plastic state and a more simple linear relation of pressure and strain rate is used in the elastic state. This symplification can truely deduce to simple relations  across the shock wave and rarefaction wave, but we still need an exact Riemann solver with a uniform and more common used EOS and equations system for different elastic-plastic materials.
 
-This paper is organized as follows. In section 2, we briefly introduce the governing equations to be studied. In section 3, the MHLLCEP method is constructed.  Then, high-order elastic-plastic cell-centered Lagrangian scheme is given in section 4. Some numerical examples are presented to validate the method.  Conclusions are shown in section 5.
+In this paper, we want to construct an exact Riemann solver for the elastic-plastic equations system with the  isotropic elastic-plastic model and the  von Mises' yielding condition. In this system, the Mie-Gr\"uneisen EOS is used for both the elastic state and plastic state of the material, which is an adequate approximation to a wide variety of materials of interest, includes some gaseous or solid explosives and solid metals under high pressure \ref{ shyue2001fluid}.  According to both the theoretical analyzation and numerical tests \cite{xiao1996numerical}, in this system, there may be three to five waves, including one contact wave and elastic wave (shock or rarefaction wave) or plastic wave or both the elastic and plastic waves in each side of the contact wave. We will prove this, the elastic wave always faster than the pastic wave in one side, so varing with the initial condition, there are $6\times 6$ thirty-six possible cases of the structures in the solution. For a given case, we will obtain theoretical relations of all the states as functions of density. At last,  through an iteration process of densities at both sides of the contact wave, the  exact solution will be obtained. Also, the half Riemann problem and its exact solution are considered in this paper.                        
+
+
+This paper is organized as follows. In section 2, we introduce the governing equations to be studied. In section 3, the Riemann problem and the relations for every wave type (contact wave, shock wave and rarefaction wave) is derived.  Then,  the exact Riemann solver  is given in section 4. The half Riemann problem and its solver is introduced in section 5.  Some numerical examples are presented to validate the method in section 6.  Conclusions are shown in section 7.
 
 \section{Governing equations}
 In this paper, the elastic energy is not included in the total energy. The exclution of the elastic energy is usual for practical engineering problems \cite{maire2013nominally} and is different from that in Ref.\cite{gavrilyuk2008modelling}.
@@ -182,7 +165,8 @@ The Riemann problem for the 1D time dependent elastic-plastic equations is given
 where $Q = (\rho, \rho u, \rho E, s_{xx})^T$.
 
 According to the yielding of the material, the euqations may have different Jacobian matrix and different sonic velocities. We will discuss them seprately.
-\subsection{Jacobian matrix in  elastic regions} %and the eigenvalues and eigenvectors}
+\subsection{Elastic state}
+\subsubsection{Jacobian matrix in elastic regions} %and the eigenvalues and eigenvectors}
 For the Mie-Gr\"uneisen EOS, if the material is not yielding and 
 \begin{equation}
   |s_{xx}| < \frac{2}{3}Y_0,
@@ -210,7 +194,7 @@ The eigenvalues of the coefficient matrix $\mathbf{J}(\mathbf{Q})$ are given as
 where
 \begin{equation}\label{eq:c_e}
   \left\{ \begin{aligned}
-      & c = \sqrt{a^2-\frac{\rho_0}{\rho^2}\Gamma_0 s_{xx} +\frac{4}{3}\frac{\mu}{\rho}},\\
+      & c_e = \sqrt{a^2-\frac{\rho_0}{\rho^2}\Gamma_0 s_{xx} +\frac{4}{3}\frac{\mu}{\rho}},\\
     &   a^2 = \frac{\partial p}{\partial \rho} + \frac{p}{\rho^2}\frac{\partial p}{\partial e} = a^2_0 \frac{\partial f}{\partial \eta} + \frac{p}{\rho^2}\rho_0 \Gamma_0.
       \end{aligned} \right.
     \end{equation}
@@ -232,15 +216,15 @@ The corresponding right eigenvectors are
     \right], \hspace{0.2cm}
 r_3 =   \frac{1}{\phi^2}\left[\begin{array}{l}
         1 \\
-        u-c \\
-        h -uc \\
+        u-c_e \\
+        h -uc_e \\
         \phi^2
       \end{array}
     \right], \hspace{0.2cm}
 r_4 = \frac{1}{\phi^2}\left[\begin{array}{l}
         1 \\
-        u+c \\
-        h +uc \\
+        u+c_e \\
+        h +uc_e \\
         \phi^2
       \end{array}
     \right],
@@ -251,106 +235,10 @@ r_4 = \frac{1}{\phi^2}\left[\begin{array}{l}
   \end{equation}
   and
   \begin{equation}
-    \phi^2 = a^2 -\frac{\rho_0}{\rho^2} \Gamma_0 s_{xx}-c^2 = -\frac{4\mu}{3}\frac{1}{\rho}.
+    \phi^2 = a^2 -\frac{\rho_0}{\rho^2} \Gamma_0 s_{xx}-c_e^2 = -\frac{4\mu}{3}\frac{1}{\rho}.
   \end{equation}
-\subsection{Jacobian matrix in  plastic  regions}
-When the material is yielding,
-\begin{equation}
-  |s_{xx}| = \frac{2}{3}Y_0,
-\end{equation}
-the equations will turn into a more simple system with only constitutive terms as
-\begin{equation}
-  \partial_t \mathbf{{U}} + \mathbf{J}_p(\mathbf{U})\partial_x \mathbf{{U}}= 0,
-\end{equation}
-where $\mathbf{U} = (\rho, \rho u, \rho E )$, and the Jacobian matrix is
-\begin{equation}
-\mathbf{J}_p(\mathbf{U}) = \left[\begin{array}{lll}
-      0 & 1 & 0   \\
-      -u^2 + \frac{\partial p}{\partial \rho} +\Gamma(\frac{u^2}{2}-e)& u(2-\Gamma)& \Gamma \\
-	  (\Gamma(\frac{u^2}{2}-e)-e-\frac{u^2}{2}+\frac{\sigma}{\rho}+\frac{\partial p}{\partial \rho})u +\frac{u^2}{2} & -\Gamma u^2 -\frac{\sigma}{\rho} +e & (1+\Gamma)u\\
-\end{array}
-\right].
-\end{equation} 
-The eigenvalues of 
-The eigenvalues of the coefficient matrix $\mathbf{J}_p(\mathbf{Q})$ are given as
-$$\lambda_1 = u,\quad \lambda_2 = u-c, \quad \lambda_3 = u+c,$$
-where 
-\begin{equation}\label{eq:c_p}
-  \left\{ \begin{aligned}
-	  & c = \sqrt{a^2-\frac{\rho_0}{\rho^2}\Gamma_0 s_{xx}} ,\\
-    &   a^2 = \frac{\partial p}{\partial \rho} + \frac{p}{\rho^2}\frac{\partial p}{\partial e} = a^2_0 \frac{\partial f}{\partial \eta} + \frac{p}{\rho^2}\rho_0 \Gamma_0.
-      \end{aligned} \right.
-    \end{equation}
-The corresponding right eigenvectors are
-\begin{equation}\label{eq:eivp}
-  r_1 = \left[ \begin{array}{l}
-	  1 \\
-	  u \\
-	  E-\frac{c^2}{\Gamma}-\frac{\sigma}{\rho}\\
-  \end{array}\right], \quad
- r_2 = \left[ \begin{array}{l}
-	  1 \\
-	  u-c \\
-	  E-uc-\frac{\sigma}{\rho}\\
-  \end{array}\right], \quad
- r_3 = \left[ \begin{array}{l}
-	  1 \\
-	  u+c \\
-	  E+uc-\frac{\sigma}{\rho}\\
-  \end{array}\right].
-\end{equation}
-Take a comparason  of Eq.(\ref{eq:c_e}) and Eq.(\ref{eq:c_p}), we notice that the sonic speed is not continuous between the states of elastic and plastic. This is very important and may cause wrong results if ignoring it.   
 
-\subsection{Formulations across the contact wave}\label{sec:contact}
-  For  a  system without molecular diffusion, there is no materials convecting  across the contact wave or interface, so the velocities on two sides of  the discontinuity are always equal. % .
-  This can also be verified by the eigenvectors  in Eq.(\ref{eq:eiv}) and  Eq.(\ref{eq:eivp}).  
-
-Using $\mathbf{W}_L^*$ and $\mathbf{W}_R^*$ to denote the two data states connected the contact wave, where $\mathbf{W}=\left(\rho,u,p,s_{xx}\right)$.
-
-According to  the eigenvectors in  Eq.(\ref{eq:eiv}), for the $\lambda_{1}$-wave and $\lambda_{2}$ wave,  we
-have
-\begin{equation}   \label{e23a}
-\frac{d \rho}{1} = \frac{d \rho u}{u}.
-\end{equation}
-From the above equations, we can easily deduce that
-\begin{equation}   \label{e23b}
-du = 0,
-\end{equation}
-
-Samilarly, using the eigenvectors in Eq.(\ref{eq:eivp}), for the $\lambda_{1}$-wave, we have 
-\begin{equation}  
-  \frac{d \rho}{1} = \frac{d \rho u}{u},
-\end{equation}
-we also can get 
-\begin{equation}  
-du = 0,
-\end{equation}
- which means
-\begin{equation}   \label{e23c}
-  u_{L}^{\ast}=u_{R}^{\ast},
-\end{equation}
-For convenience, we define
-\begin{equation}\label{eq:contact}
-  s^* = u_L^* = u_R^*. % \hspace{0.3cm} \sigma_L^* = \sigma_R^*,
-\end{equation}
-where $s^*$ denotes the velocity of the contact wave.
-
-Then using  the  conservation relations between the contact  wave
-\begin{equation}\label{eq:RH11}
-	\bm{F}_R^* = \bm{F}_L^*+s^*(\bm{U}_R^*-\bm{U}_L^*),
-\end{equation}
-
-From the momentum term in Eq.(\ref{eq:RH11}),
-\begin{equation}
-  \rho_R^* u_R^{*2}-\sigma^*_R=\rho_L^* u_L^{*2}-\sigma_L^*+s^*(\rho_R^* u_R^*-\rho_L^* u_L^*).
-\end{equation}
-and taking  $ s^* = u_L^* = u_R^*$ in, we can get the relation of Cauchy stress
-\begin{equation} 
-  \sigma^*_L = \sigma^*_R,
-\end{equation}
-is always satisfied.
-
-\subsection{A relation between $\rho$ and $s_{xx}$ in 1D elastic-plastic  equation system}
+\subsubsection{A relation between $\rho$ and $s_{xx}$ }
 
 Thanks to (\ref{eq:mt}), the equations of the density and the deviatoric stress in Eq.(\ref{eq:1d}) can be written as
   \begin{equation}\label{eq:d1}
@@ -368,68 +256,143 @@ Thanks to (\ref{eq:mt}), the equations of the density and the deviatoric stress 
 \end{equation}
 Integrate the above equation from the data in front of a wave to the data behind the wave and perform some simple algebraic manipulations, one can get
 \begin{equation}\label{eq:rhosxx}
-  s_{xx2}=-\frac{4}{3}\mu\text{ln}(\frac{\rho_{2}}{\rho_{1}})+s_{xx1}.
+  s_{xx}+\frac{4}{3}\mu\text{ln}(\rho) = \text{constant}
 \end{equation}
-The subscripts $2$ and $1$ mean the states in front of and behind the wave, respectively.
-This relation always hold if there is no yielding in the integration path.
-\subsection{Relations across rarefaction waves}\label{sec:rarefaction}
-A Rarefaction wave contains a continuous of waves with the speed of $u\pm c$. Now we consider a left-going rarefaction wave as shown in Fig.\ref{fig:Rare} as an example, the state in front of the wave is known as  $(\rho_1,u_1,p_1,s_{xx1})$ and after the wave the state changes to $(\rho_2,u_2,p_2,s_{xx2})$ which is unknown. 
+This relation always hold in the elastic state.
 
-We random choose a particle point inside the expansion region with the state of $(\rho,u, p,s_{xx})$, after a little expansion with the wave speed of $u-c$, the state changes to$(\rho+d\rho, u+du, p+dp, s_{xx}+ds_{xx})$. According to the conservation relations we can get 
-\begin{equation}
-  \begin{aligned}
-	& (\rho+ \text{d}\rho)(u+ \text{d}u) = \rho u +(u-c)\text{d}\rho\\
-	& (\rho+\text{d}\rho)(u+\text{d}u)^2 -(\sigma+\text{d}\sigma)=   \rho u^2-\sigma\\
-	&+(u-c)[(\rho+\text{d}\rho)(u+\text{d}u)-\rho u] \\
-	& [(\rho+\text{d}\rho)(E+\text{d}E)-(\sigma+\text{d}\sigma)](u+\text{d}u) = \\
-	&(\rho E-\sigma)u+(u-c)[(\rho+\text{d}\rho)(E+\text{d}E)-\rho E]\\
- \end{aligned}
+\subsubsection{Relations across the contact wave}\label{sec:contact}
+  For  a  system without molecular diffusion, there is no materials convecting  across the contact wave or interface, so the velocities on two sides of  the discontinuity are always equal. % .
+  This can also be verified by the eigenvectors  in Eq.(\ref{eq:eiv}) and  Eq.(\ref{eq:eivp}).  
+
+Using $\mathbf{W}_L^*$ and $\mathbf{W}_R^*$ to denote the two data states connected the contact wave, where $\mathbf{W}=\left(\rho,u,p,s_{xx}\right)$.
+
+
+Thanks to Eq.(\ref{eq:eiv}), for the $\lambda_{1}$-wave we
+have
+\begin{equation}   \label{e23a}
+\frac{d \rho}{\frac{1}{b_{1}}} = \frac{d \rho u}{\frac{u
+}{b_{1}}}=\frac{d \rho E}{0} = \frac{d s_{xx}}{1}.
 \end{equation}
-Ignoring high-order infinite small terms, we can get  
+From the above equations, we can easily deduce that
+\begin{equation}   \label{e23b}
+du = 0, \quad d(s_{xx}-p)=0,
+\end{equation}
+ which means
+\begin{equation}   \label{e23c}
+  u_{L}^{\ast}=u_{R}^{\ast},
+\end{equation}
+and
+\begin{equation}   \label{e23d}
+\sigma_{x,L}^{\ast}=\sigma_{x,R}^{\ast},
+\end{equation}
+where $()_{L}^{\ast}$ and $()_{R}^{\ast}$ denote $()$ in the region
+of $\mathbf{W}_{L}^{\ast}$ and $\mathbf{W}_{R}^{\ast}$,
+respectively. Here we do not show the details of the derivation for a simple
+ presentation.
+
+
+Similarly, for the $\lambda_{2}$-wave one
+has
+\begin{equation}   \label{e24a}
+\frac{d \rho}{\frac{-\Gamma}{b_{1}}} = \frac{d \rho u}{\frac{-u
+\Gamma}{b_{1}}}=\frac{d \rho E}{1} = \frac{d s_{xx}}{0}.
+\end{equation}
+From the above equations, we can easily deduce  that
+\begin{equation}   \label{e24b}
+du = 0, \quad dp=0, \quad ds_{xx}=0,
+\end{equation}
+ which means
+\begin{equation}   \label{e24c}
+  u_{L}^{\ast}=u_{R}^{\ast},
+\end{equation}
+\begin{equation}   \label{e24d}
+p_{L}^{\ast}=p_{R}^{\ast}, \quad
+  s_{xx,L}^{\ast}=s_{xx,R}^{\ast}.
+\end{equation}
+
+%where $()_{L}^{\ast}$ and $()_{R}^{\ast}$ denote $()$ in the region
+%of $\mathbf{W}_{L}^{\ast}$ and $\mathbf{W}_{R}^{\ast}$,
+%respectively.
+
+From  Eq.(\ref{e24d}), we  get that
+\begin{equation}   \label{e27a}
+\sigma_{x,L} ^{\ast}=  \sigma_{x,R} ^{\ast}.
+\end{equation}
+
+
+At last, for the $\lambda_{1}$ and $\lambda_{2}$ waves, one can find
+that the following two relations always hold:
+\begin{equation}   \label{e28}
+u_{L}^{\ast}=u_{R}^{\ast}, \quad
+\sigma_{x,L}^{\ast}=\sigma_{x,R}^{\ast}.
+\end{equation}
+For convenience, we define
+\begin{equation}\label{eq:contact}
+  s^* = u_L^* = u_R^*. % \hspace{0.3cm} \sigma_L^* = \sigma_R^*,
+\end{equation}
+where $s^*$ denotes the velocity of the contact wave.
+
+\subsubsection{Relations across rarefaction waves}\label{sec:rarefaction}
+%as an example, the state in front of the wave is known as  $(\rho_1,u_1,p_1,s_{xx1})$ and after the wave the state changes to $(\rho_2,u_2,p_2,s_{xx2})$ which is unknown. 
+
+\emph{\textbf{Left-going rarefaction wave} }
+Across the left wave associated with $\lambda_3$-wave, ($\lambda_3=u-c_e$), we have
+\begin{equation}
+  \frac{d\rho}{1} = \frac{d(\rho u)}{u-c_e} = \frac{d(\rho E)}{h-uc_e} = \frac{ds_{xx}}{-\frac{4\mu}{3}\frac{1}{\rho}}.
+\end{equation}
+which lead to 
 \begin{align}
   \label{eq:urho}
-  & \text{d} u =-\frac{c}{\rho}\text{d}\rho,\\
-\label{eq:sigmarho}
-  & \text{d} \sigma = -c^2 d\rho,\\
+  & \text{d} u =-\frac{c_e}{\rho}\text{d}\rho,\\
  \label{eq:Erho}
-  & \text{d} E = -\frac{\sigma+\rho u c}{\rho^2} d\rho.
+  & \text{d} E = -\frac{\sigma+\rho u c_e}{\rho^2} d\rho.\\
+\label{eq:sxxrho}
+& \text{d} s_{xx} = -\frac{4}{3}\frac{\mu}{\rho} d\rho,
 \end{align}
-Also we know the deviatoric stress is a function of the  density by Eq.(\ref{eq:rhosxx})   
+Take the relation of EOS (\ref{eq:mie}) in, we can get the pressure  as
 \begin{equation}
-  ds_{xx} = \left\{ \begin{aligned}
-	  -\frac{4}{3}\frac{\mu}{\rho}d\rho \quad |s_{xx}| < \frac{2}{3}Y_0,\\
-	  0  \quad  |s_{xx}| \ge  \frac{2}{3}Y_0.
-	\end{aligned}
-  \right.
-\end{equation}
-And from Eq.(\ref{eq:c_e}) and Eq.(\ref{eq:c_p}) we can get
-\begin{equation}\label{eq:c_2rho}
-  c^2 = \left\{ \begin{aligned}
-	  a_0^2 \frac{\partial f}{\partial \eta} + \frac{p}{\rho^2}\rho_0\Gamma_0 -\frac{\rho_0}{\rho^2}\Gamma_0 s_{xx} +\frac{4}{3}\frac{\mu}{\rho} \quad |s_{xx}| < \frac{2}{3}Y_0,\\
-	  a_0^2 \frac{\partial f}{\partial \eta} + \frac{p}{\rho^2}\rho_0\Gamma_0 -\frac{\rho_0}{\rho^2}\Gamma_0 s_{xx}  \quad  |s_{xx}| \ge  \frac{2}{3}Y_0.
-	\end{aligned}
-  \right.
-\end{equation}
-Then the differential of  pressure is  given  as 
-\begin{equation}
-  dp = ds_{xx} -d\sigma = ds_{xx}+c^2 d\rho = \left( a_0^2 \frac{\partial f}{\partial \eta} + \frac{p}{\rho^2}\rho_0\Gamma_0 -\frac{\rho_0}{\rho^2}\Gamma_0 s_{xx}\right) d\rho,
+  dp =  \left( a_0^2 \frac{\partial f}{\partial \eta} + \frac{p}{\rho^2}\rho_0\Gamma_0 -\frac{\rho_0}{\rho^2}\Gamma_0 s_{xx}\right) d\rho,
 \end{equation}
 it can be written as a differential equation of $p(\rho)$
 \begin{equation}
-  p'(\rho) - \lambda_1 \frac{p}{\rho^2} = f_2(\rho), \quad p(\rho_1) = p_1,
+  p'(\rho) - \lambda_1 \frac{p}{\rho^2} = f_2(\rho),
 \end{equation}
 where 
 \begin{equation}
   \lambda_1 = \rho_0 \Gamma_0 \quad f_2(\rho) = a_0^2\frac{\partial f}{\partial \eta}- \lambda_1\frac{s_{xx}(\rho)}{\rho^2}.
 \end{equation}
-The pressure can be solved out as
+The pressure can be solved out as 
 \begin{equation}\label{eq:p_rho}
-  p(\rho) = p_1e^{\frac{\lambda_1}{\rho_1}-\frac{\lambda_1}{\rho}} +e^{-\frac{\lambda_1}{\rho}}\int_{\rho_1}^\rho f_2(x) e^{\frac{\lambda_1}{x}}dx.
+  p e^{\frac{\lambda_1}{\rho}} - \int f_2(\rho) e^{\frac{\lambda_1}{\rho}}d\rho = \text{constant}.
+\end{equation}
+Then for a given density $\rho$, we can get  the sonic speed $c_e$  and velocity 
+\begin{equation}
+  u+\int\frac{c_e}{\rho} d\rho = \text{constant}.
 \end{equation}
 
-By the above equations of Eq.(\ref{eq:urho}-\ref{eq:Erho},\ref{eq:c_2rho},\ref{eq:p_rho}), we know that the state $(\rho, u, p, s_{xx})$ is only  a function of the density $\rho$ no matter within or  after the rarefaction wave.  
+\emph{\textbf{Right-going rarefaction wave} }
+Across the right wave associated with $\lambda_4$-wave, ($\lambda_3=u+c_e$), we have
+\begin{equation}
+  \frac{d\rho}{1} = \frac{d(\rho u)}{u+c_e} = \frac{d(\rho E)}{h+uc_e} = \frac{ds_{xx}}{-\frac{4\mu}{3}\frac{1}{\rho}}.
+\end{equation}
+which lead to 
+\begin{align}
+  \label{eq:urho}
+  & \text{d} u =\frac{c_e}{\rho}\text{d}\rho,\\
+ \label{eq:Erho}
+  & \text{d} E = -\frac{\sigma+\rho u c_e}{\rho^2} d\rho.\\
+\label{eq:sxxrho}
+& \text{d} s_{xx} = -\frac{4}{3}\frac{\mu}{\rho} d\rho,
+\end{align}
+We can get  similar  relations  as the left-going wave as
+\begin{equation}
+  p e^{\frac{\lambda_1}{\rho}} - \int f_2(\rho) e^{\frac{\lambda_1}{\rho}}d\rho = \text{constant}.
+\end{equation}
+\begin{equation}
+  u-\int\frac{c_e}{\rho} d\rho = \text{constant}.
+\end{equation}
 
-\subsection{Relations across  shock waves}\label{sec:shock}
+\subsubsection{Relations across  shock waves}\label{sec:shock}
 Now we consider a shock wave with a speed of $s$, suppose the state in front of the shock is known as $(\rho_1,u_1,p_1,s_{xx1})$ and the state after the shock is unknown as $(\rho_2,u_2,p_2,s_{xx2})$. 
 
 Then use the conservation relation across the wave, which is also known as the Rankine-Hugoniot relation for a shock 
@@ -439,7 +402,7 @@ Then use the conservation relation across the wave, which is also known as the R
   &\rho_2u_2^2-\sigma_{2} = \rho_1u_1^2-\sigma_{1}+s(\rho_2u_2-\rho_1u_1), \\
   &(\rho_2E_2-\sigma_{2})u_2 = (\rho_1E_1-\sigma_{1})u_1+s(\rho_2E_2-\rho_1E_1),
 \end{align}
-also can be written as
+above relations also can be written as
 \begin{align}
 \label{eq:RH1}
   &\rho_2(u_2-s) = \rho_1(u_1-s), \\
@@ -476,10 +439,10 @@ Using the EOS of Mie-Gr\"uneisen (\ref{eq:mie}), can get
 \end{equation}
 where $c_0 = \frac{1}{\rho_0\Gamma_0}$ and $c_1 = \frac{a_0^2}{\Gamma_0}$.
 Put above equation into (\ref{eq:e2e1}), we can solve the pressure $p_2$ out as a function of $\rho_2$. 
-\begin{equation}\label{eq:shockp}
+\begin{equation}\label{eq:shocke}
   p_2= \frac{2t(c_1f(\rho_2/\rho_0)+e_1)-(\sigma_1+s_{xx2})}{2tc_0-1},
 \end{equation}
-The derivative stress $\sigma_{xx2}$ is also a function of $rho_2$ only. So we can solve the Cauchy stress out as
+The derivative stress $\sigma_{xx2}$ also is  a function of $\rho_2$ only. So we can solve the Cauchy stress out as
 \begin{equation}
   \sigma_2 = -p_2 +s_{xx2}.
 \end{equation}
@@ -498,7 +461,135 @@ And the shock speed is given as
 
 By the above deductions of the shock wave, we can get that, if the density after the shock is known, all the unknowns can be solved out.
 
-\section{Exact Riemann solver}\label{sec:riemann}
+\subsection{Plastic state}
+  \subsubsection{Jacobian matrix in  plastic  regions\footnote{\href{https://nbviewer.jupyter.org/github/bfly123/Exact-Elastic-plastic-Riemann-Solver-/blob/master/\%20CharacteristicForPlasticStateAfterYielding.ipynb\#}{Code site link}}}
+When the material is yielding,
+\begin{equation}
+  |s_{xx}| = \frac{2}{3}Y_0,
+\end{equation}
+the equations will turn into a more simple system with only constitutive terms as
+\begin{equation}
+  \partial_t \mathbf{{U}} + \mathbf{J}_p(\mathbf{U})\partial_x \mathbf{{U}}= 0,
+\end{equation}
+where $\mathbf{U} = (\rho, \rho u, \rho E )$, and the Jacobian matrix is
+\begin{equation}
+\mathbf{J}_p(\mathbf{U}) = \left[\begin{array}{lll}
+      0 & 1 & 0   \\
+      -u^2 + \frac{\partial p}{\partial \rho} +\Gamma(\frac{u^2}{2}-e)& u(2-\Gamma)& \Gamma \\
+	  (\Gamma(\frac{u^2}{2}-e)-e-\frac{u^2}{2}+\frac{\sigma}{\rho}+\frac{\partial p}{\partial \rho})u +\frac{u^2}{2} & -\Gamma u^2 -\frac{\sigma}{\rho} +e & (1+\Gamma)u\\
+\end{array}
+\right].
+\end{equation} 
+The eigenvalues of 
+The eigenvalues of the coefficient matrix $\mathbf{J}_p(\mathbf{Q})$ are given as
+$$\lambda_1 = u,\quad \lambda_2 = u-c, \quad \lambda_3 = u+c,$$
+where 
+\begin{equation}\label{eq:c_p}
+  \left\{ \begin{aligned}
+	  & c_p = \sqrt{a^2-\frac{\rho_0}{\rho^2}\Gamma_0 s_{xx}} ,\\
+    &   a^2 = \frac{\partial p}{\partial \rho} + \frac{p}{\rho^2}\frac{\partial p}{\partial e} = a^2_0 \frac{\partial f}{\partial \eta} + \frac{p}{\rho^2}\rho_0 \Gamma_0.
+      \end{aligned} \right.
+    \end{equation}
+The corresponding right eigenvectors are
+\begin{equation}\label{eq:eivp}
+  r_1 = \left[ \begin{array}{l}
+	  -\frac{\Gamma}{b_1} \\
+	  -\frac{\Gamma u}{b_1} \\
+	  1\\
+  \end{array}\right], \quad
+  r_2 = \frac{1}{h-uc_p} \left[  \begin{array}{l}
+	  1 \\
+	  u-c_p \\
+	  h-uc_p\\
+  \end{array}\right], \quad
+ r_3 = \frac{1}{h+uc_p}\left[ \begin{array}{l}
+	  1 \\
+	  u+c_p \\
+	  h+uc_p\\
+  \end{array}\right].
+\end{equation}
+where 
+ \begin{equation}
+    b_1 = \frac{\partial p}{\partial \rho} - \Gamma E,  \quad h = E +\frac{p-s_{xx}}{\rho}.
+  \end{equation}
+
+Take a comparason  of Eq.(\ref{eq:c_e}) and Eq.(\ref{eq:c_p}), we notice that the sonic speed is not continuous between the states of elastic and plastic. As the shear modulus $\mu$ is always positive, so the elastic wave is always faster than the plastic wave.  This is very important and may cause wrong results if ignoring it.   
+
+\subsubsection{Relations across the contact wave}\label{sec:contact}
+
+According to  the eigenvectors in  Eq.(\ref{eq:eivp}), for the $\lambda_{1}$-wave ($\lambda_1 = u$), we
+have
+\begin{equation}   \label{e232a}
+  \frac{d \rho}{\frac{-\Gamma}{b_1}} = \frac{d (\rho u)}{\frac{-u\Gamma}{b_1}} = \frac{d (\rho E)}{1}.
+\end{equation}
+From the above equations, we can easily deduce that
+\begin{equation}  
+  du = 0, \quad dp = 0. 
+\end{equation}
+Samilar to that in  section \ref{sec:contact}, we can also get the relations
+\begin{equation} 
+  s^* = u_L^* = u_R^*, % \hspace{0.3cm} \sigma_L^* = \sigma_R^*,
+ \quad
+  \sigma^*_L = \sigma^*_R.
+\end{equation}
+
+\subsubsection{Relations across rarefaction waves}
+%as an example, the state in front of the wave is known as  $(\rho_1,u_1,p_1,s_{xx1})$ and after the wave the state changes to $(\rho_2,u_2,p_2,s_{xx2})$ which is unknown. 
+
+\emph{\textbf{Left-going rarefaction wave} }
+Across the left wave associated with $\lambda_2$-wave, ($\lambda_2=u-c_p$), we have
+\begin{equation}
+  \frac{d\rho}{1} = \frac{d(\rho u)}{u-c_p} = \frac{d(\rho E)}{h-uc_p}.
+\end{equation}
+Samilar to section \ref{sec:rarefaction}, we can get the relations
+\begin{equation}\label{eq:p_rhop}
+  p e^{\frac{\lambda_1}{\rho}} - \int f_2(\rho) e^{\frac{\lambda_1}{\rho}}d\rho = \text{constant}.
+\end{equation}
+and
+\begin{equation}
+  u+\int\frac{c_p}{\rho} d\rho = \text{constant},
+\end{equation}
+where
+\begin{equation}
+  \lambda_1 = \rho_0 \Gamma_0 \quad f_2(\rho) = a_0^2\frac{\partial f}{\partial \eta}- \lambda_1\frac{s_{xx}(\rho)}{\rho^2}.
+\end{equation}
+\emph{\textbf{Right-going rarefaction wave} }
+Across the right wave associated with $\lambda_3$-wave, ($\lambda_3=u+c_e$), we have
+\begin{equation}
+  \frac{d\rho}{1} = \frac{d(\rho u)}{u+c_p} = \frac{d(\rho E)}{h+uc_p}.
+\end{equation}
+We can get  similar  relations  as the left-going wave as
+\begin{equation}
+  p e^{\frac{\lambda_1}{\rho}} - \int f_2(\rho) e^{\frac{\lambda_1}{\rho}}d\rho = \text{constant}.
+\end{equation}
+\begin{equation}
+  u-\int\frac{c_p}{\rho} d\rho = \text{constant}.
+\end{equation}
+\subsubsection{Relations across  shock waves}\label{sec:shockp}
+By a same deducing process with Section \ref{sec:shock}, we can get the state after a shock as  
+\begin{equation}
+  s_{xx2} = s_{xx1},
+\end{equation}
+\begin{equation}\label{eq:shockp}
+  p_2= \frac{2t(c_1f(\rho_2/\rho_0)+e_1)-(\sigma_1+s_{xx2})}{2tc_0-1},
+\end{equation}
+where $c_0 = \frac{1}{\rho_0\Gamma_0}$ and $c_1 = \frac{a_0^2}{\Gamma_0}$.
+\begin{equation}
+  \sigma_2 = -p_2 +s_{xx2}.
+\end{equation}
+\begin{equation}\label{eq:shockup}
+  u_2 = \left\{ \begin{aligned}
+	 & u_1 - \sqrt{\frac{\sigma_1- \sigma_2}{t}} \quad \text{Left-going}, \\
+	 & u_1 + \sqrt{\frac{\sigma_1- \sigma_2}{t}} \quad \text{Right-going}.
+	\end{aligned}
+	\right.
+  \end{equation}
+And the shock speed is given as 
+\begin{equation}
+  s = \frac{\rho_2u_2-\rho_1u_1}{\rho_2-\rho_1}.
+\end{equation}
+
+\section{Exact Riemann solver \footnote{\href{https://nbviewer.jupyter.org/github/bfly123/Exact-Elastic-plastic-Riemann-Solver-/blob/master/\%20CharacteristicForPlasticStateAfterYielding.ipynb\#}{Code site link}}} \label{sec:riemann}
 
 %Althoughx HLLCE Riemann solver can simulate the elastic-plastic flow effectively and efficiently without iterations, but the plastic structure is not considered in and  there are some assumptions that are not so reasonable, especially in the interface between different materials. For example, the normal stresses $\sigma_x$ are  always equavalent across the interface, but the pressures are not always equal, and the consequent evaluation of $\widetilde{s}^*$ may   be of large error.
 
@@ -528,44 +619,51 @@ Now we consider the constructing details of the exact  Riemann  solver. For  the
   \label{fig:cases}
 \end{figure}
 
-There are mainly three parts in the soluting process. 
 
-Firstly, a pre-evaluation need to  be done to detect the left cases in Fig.\ref{fig:cases} and the corresponding right cases. This is done in Section (\ref{sec:eva}) with shock-contact-shock waves assumption.  
+There are mainly five  steps in the soluting process. 
+\begin{enumerate}
+  \item In section (\ref{sec:eva}), a pre-evaluation is done with a shock-contact-shock waves assumption to give an initial values of $\rho^*_L$ and $\rho^*_R$.  
 
-Secondly,  we solve functions $s_{xx}(\rho)$, $p(\rho)$ and $u(\rho)$ in cases (a,b,d,e) in Section \ref{sec:one} and in cases (c,f) in Section \ref{sec:two}.
+  \item  With  given $\rho^*_L$ and $\rho^*^_R$, we need to  detect the left cases in Fig.\ref{fig:cases} and the corresponding right cases, this is done in section \ref{sec:eva}.
 
-At last,  we use  the informations in Section \ref{sec:contact}, the velocities and the Cauchy stresses  in the two sides of the contact must be equal. So there are two equations 
+  \item  We solve functions $s_{xx}(\rho)$, $p(\rho)$ and $u(\rho)$ for  different cases in section \ref{sec:one}.
+
+\item At last,   with  the informations in Section \ref{sec:contact},  
 \begin{equation}\label{eq:fus}
-  \begin{align}
+  \begin{aligned}
 	f_u(\rho^*_L,\rho^*_R) = u_L^* -u_R^* = 0,\\
 	f_\sigma(\rho^*_L,\rho^*_R) = \sigma_L^* -\sigma_R^* = 0,
-\end{align}
+\end{aligned}
 \end{equation}
-and two unknowns $\rho_L^*$ and $\rho_R^*$. Equation (\ref{eq:fus}) is implicit, we have to use a Newton iteration method to solve it, this process is given in Section \ref{sec:iteration}.
+ use a Newton iteration method to  get new $\rho^*_L$ and $\rho^*_R$, then do steps 2-5 again until the result convergents. this process is given in Section \ref{sec:iteration}.
+\end{enumerate}
 \subsection{Pre-evaluation and case classfication}\label{sec:eva}
 At first, we assume that there are only one elastic shock wave in the left side and another one  elastic shock in the right side as shown in Fig.\ref{fig:HLLC}. According to the conservation relations across the shocks, we have    
 \begin{equation}
   \left\{
-  \begin{align}
+  \begin{aligned}
 	\hat{\rho}_L\hat{u}^*_L = \rho_L u_L +s_L(\hat{\rho}_L^*-\rho_L), \\
-	\hat{\rho}_L\hat{u}_L^{*2}-\sigma_L^* = \rho_L u_L^2 -\sigma_L +s_L(\hat{\rho}_L^* \hat{u}_L^*-\rho_L u_L), \\
-  \end{align}
+	\hat{\rho}_L\hat{u}_L^{*2}-\sigma_L^* = \rho_L u_L^2 -\sigma_L +s_L(\hat{\rho}_L^* \hat{u}_L^*-\rho_L u_L), 
+  \end{aligned}
 \right.
 \end{equation}
 and
 \begin{equation}
   \left\{
-  \begin{align}
+  \begin{aligned}
 	\hat{\rho}_R\hat{u}^*_R = \rho_R u_R +s_R(\hat{\rho}_R^*-\rho_R), \\
-	\hat{\rho}_R\hat{u}_R^{*2}-\sigma_R^* = \rho_R u_R^2 -\sigma_R +s_R(\hat{\rho}_R^* \hat{u}_R^*-\rho_R u_R). \\
-  \end{align}
+	\hat{\rho}_R\hat{u}_R^{*2}-\sigma_R^* = \rho_R u_R^2 -\sigma_R +s_R(\hat{\rho}_R^* \hat{u}_R^*-\rho_R u_R). 
+  \end{aligned}
 \right.
 \end{equation}
 \begin{figure}
   \centering
   \includegraphics[width=8cm]{Tikz-figure7.eps}
   \caption{Pre-evaluation with a three-waves structure.}
+  \label{fig:HLLC}
 \end{figure}
+
+
 Using the relation across the interface,
 \begin{equation}
   \hat{u}_L^* = \hat{u}_R^* =\hat{s}^*,\quad \hat{\sigma}_L^* = \hat{\sigma}_R^*.
@@ -579,7 +677,19 @@ the density is solved as
 \hat{\rho}_L^* = \frac{\rho_L(u_L-s_L)}{\hat{s}^*-s_L}, \quad
 \hat{\rho}_R^* = \frac{\rho_R(u_R-s_R)}{\hat{s}^*-s_R}.
 \end{equation}
-The devaitoric stress is ecaluated as 
+\subsection{Determination of the  structure case}
+
+Using a given density $\rho^*_L$, we can distinguish the shock and rarefaction in the left side.  This is done easily by comparing $\rho^*_L$ with $\rho_L$,
+\begin{equation}
+  \left\{
+  \begin{aligned}
+  & \text{Rarefaction wave:} & \rho_L > \rho_L^*\\
+  & \text{Shock wave:} &  \rho_L < \rho_L^*\\
+\end{aligned}\right.
+\end{equation}
+
+To determine the number of waves, we need to know the yielding situation, we first evaluate 
+The devaitoric stress is evaluated as 
 \begin{equation}  \label{sxx1}
   \hat{s}_{xxL}^*=-\frac{4}{3}\mu\text{ln}(\frac{\hat{\rho}_L^*}{\rho_L})+s_{xxL}, \quad   \hat{s}_{xxR}^*=-\frac{4}{3}\mu\text{ln}(\frac{\hat{\rho}_R^*}{\rho_R})+s_{xxR}.
 \end{equation}
@@ -618,7 +728,7 @@ First we give the function of $s_{xx}$,
   \end{equation}
 Then we give the pressure,
 \begin{equation}
-  p(\rho)=p_{L(R)}e^{\frac{\lambda_1}{\rho_{L(R)}}-\frac{\lambda_1}{\rho}} +e^{-\frac{\lambda_1}{\rho}}\int_{\rho_{L(R)}}^{\rho} f_2(x) e^{\frac{\lambda_1}{x}}dx. \quad & \text{case (a,b)}.
+  p(\rho)=p_{L(R)}e^{\frac{\lambda_1}{\rho_{L(R)}}-\frac{\lambda_1}{\rho}} +e^{-\frac{\lambda_1}{\rho}}\int_{\rho_{L(R)}}^{\rho} f_2(x) e^{\frac{\lambda_1}{x}}dx. \quad  \text{case (a,b)}.
 \end{equation}
 where 
 \begin{equation}
@@ -672,18 +782,18 @@ The velocity is given as
 
 For cases (c,f), the meterial periods a yielding process from elastic to plastic. There are two waves and  one more state $\tilde{\mathbf{Q}}_{L(R)}$ exists. In state $\tilde{\mathbf{Q}}_{L(R)}$, the derivative stress achieves the elastic limit. 
 \begin{equation}
- \tilde{s}_{xxL(R)} = \left\{ \begin{align}
+ \tilde{s}_{xxL(R)} = \left\{ \begin{aligned}
 	 &\frac{2}{3}Y_0 \quad  &\text{Case (c)},\\
-	 &-\frac{2}{3}Y_0 \quad &\text{Case (f)},\\
-	\end{align}
+	 &-\frac{2}{3}Y_0 \quad &\text{Case (f)},
+	\end{aligned}
   \right.
 \end{equation}
 By (\ref{eq:rhosxx}),at state $\tilde{\mathbf{Q}}_{L(R)}$ we can solve the density out as 
 \begin{equation}
-  \tilde{\rho}_{L(R)}= \left\{ \begin{align}
+  \tilde{\rho}_{L(R)}= \left\{ \begin{aligned}
 	  &\widetilde{\rho}_{L(R)} = \rho_{L(R)} \text{exp}\left(-\frac{Y_0}{2\mu}+\frac{3 s_{xxL(R)}}{4\mu}\right), \quad  & \text{Case (c)}, \\ 
 	  &\widetilde{\rho}_{L(R)} = \rho_{L(R)} \text{exp}\left(\frac{Y_0}{2\mu}+\frac{3 s_{xxL(R)}}{4\mu}\right), \quad  & \text{Case (f)}. 
-	\end{align}
+	\end{aligned}
   \right.
 	\end{equation}
 \subsubsection{Rarefaction wave case (c)}
@@ -842,11 +952,129 @@ Some times we need to analyse a half Riemann problem with a given velocity or Ca
 
 The process of solving a half Riemann problem is in three step:
 
-First we need evaluate the density in the star region $\mathbf{Q}^*$ with a  elastic shock assumption.  Then using the relation of $\sigma(\rho^*) = \sigma^*$. We can solve the evaluated density $\hat{\rho}$ out. A  Newton iteration process will be used.
+First we  evaluate the density in the star region $\mathbf{Q}^*$ with a  elastic shock assumption.  Then using the relation of $\sigma(\rho^*) = \sigma^*$. We can solve the evaluated density $\hat{\rho}$ out. A  Newton iteration process will be used.
 
-Second, we can determine the case by the same condition in Table \ref{tab:cases}. 
+Second, we can determine the real structure  case by Table \ref{tab:cases}. 
 
 At last, as we know the type of the structures, we can use the  iteration process again to solve the real density in region $\mathbf{Q}^*$ out. With the density, the pressure and the devaitoric stress are also can be solved. 
 
-\subsection{}
+\subsection{Evaluate of the density $\hat{\rho}$ in region $\mathbf{Q}^*$ }
+As shown in Fig.\ref{fig:half:shock}, we  assume there is only one elastic shock wave between region $\mathbf{Q}$ and region $\mathbf{Q}^*$.
+
+\begin{figure}
+  \centering
+  \includegraphics[width= 10cm] {Tikz-figure9.eps}
+  \caption{Pre-evaluation of the half Riemann problem  with a elastic shock assumeption.}
+  \label{fig:half}
+\end{figure}
+Then use the shock relation in Section \ref{sec:shock}, and  by the Newton   iteration process we can solve the density $\hat{\rho}$ out. 
+
+If the Cauchy stress  in region $\mathbf{Q}^*$ is given, let
+\begin{equation}
+  f(\rho) = \sigma^*(\rho) -\sigma_R,
+\end{equation}
+if the velocity is given, let
+\begin{equation}
+  f(\rho) = u^*(\rho) -u_R.
+\end{equation}
+
+The  Newton iteration is given as
+\begin{equation}
+  \hat{\rho}_{(k+1)} = \hat{\rho}_{(k)}- f/\frac{\partial f_{(k)}}{\partial \rho},
+\end{equation}
+and the initial is given as 
+\begin{equation}
+  \hat{\rho}_{(0)} = \rho_R.
+\end{equation}
+The  congergence is meassured by
+\begin{equation}
+  \text{CHA} = \text{max} \left[\frac{|\hat{\rho}_{(k+1)}-\hat{\rho}_{(k)}|}{\frac{1}{2}|\hat{\rho}_{(k+1)}+\hat{\rho}_{(k)|}},|f_{(k+1)}|\right].
+\end{equation}
+\subsection{Resolve  the state in region $\mathbf{Q}^*$}
+After evaluate the density $\hat{\rho}$ in region $\mathbf{Q}^*$,   the deviatoric stress also can be evaluated by Eq \ref{eq:rhosxx}, and use Table  \ref{tab:cases}, the real structure case is known. By  an exact same iteration process in above   
+\begin{equation}
+ \rho^*_{(k+1)} = \rho^*_{(k)}- f/\frac{\partial f_{(k)}}{\partial \rho},
+\end{equation}
+with the initial condition of 
+\begin{equation}
+  \rho^*_{(0)} = \hat{\rho},
+\end{equation}
+we can solve the $\rho^*$ out. 
+
+In the iteration process the Cauchy stress $\sigma^*(\rho)$ or the velocity $\sigma^*(\rho)$ is given by the relation in Section \ref{sec:one} or Section \ref{sec:two} for different cases.
+\section{Numerical }
+%
+\section*{Conclusions}
+In this paper,  the multi-material HLLC-type  approximate Riemann solver with both the elastic and plastic waves (MHLLCEP) is constructed for 1D elastic-plastic  flows with a hypo-elastic model and the von Mises yielding condition. During constructing the  MHLLCEP, we do not use the assumption in which the pressure is continuous across the contact wave and so describing and evaluating the plastic waves are  more accurate than that in the  HLLCE.  Based on the MHLLCEP,
+combining with the third-order ghost-cell reconstruction method and the third-order TVD-Runge-Kutta method in time, a high-order cell-centered Lagrangian scheme for 1D multi-material elastic flows is built. Verified by the numerical experiments, both the plastic waves and elastic waves can be resolved correctly, our scheme appears to be convergent, stable, essentially non-oscillatory and can reach third-order accuracy for smooth problems. Especially for multi-material elastic-plastic flows, the results solved by the scheme with HLLCE are with large errors, but our new scheme can eliminate these errors and leads to the reasonable numerical results.
+
+%
+\section*{Acknowledgement}
+This work was supported by NSFC(Grant No. 11672047) and Science Challenge Project (Grant No. TZ2016002).
+
+
+
+We random choose a particle point inside the expansion region with the state of $(\rho,u, p,s_{xx})$, after a little expansion with the wave speed of $u-c$, the state changes to$(\rho+d\rho, u+du, p+dp, s_{xx}+ds_{xx})$. According to the conservation relations we can get 
+\begin{equation}
+  \begin{aligned}
+	& (\rho+ \text{d}\rho)(u+ \text{d}u) = \rho u +(u-c)\text{d}\rho\\
+	& (\rho+\text{d}\rho)(u+\text{d}u)^2 -(\sigma+\text{d}\sigma)=   \rho u^2-\sigma\\
+	&+(u-c)[(\rho+\text{d}\rho)(u+\text{d}u)-\rho u] \\
+	& [(\rho+\text{d}\rho)(E+\text{d}E)-(\sigma+\text{d}\sigma)](u+\text{d}u) = \\
+	&(\rho E-\sigma)u+(u-c)[(\rho+\text{d}\rho)(E+\text{d}E)-\rho E]\\
+ \end{aligned}
+\end{equation}
+Ignoring high-order infinite small terms, we can get  
+\begin{align}
+  \label{eq:urho}
+  & \text{d} u =-\frac{c}{\rho}\text{d}\rho,\\
+\label{eq:sigmarho}
+  & \text{d} \sigma = -c^2 d\rho,\\
+ \label{eq:Erho}
+  & \text{d} E = -\frac{\sigma+\rho u c}{\rho^2} d\rho.
+\end{align}
+Also we know the deviatoric stress is a function of the  density by Eq.(\ref{eq:rhosxx})   
+\begin{equation}
+  ds_{xx} = \left\{ \begin{aligned}
+	  -\frac{4}{3}\frac{\mu}{\rho}d\rho \quad |s_{xx}| < \frac{2}{3}Y_0,\\
+	  0  \quad  |s_{xx}| \ge  \frac{2}{3}Y_0.
+	\end{aligned}
+  \right.
+\end{equation}
+And from Eq.(\ref{eq:c_e}) and Eq.(\ref{eq:c_p}) we can get
+\begin{equation}\label{eq:c_2rho}
+  c^2 = \left\{ \begin{aligned}
+	  a_0^2 \frac{\partial f}{\partial \eta} + \frac{p}{\rho^2}\rho_0\Gamma_0 -\frac{\rho_0}{\rho^2}\Gamma_0 s_{xx} +\frac{4}{3}\frac{\mu}{\rho} \quad |s_{xx}| < \frac{2}{3}Y_0,\\
+	  a_0^2 \frac{\partial f}{\partial \eta} + \frac{p}{\rho^2}\rho_0\Gamma_0 -\frac{\rho_0}{\rho^2}\Gamma_0 s_{xx}  \quad  |s_{xx}| \ge  \frac{2}{3}Y_0.
+	\end{aligned}
+  \right.
+\end{equation}
+Then the differential of  pressure is  given  as 
+\begin{equation}
+  dp = ds_{xx} -d\sigma = ds_{xx}+c^2 d\rho = \left( a_0^2 \frac{\partial f}{\partial \eta} + \frac{p}{\rho^2}\rho_0\Gamma_0 -\frac{\rho_0}{\rho^2}\Gamma_0 s_{xx}\right) d\rho,
+\end{equation}
+it can be written as a differential equation of $p(\rho)$
+\begin{equation}
+  p'(\rho) - \lambda_1 \frac{p}{\rho^2} = f_2(\rho), \quad p(\rho_1) = p_1,
+\end{equation}
+where 
+\begin{equation}
+  \lambda_1 = \rho_0 \Gamma_0 \quad f_2(\rho) = a_0^2\frac{\partial f}{\partial \eta}- \lambda_1\frac{s_{xx}(\rho)}{\rho^2}.
+\end{equation}
+The pressure can be solved out as
+\begin{equation}\label{eq:p_rho}
+  p(\rho) = p_1e^{\frac{\lambda_1}{\rho_1}-\frac{\lambda_1}{\rho}} +e^{-\frac{\lambda_1}{\rho}}\int_{\rho_1}^\rho f_2(x) e^{\frac{\lambda_1}{x}}dx.
+\end{equation}
+
+By the above equations of Eq.(\ref{eq:urho}-\ref{eq:Erho},\ref{eq:c_2rho},\ref{eq:p_rho}), we know that the state $(\rho, u, p, s_{xx})$ is only  a function of the density $\rho$ no matter within or  after the rarefaction wave.  
+
+\section*{References}
+
+\bibliography{mybibfile}
+
+\newpage
+  \appendix
+  \renewcommand{\appendixname}{Appendix~}
+
+
 \end{document}
