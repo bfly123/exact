@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2019.3.28)  17 MAY 2019 15:48
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2019.5.30)  31 MAY 2019 20:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -438,39 +438,30 @@ LaTeX Warning: Label `eq:sxxrho' multiply defined.
 LaTeX Warning: Label `sec:contact' multiply defined.
 
 
-LaTeX Warning: Label `fig:half' multiply defined.
-
-
-LaTeX Warning: Label `eq:urho' multiply defined.
-
-
-LaTeX Warning: Label `eq:Erho' multiply defined.
-
-
-LaTeX Warning: Label `eq:p_rho' multiply defined.
+LaTeX Warning: Label `fig:case9' multiply defined.
 
 )
 \openout1 = `Manuscript.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
 \c@lstlisting=\count137
 \AtBeginShipoutBox=\box35
-Package hyperref Info: Link coloring OFF on input line 27.
+Package hyperref Info: Link coloring OFF on input line 26.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -479,25 +470,25 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count138
 )
-LaTeX Info: Redefining \ref on input line 27.
-LaTeX Info: Redefining \pageref on input line 27.
-LaTeX Info: Redefining \nameref on input line 27.
+LaTeX Info: Redefining \ref on input line 26.
+LaTeX Info: Redefining \pageref on input line 26.
+LaTeX Info: Redefining \nameref on input line 26.
 
 (./Manuscript.out) (./Manuscript.out)
 \@outlinefile=\write4
 \openout4 = `Manuscript.out'.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 48.
+LaTeX Font Info:    Try loading font information for U+msa on input line 47.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 48.
+LaTeX Font Info:    Try loading font information for U+msb on input line 47.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 48.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 47.
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
@@ -511,17 +502,17 @@ File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
 
 ]
 
-LaTeX Warning: Reference ` shyue2001fluid' on page 2 undefined on input line 63
+LaTeX Warning: Reference ` shyue2001fluid' on page 2 undefined on input line 62
 .
 
 [2] [3] [4] [5]
-Overfull \hbox (21.2057pt too wide) detected at line 187
+Overfull \hbox (21.2057pt too wide) detected at line 186
 []\OML/cmm/m/it/10 J\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Q\OT1/cmr/m/n/10 ) = [] \
 OML/cmm/m/it/10 ;
  []
 
 
-Overfull \hbox (0.85806pt too wide) detected at line 231
+Overfull \hbox (0.85806pt too wide) detected at line 230
 []\OML/cmm/m/it/10 r[] \OT1/cmr/m/n/10 = [] \OML/cmm/m/it/10 ;  r[] \OT1/cmr/m/
 n/10 = [] \OML/cmm/m/it/10 ;  r[] \OT1/cmr/m/n/10 = [] [] \OML/cmm/m/it/10 ;  r
 [] \OT1/cmr/m/n/10 = [] [] \OML/cmm/m/it/10 ;
@@ -530,37 +521,37 @@ n/10 = [] \OML/cmm/m/it/10 ;  r[] \OT1/cmr/m/n/10 = [] [] \OML/cmm/m/it/10 ;  r
 [6]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 241.
+(hyperref)                removing `math shift' on input line 240.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\rho' on input line 241.
+(hyperref)                removing `\rho' on input line 240.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 241.
+(hyperref)                removing `math shift' on input line 240.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 241.
+(hyperref)                removing `math shift' on input line 240.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 241.
+(hyperref)                removing `subscript' on input line 240.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 241.
+(hyperref)                removing `math shift' on input line 240.
 
-[7] [8] [9] [10] [11]
+[7] [8] [9] [10] [11] [12]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 465.
+(hyperref)                removing `\@ifnextchar' on input line 483.
 
 ! Argument of \@sect has an extra }.
 <inserted text> 
                 \par 
-l.465 ...eAfterYielding.ipynb\#}{Code site link}}}
+l.483 ...eAfterYielding.ipynb\#}{Code site link}}}
                                                   
 ? 
 Runaway argument?
@@ -569,24 +560,24 @@ Runaway argument?
 ! Paragraph ended before \@sect was complete.
 <to be read again> 
                    \par 
-l.465 ...eAfterYielding.ipynb\#}{Code site link}}}
+l.483 ...eAfterYielding.ipynb\#}{Code site link}}}
                                                   
 ? 
-[12]
-Overfull \hbox (2.70476pt too wide) detected at line 482
+
+Overfull \hbox (2.70476pt too wide) detected at line 496
 []\OT1/cmr/bx/n/10 J[]\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 U\OT1/cmr/m/n/10 ) = []
  \OML/cmm/m/it/10 :
  []
 
-[13] [14]
+[13] [14] [15]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 592.
+(hyperref)                removing `\@ifnextchar' on input line 607.
 
 ! Argument of \@sect has an extra }.
 <inserted text> 
                 \par 
-l.592 ...eAfterYielding.ipynb\#}{Code site link}}}
+l.607 ...eAfterYielding.ipynb\#}{Code site link}}}
                                                    \label{sec:riemann}
 ? 
 Runaway argument?
@@ -595,12 +586,11 @@ Runaway argument?
 ! Paragraph ended before \@sect was complete.
 <to be read again> 
                    \par 
-l.592 ...eAfterYielding.ipynb\#}{Code site link}}}
+l.607 ...eAfterYielding.ipynb\#}{Code site link}}}
                                                    \label{sec:riemann}
 ? 
-[15]
 File: TikzFig/Tikz-figure0.eps Graphic file (type eps)
- <TikzFig/Tikz-figure0.eps>
+<TikzFig/Tikz-figure0.eps>
 File: TikzFig/Tikz-figure1.eps Graphic file (type eps)
  <TikzFig/Tikz-figure1.eps>
 File: TikzFig/Tikz-figure2.eps Graphic file (type eps)
@@ -612,146 +602,247 @@ File: TikzFig/Tikz-figure4.eps Graphic file (type eps)
 
 <TikzFig/Tikz-figure4.eps>
 File: TikzFig/Tikz-figure5.eps Graphic file (type eps)
- <TikzFig/Tikz-figure5.eps>
-! Double superscript.
-l.627   \item  With  given $\rho^*_L$ and $\rho^*^
-                                                  _R$, we need to  detect th...
+ <TikzFig/Tikz-figure5.eps> [16]
 
-? 
-! Missing { inserted.
-<to be read again> 
-                   _
-l.627 ...tem  With  given $\rho^*_L$ and $\rho^*^_
-                                                  R$, we need to  detect the...
-
-? 
-! Missing } inserted.
-<inserted text> 
-                }
-l.627 ...m  With  given $\rho^*_L$ and $\rho^*^_R$
-                                                  , we need to  detect the l...
-
-? 
-[16]
-File: TikzFig/Tikz-figure7.eps Graphic file (type eps)
- <TikzFig/Tikz-figure7.eps> [17] [18] [19]
-Overfull \hbox (0.39633pt too wide) detected at line 770
-[]\OML/cmm/m/it/10 p\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^Z\OT1/cmr/m/n/10 ) = []
-\OML/cmm/m/it/10 ;  ^^Z \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 ^^Z[]; ^^Z[];  [];
- []
-
-[20]
-Overfull \hbox (10.32597pt too wide) detected at line 816
-[]\OML/cmm/m/it/10 p\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^Z\OT1/cmr/m/n/10 ) = []
- []\OML/cmm/m/it/10 ;
- []
-
-
-Overfull \hbox (24.01454pt too wide) detected at line 828
-[]\OML/cmm/m/it/10 c\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^Z\OT1/cmr/m/n/10 ) = []
-  []\OML/cmm/m/it/10 :
- []
-
-[21]
-Overfull \hbox (1.54077pt too wide) detected at line 853
-[]\OML/cmm/m/it/10 p\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^Z\OT1/cmr/m/n/10 ) = []
- []\OML/cmm/m/it/10 ;
- []
+LaTeX Warning: Reference `sec:one' on page 17 undefined on input line 644.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 868.
+(hyperref)                removing `math shift' on input line 656.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\rho' on input line 868.
+(hyperref)                removing `\rho' on input line 656.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 868.
+(hyperref)                removing `superscript' on input line 656.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 868.
+(hyperref)                removing `subscript' on input line 656.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 868.
+(hyperref)                removing `math shift' on input line 656.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 868.
+(hyperref)                removing `math shift' on input line 656.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\rho' on input line 868.
+(hyperref)                removing `\rho' on input line 656.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 868.
+(hyperref)                removing `superscript' on input line 656.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 868.
+(hyperref)                removing `subscript' on input line 656.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 868.
+(hyperref)                removing `math shift' on input line 656.
 
 File: TikzFig/Tikz-figure6.eps Graphic file (type eps)
-<TikzFig/Tikz-figure6.eps> [22]
-Overfull \hbox (8.51872pt too wide) detected at line 936
+<TikzFig/Tikz-figure6.eps> [17]
+Overfull \hbox (8.51872pt too wide) detected at line 718
 [][] \OT1/cmr/m/n/10 = []\OML/cmm/m/it/10 ;  [] \OT1/cmr/m/n/10 = []\OML/cmm/m/
 it/10 ;
  []
 
-[23]
+[18]
+File: TikzFig/Tikz-figure7.eps Graphic file (type eps)
+ <TikzFig/Tikz-figure7.eps> [19]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 804.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 804.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 804.
+
+[20] [21]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 885.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 885.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 885.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 885.
+
+[22] [23]
 File: TikzFig/Tikz-figure8.eps Graphic file (type eps)
  <TikzFig/Tikz-figure8.eps> [24]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 961.
+(hyperref)                removing `math shift' on input line 1123.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 961.
+(hyperref)                removing `math shift' on input line 1123.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 961.
+(hyperref)                removing `math shift' on input line 1123.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 961.
+(hyperref)                removing `superscript' on input line 1123.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 961.
-
-
-LaTeX Warning: Reference `fig:half:shock' on page 25 undefined on input line 96
-2.
+(hyperref)                removing `math shift' on input line 1123.
 
 File: TikzFig/Tikz-figure9.eps Graphic file (type eps)
 <TikzFig/Tikz-figure9.eps> [25]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 993.
+(hyperref)                removing `math shift' on input line 1174.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 993.
+(hyperref)                removing `superscript' on input line 1174.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 993.
+(hyperref)                removing `math shift' on input line 1174.
 
-[26] [27] [28] (./Manuscript.bbl [29]) [30]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1080.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1080.
+[26]
+Overfull \hbox (5.02368pt too wide) in paragraph at lines 1187--1189
+\OT1/cmr/m/n/10 10[][])$ and $(\OML/cmm/m/it/10 ^^Z[]; a[]; \OT1/cmr/m/n/10 ^^@
+[]\OML/cmm/m/it/10 ; s; ^^V\OT1/cmr/m/n/10 )[] = (2785[]\OML/cmm/m/it/10 =[][];
+ \OT1/cmr/m/n/10 5328[]\OML/cmm/m/it/10 =[]; \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 
+; \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 338\OML/cmm/m/it/10 ; \OT1
+/cmr/m/n/10 4\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 5 \OMS/cmsy/m/n/10 ^^B \OT1/cmr/
+m/n/10 10[][])$,
+ []
+
+File: Picture/case1rho.pdf Graphic file (type QTm)
+<use  "Picture/case1rho.pdf" >
+File: Picture/case1u.pdf Graphic file (type QTm)
+ <use  "Picture/case1u.pdf" >
+File: Picture/case1p.pdf Graphic file (type QTm)
+
+<use  "Picture/case1p.pdf" >
+File: Picture/case1sigma.pdf Graphic file (type QTm)
+ <use  "Picture/case1sigma.pdf" > [27]
+File: Picture/case2rho.pdf Graphic file (type QTm)
+
+<use  "Picture/case2rho.pdf" >
+File: Picture/case2u.pdf Graphic file (type QTm)
+ <use  "Picture/case2u.pdf" >
+File: Picture/case2p.pdf Graphic file (type QTm)
+
+<use  "Picture/case2p.pdf" >
+File: Picture/case2sxx.pdf Graphic file (type QTm)
+ <use  "Picture/case2sxx.pdf" > [28]
+File: Picture/case4rho.pdf Graphic file (type QTm)
+
+<use  "Picture/case4rho.pdf" >
+File: Picture/case4u.pdf Graphic file (type QTm)
+ <use  "Picture/case4u.pdf" >
+File: Picture/case4p.pdf Graphic file (type QTm)
+
+<use  "Picture/case4p.pdf" >
+File: Picture/case4sxx.pdf Graphic file (type QTm)
+ <use  "Picture/case4sxx.pdf" >
+File: Picture/case3rho.pdf Graphic file (type QTm)
+
+<use  "Picture/case3rho.pdf" >
+File: Picture/case3u.pdf Graphic file (type QTm)
+ <use  "Picture/case3u.pdf" >
+File: Picture/case3p.pdf Graphic file (type QTm)
+
+<use  "Picture/case3p.pdf" >
+File: Picture/case3sxx.pdf Graphic file (type QTm)
+ <use  "Picture/case3sxx.pdf" > [29] [30]
+Overfull \hbox (18.64664pt too wide) detected at line 1285
+[] []
+ []
+
+File: Picture/case5rho.pdf Graphic file (type QTm)
+<use  "Picture/case5rho.pdf" >
+File: Picture/case5u.pdf Graphic file (type QTm)
+ <use  "Picture/case5u.pdf" >
+File: Picture/case5p.pdf Graphic file (type QTm)
+
+<use  "Picture/case5p.pdf" >
+File: Picture/case5sxx.pdf Graphic file (type QTm)
+ <use  "Picture/case5sxx.pdf" > [31]
+File: Picture/case9rho.pdf Graphic file (type QTm)
+
+<use  "Picture/case9rho.pdf" >
+File: Picture/case9u.pdf Graphic file (type QTm)
+ <use  "Picture/case9u.pdf" >
+File: Picture/case9p.pdf Graphic file (type QTm)
+
+<use  "Picture/case9p.pdf" >
+File: Picture/case9sxx.pdf Graphic file (type QTm)
+ <use  "Picture/case9sxx.pdf" > [32]
+File: Picture/case6rho.pdf Graphic file (type QTm)
+
+<use  "Picture/case6rho.pdf" >
+File: Picture/case6u.pdf Graphic file (type QTm)
+ <use  "Picture/case6u.pdf" >
+File: Picture/case6p.pdf Graphic file (type QTm)
+
+<use  "Picture/case6p.pdf" >
+File: Picture/case6sigma.pdf Graphic file (type QTm)
+ <use  "Picture/case6sigma.pdf" >
+Overfull \hbox (12.61894pt too wide) detected at line 1354
+[] []
+ []
+
+File: Picture/case8rho.pdf Graphic file (type QTm)
+<use  "Picture/case8rho.pdf" >
+File: Picture/case8u.pdf Graphic file (type QTm)
+ <use  "Picture/case8u.pdf" >
+File: Picture/case8p.pdf Graphic file (type QTm)
+
+<use  "Picture/case8p.pdf" >
+File: Picture/case8sigma.pdf Graphic file (type QTm)
+ <use  "Picture/case8sigma.pdf" > [33]
+File: Picture/case10rho.pdf Graphic file (type QTm)
+
+<use  "Picture/case10rho.pdf" >
+File: Picture/case10u.pdf Graphic file (type QTm)
+ <use  "Picture/case10u.pdf" >
+File: Picture/case10p.pdf Graphic file (type QTm)
+
+<use  "Picture/case10p.pdf" >
+File: Picture/case10sxx.pdf Graphic file (type QTm)
+ <use  "Picture/case10sxx.pdf" >
+File: Picture/case11rho.pdf Graphic file (type QTm)
+
+<use  "Picture/case11rho.pdf" >
+File: Picture/case11u.pdf Graphic file (type QTm)
+ <use  "Picture/case11u.pdf" >
+File: Picture/case11p.pdf Graphic file (type QTm)
+
+<use  "Picture/case11p.pdf" >
+File: Picture/case11sigma.pdf Graphic file (type QTm)
+ <use  "Picture/case11sigma.pdf" > [34]
+(./Manuscript.bbl [35] [36]) [37]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1464.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1464.
  (./Manuscript.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1080.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1080.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1464.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1464.
 
 
 LaTeX Warning: There were undefined references.
@@ -759,15 +850,15 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1080.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1464.
  ) 
 Here is how much of TeX's memory you used:
- 11346 strings out of 493638
- 155381 string characters out of 6146796
- 240912 words of memory out of 5000000
- 14600 multiletter control sequences out of 15000+600000
+ 11439 strings out of 493638
+ 156752 string characters out of 6146796
+ 240251 words of memory out of 5000000
+ 14649 multiletter control sequences out of 15000+600000
  16274 words of font info for 61 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  34i,17n,45p,1634b,458s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Manuscript.pdf (30 pages).
+Output written on Manuscript.pdf (37 pages).
