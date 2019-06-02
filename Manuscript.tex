@@ -14,6 +14,7 @@
 \usepackage{subfigure}
 \usepackage{booktabs}
 \usepackage{amsthm}
+\usepackage{enumerate}
 \usepackage{subfigure}
 \usepackage{listings}
 \usepackage{setspace}
@@ -143,7 +144,7 @@ The Von Mises' yielding condition is used here to describe the elastic limit. In
 \end{equation}
 where $Y_0$ is the yield strength of the material in simple tension.
 
-\section{The Riemann problem}
+\section{The Riemann problem}\label{sec:Riemann}
 
 
 The Riemann problem for the 1D time dependent elastic-plastic equations is given as follows:
@@ -259,7 +260,7 @@ Integrate the above equation from the data in front of a wave to the data behind
 \end{equation}
 This relation always hold in the elastic state.
 
-\subsubsection{Relations across the contact wave}\label{sec:contact}
+\subsubsection{Relations across the contact wave}\label{sec:contacte}
   For  a  system without molecular diffusion, there is no materials convecting  across the contact wave or interface, so the velocities on two sides of  the discontinuity are always equal. % .
   This can also be verified by the eigenvectors  in Eq.(\ref{eq:eiv}) and  Eq.(\ref{eq:eivp}).  
 
@@ -529,7 +530,7 @@ where
 
 Take a comparason  of Eq.(\ref{eq:c_e}) and Eq.(\ref{eq:c_p}), we notice that the sonic speed is not continuous between the states of elastic and plastic. As the shear modulus $\mu$ is always positive, so the elastic wave is always faster than the plastic wave.  This is very important and may cause wrong results if ignoring it.   
 
-\subsubsection{Relations across the contact wave}\label{sec:contact}
+\subsubsection{Relations across the contact wave}\label{sec:contactp}
 
 According to  the eigenvectors in  Eq.(\ref{eq:eivp}), for the $\lambda_{1}$-wave ($\lambda_1 = u$), we
 have
@@ -608,7 +609,7 @@ And the shock speed is given as
 
 %Althoughx HLLCE Riemann solver can simulate the elastic-plastic flow effectively and efficiently without iterations, but the plastic structure is not considered in and  there are some assumptions that are not so reasonable, especially in the interface between different materials. For example, the normal stresses $\sigma_x$ are  always equavalent across the interface, but the pressures are not always equal, and the consequent evaluation of $\widetilde{s}^*$ may   be of large error.
 
-Now we consider the constructing details of the exact  Riemann  solver. For  the Riemann problem in Section \ref{sec:riemann}, there are  $6\times 6$ possible  cases in the Riemann solution with different wave structures. Now we consider the  left six cases as shown in Fig.\ref{fig:cases}.
+Now we consider the constructing details of the exact  Riemann  solver. For  the Riemann problem in Section \ref{sec:riemann}, there are  $6\times 6$ possible  cases in the Riemann solution with different wave structures.  The left six cases are  shown in Fig.\ref{fig:cases}. 
 
 \begin{figure}
   \centering
@@ -634,36 +635,37 @@ Now we consider the constructing details of the exact  Riemann  solver. For  the
   \label{fig:cases}
 \end{figure}
 
+%
+%There are mainly five  steps in the soluting process. 
+%\begin{enumerate}
+%  \item In section (\ref{sec:eva}), a pre-evaluation is done with a shock-contact-shock waves assumption to give an initial values of $\rho^*_L$ and $\rho^*_R$.  
+%
+%  \item  With  given $\rho^*_L$ and $\rho^*_R$, we need to  detect the left cases in Fig.\ref{fig:cases} and the corresponding right cases, this is done in section \ref{sec:eva}.
+%
+%  \item  We solve functions $s_{xx}(\rho)$, $p(\rho)$ and $u(\rho)$ for  different cases in section \ref{sec:one}.
+%
+%\item At last,   with  the informations in Section \ref{sec:contact},  
+%\begin{equation}\label{eq:fus}
+%  \begin{aligned}
+%	f_u(\rho^*_L,\rho^*_R) = u_L^* -u_R^* = 0,\\
+%	f_\sigma(\rho^*_L,\rho^*_R) = \sigma_L^* -\sigma_R^* = 0,
+%\end{aligned}
+%\end{equation}
+% use a Newton iteration method to  get new $\rho^*_L$ and $\rho^*_R$, then do steps 2-5 again until the result convergents. this process is given in Section \ref{sec:iteration}.
+%\end{enumerate}
 
-There are mainly five  steps in the soluting process. 
-\begin{enumerate}
-  \item In section (\ref{sec:eva}), a pre-evaluation is done with a shock-contact-shock waves assumption to give an initial values of $\rho^*_L$ and $\rho^*_R$.  
+  \subsection{The solving process}\label{sec:iteration}
+  By the relations in Section  \ref{sec:Riemann}, all  variables can be written as functions of  the density, so if  densities in regions $\mathbf{R}^*_L$ and  $\mathbf{R}^*_R$ are known, the Riemann problem is solved. 
 
-  \item  With  given $\rho^*_L$ and $\rho^*_R$, we need to  detect the left cases in Fig.\ref{fig:cases} and the corresponding right cases, this is done in section \ref{sec:eva}.
-
-  \item  We solve functions $s_{xx}(\rho)$, $p(\rho)$ and $u(\rho)$ for  different cases in section \ref{sec:one}.
-
-\item At last,   with  the informations in Section \ref{sec:contact},  
-\begin{equation}\label{eq:fus}
-  \begin{aligned}
-	f_u(\rho^*_L,\rho^*_R) = u_L^* -u_R^* = 0,\\
-	f_\sigma(\rho^*_L,\rho^*_R) = \sigma_L^* -\sigma_R^* = 0,
-\end{aligned}
-\end{equation}
- use a Newton iteration method to  get new $\rho^*_L$ and $\rho^*_R$, then do steps 2-5 again until the result convergents. this process is given in Section \ref{sec:iteration}.
-\end{enumerate}
-
-  \subsection{An iteration process of $\rho^*_L$ and $\rho^*_R$}\label{sec:iteration}
-
-For a given  $\rho_L^*$ and a given $\rho_R^*$,
- by relations of 
+For given  $\rho_L^*$ and  $\rho_R^*$,
+ by the relation across the contact wave in Section \ref{sec:contacte} and Section \ref{sec:contactp}, we can get  
 \begin{equation}
   \begin{aligned}
 	f_u(\rho_L^*,\rho_R^*)_=  u_L^* -u_R^* =0,\\ 
-	f_\sigma(\rho_L^*,\rho_R^*)_=  \sigma_L^* -\sigma_R^* =0,\\ 
+	f_\sigma(\rho_L^*,\rho_R^*)_=  \sigma_L^* -\sigma_R^* =0.\\ 
 \end{aligned}
 \end{equation}
-and used a Newton iteration method, we can solve the densities $\rho_L^*$ and $\rho_R^*$ out.
+Then using a  Newton iteration method, we can solve the densities $\rho_L^*$ and $\rho_R^*$ out.  The solving process is shown in Fig.\ref{fig:newton}, and the details are list in the following.
 \begin{figure}
   \centering
   \includegraphics[width= 10cm] {Tikz-figure6.eps}
@@ -671,6 +673,25 @@ and used a Newton iteration method, we can solve the densities $\rho_L^*$ and $\
   \label{fig:newton}
 \end{figure}
 
+
+	\textbf{Initial:}
+
+	The initial densities are given as 
+\begin{equation}
+  \rho_{L(0)}^* = \rho_L \quad \rho_{R(0)}^* = \rho_R.
+\end{equation}
+
+\item 
+\end{enumerate}
+
+\textbf{Iteration begin:}
+\begin{enumerate}[Step 1]
+  \item Case select
+	By a given  $\rho _{L,(k)}$ and a  $\rho _{R,(k)}$ in $k$ iteration step, we need to determine the case of the wave structures in the left and right. The determine process is done in Section \ref{sec:deter}.
+
+  \item After determining the structure case, we need solve the Cauchy stresses and the velocities in regions $\mathbf{R}^*_L$ and $\mathbf{R}^*_L$, this is given in Section \ref{sec:functions}.
+
+  \item  new 
 The Newton iteration to evaluate $\rho_L^*$ and $\rho_R^*$ is given as
 \begin{equation}
 \left[ \begin{array}{l}
@@ -695,9 +716,9 @@ f_{\sigma(k)}\\
 \right]
 \end{equation}
 
-The initial of densities are given as the pre-evalation values,
+The initial of densities are given as 
 \begin{equation}
-  \rho_{L(0)}^* = \hat{\rho}_L \quad \rho_{R(0)}^* = \hat{\rho}_R.
+  \rho_{L(0)}^* = \rho_L \quad \rho_{R(0)}^* = \rho_R.
 \end{equation}
 The  convergence is meassured by 
 \begin{equation}

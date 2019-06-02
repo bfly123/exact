@@ -17,7 +17,7 @@
 \BOOKMARK [3][-]{subsubsection.3.2.3}{Relations\040across\040rarefaction\040waves}{subsection.3.2}% 17
 \BOOKMARK [3][-]{subsubsection.3.2.4}{Relations\040across\040shock\040waves}{subsection.3.2}% 18
 \BOOKMARK [1][-]{section.4}{Exact\040Riemann\040solver\040Code\040site\040link}{}% 19
-\BOOKMARK [2][-]{subsection.4.1}{An\040iteration\040process\040of\040*L\040and\040*R}{section.4}% 20
+\BOOKMARK [2][-]{subsection.4.1}{The\040solving\040process}{section.4}% 20
 \BOOKMARK [2][-]{subsection.4.2}{Pre-evaluation\040of\040densities}{section.4}% 21
 \BOOKMARK [2][-]{subsection.4.3}{Determining\040the\040case\040of\040structures}{section.4}% 22
 \BOOKMARK [2][-]{subsection.4.4}{Functions\040of\040the\040pressure,\040derivative\040stress\040and\040velocity}{section.4}% 23
