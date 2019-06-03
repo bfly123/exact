@@ -8,19 +8,20 @@
 %\usetikzlibrary{shapes.geometric}
 %\usetikzlibrary{arrows.meta}
 \usepackage{authblk}
-\usepackage{graphics,graphicx}
+\usepackage{graphics}
 \usepackage{mathrsfs}
 \usepackage{amsmath,bm}
 \usepackage{subfigure}
+\usepackage{caption,subcaption}
 \usepackage{booktabs}
 \usepackage{amsthm}
 \usepackage{enumerate}
-\usepackage{subfigure}
 \usepackage{listings}
 \usepackage{setspace}
 \graphicspath{{TikzFig/}{Picture/}}
 \usepackage{hyperref}
-
+\usepackage{stackengine}
+\usepackage[demo]{graphicx}
 %\journal{Journal of Computational Physics}
 \bibliographystyle{elsarticle-num}
 
@@ -355,15 +356,15 @@ Take the relation of EOS (\ref{eq:mie}) in, we can get the pressure  as
 \end{equation}
 it can be written as a differential equation of $p(\rho)$
 \begin{equation}
-  p'(\rho) - \lambda_1 \frac{p}{\rho^2} = f_2(\rho),
+  p'(\rho) - \lambda \frac{p}{\rho^2} = f_2(\rho),
 \end{equation}
 where 
 \begin{equation}
-  \lambda_1 = \rho_0 \Gamma_0 \quad f_2(\rho) = a_0^2\frac{\partial f}{\partial \eta}- \lambda_1\frac{s_{xx}(\rho)}{\rho^2}.
+  \lambda = \rho_0 \Gamma_0 \quad f_2(\rho) = a_0^2\frac{\partial f}{\partial \eta}- \lambda\frac{s_{xx}(\rho)}{\rho^2}.
 \end{equation}
 The pressure can be solved out as 
 \begin{equation}\label{eq:p_rho}
-  p e^{\frac{\lambda_1}{\rho}} - \int f_2(\rho) e^{\frac{\lambda_1}{\rho}}d\rho = \text{constant}.
+  p e^{\frac{\lambda}{\rho}} - \int f_2(\rho) e^{\frac{\lambda}{\rho}}d\rho = \text{constant}.
 \end{equation}
 Then for a given density $\rho$, we can get  the sonic speed $c_e$  and velocity 
 \begin{equation}
@@ -386,7 +387,7 @@ which lead to
 \end{align}
 We can get  similar  relations  as the left-going wave as
 \begin{equation}
-  p e^{\frac{\lambda_1}{\rho}} - \int f_2(\rho) e^{\frac{\lambda_1}{\rho}}d\rho = \text{constant}.
+  p e^{\frac{\lambda}{\rho}} - \int f_2(\rho) e^{\frac{\lambda}{\rho}}d\rho = \text{constant}.
 \end{equation}
 \begin{equation}
   u-\int\frac{c_e}{\rho} d\rho = \text{constant}.
@@ -558,7 +559,7 @@ Across the left wave associated with $\lambda_2$-wave, ($\lambda_2=u-c_p$), we h
 \end{equation}
 Samilar to section \ref{sec:rarefaction}, we can get the relations
 \begin{equation}\label{eq:p_rhop}
-  p e^{\frac{\lambda_1}{\rho}} - \int f_2(\rho) e^{\frac{\lambda_1}{\rho}}d\rho = \text{constant}.
+  p e^{\frac{\lambda}{\rho}} - \int f_2(\rho) e^{\frac{\lambda}{\rho}}d\rho = \text{constant}.
 \end{equation}
 and
 \begin{equation}
@@ -566,7 +567,7 @@ and
 \end{equation}
 where
 \begin{equation}
-  \lambda_1 = \rho_0 \Gamma_0 \quad f_2(\rho) = a_0^2\frac{\partial f}{\partial \eta}- \lambda_1\frac{s_{xx}(\rho)}{\rho^2}.
+  \lambda = \rho_0 \Gamma_0 \quad f_2(\rho) = a_0^2\frac{\partial f}{\partial \eta}- \lambda\frac{s_{xx}(\rho)}{\rho^2}.
 \end{equation}
 \emph{\textbf{Right-going rarefaction wave} }
 Across the right wave associated with $\lambda_3$-wave, ($\lambda_3=u+c_e$), we have
@@ -575,7 +576,7 @@ Across the right wave associated with $\lambda_3$-wave, ($\lambda_3=u+c_e$), we 
 \end{equation}
 We can get  similar  relations  as the left-going wave as
 \begin{equation}
-  p e^{\frac{\lambda_1}{\rho}} - \int f_2(\rho) e^{\frac{\lambda_1}{\rho}}d\rho = \text{constant}.
+  p e^{\frac{\lambda}{\rho}} - \int f_2(\rho) e^{\frac{\lambda}{\rho}}d\rho = \text{constant}.
 \end{equation}
 \begin{equation}
   u-\int\frac{c_p}{\rho} d\rho = \text{constant}.
@@ -611,9 +612,11 @@ And the shock speed is given as
 
 Now we consider the constructing details of the exact  Riemann  solver. For  the Riemann problem in Section \ref{sec:riemann}, there are  $6\times 6$ possible  cases in the Riemann solution with different wave structures.  The left six cases are  shown in Fig.\ref{fig:cases}. 
 
+
 \begin{figure}
+\captionsetup[subfigure]{labelformat=empty}
   \centering
-  \subfigure[Elastic rarefaction wave]{
+  \subfigure[Elastic rarefaction wave $R^E$]{
 	\label{fig:subfigure:a}
   \includegraphics[width=3.8cm]{Tikz-figure0.eps}}
   \subfigure[Plastic rarefaction wave]{
@@ -635,7 +638,17 @@ Now we consider the constructing details of the exact  Riemann  solver. For  the
   \label{fig:cases}
 \end{figure}
 
-%
+%\begin{figure}
+%  \centering
+%\stackunder{\includegraphics[width=3.6cm]{Tikz-figure0.eps}}{\tiny ($\!R^\!E\!$) Elastic rarefaction}%
+%\stackunder{\includegraphics[width=3.6cm]{Tikz-figure1.eps}}{\tiny ($\!R^\!P\!$) Plastic rarefaction}
+%\stackunder{\includegraphics[width=3.6cm]{Tikz-figure2.eps}}{\tiny ($\!R\!^E\!R\!^P\!$) Both elastic and plastic rarefactions}
+%\stackunder{\includegraphics[width=3.6cm]{Tikz-figure3.eps}}{\tiny ($\!S^\!E$) Elastic shock}%
+%\stackunder{\includegraphics[width=3.6cm]{Tikz-figure4.eps}}{\tiny ($\!S^\!P\!$) Plastic shock}
+%\stackunder{\includegraphics[width=3.6cm]{Tikz-figure5.eps}}{\tiny ($\!S\!^E\!S\!^P\!$) Both elastic and plastic shocks}
+%\caption{November to April}
+%\end{figure}
+
 %There are mainly five  steps in the soluting process. 
 %\begin{enumerate}
 %  \item In section (\ref{sec:eva}), a pre-evaluation is done with a shock-contact-shock waves assumption to give an initial values of $\rho^*_L$ and $\rho^*_R$.  
@@ -655,7 +668,7 @@ Now we consider the constructing details of the exact  Riemann  solver. For  the
 %\end{enumerate}
 
   \subsection{The solving process}\label{sec:iteration}
-  By the relations in Section  \ref{sec:Riemann}, all  variables can be written as functions of  the density, so if  densities in regions $\mathbf{R}^*_L$ and  $\mathbf{R}^*_R$ are known, the Riemann problem is solved. 
+  By the relations in Section  \ref{sec:Riemann}, all  variables can be written as functions of  the density, so if  densities in regions $\mathbf{Q}^*_L$ and  $\mathbf{Q}^*_R$ are known, the Riemann problem is solved. 
 
 For given  $\rho_L^*$ and  $\rho_R^*$,
  by the relation across the contact wave in Section \ref{sec:contacte} and Section \ref{sec:contactp}, we can get  
@@ -674,25 +687,22 @@ Then using a  Newton iteration method, we can solve the densities $\rho_L^*$ and
 \end{figure}
 
 
-	\textbf{Initial:}
+\noindent  \textbf{Initial:}
 
 	The initial densities are given as 
 \begin{equation}
   \rho_{L(0)}^* = \rho_L \quad \rho_{R(0)}^* = \rho_R.
 \end{equation}
 
-\item 
-\end{enumerate}
-
+\noindent
 \textbf{Iteration begin:}
 \begin{enumerate}[Step 1]
-  \item Case select
-	By a given  $\rho _{L,(k)}$ and a  $\rho _{R,(k)}$ in $k$ iteration step, we need to determine the case of the wave structures in the left and right. The determine process is done in Section \ref{sec:deter}.
+  \item Case select:
+	By a given  $\rho _{L,(k)}^*$ and a  $\rho _{R,(k)}^*$ in $k$ iteration step, we need to determine the case of the wave structures in the left and right. The determining  process is done in Section \ref{sec:deter}.
 
-  \item After determining the structure case, we need solve the Cauchy stresses and the velocities in regions $\mathbf{R}^*_L$ and $\mathbf{R}^*_L$, this is given in Section \ref{sec:functions}.
+  \item Solving $f_u$ and $f_\sigma$:  After determining the structure case, we need  to solve the Cauchy stresses and the velocities in regions $\mathbf{Q}^*_L$ and $\mathbf{Q}^*_R$, those are given in Section \ref{sec:functions}.
 
-  \item  new 
-The Newton iteration to evaluate $\rho_L^*$ and $\rho_R^*$ is given as
+  \item  Updating  $\rho_L^*$ and $\rho_R^*$:   By the Newton iteration equation, new densities can be updated, 
 \begin{equation}
 \left[ \begin{array}{l}
  \rho _{L,(k+1)}^*\\
@@ -715,18 +725,6 @@ f_{\sigma(k)}\\
 \end{array}
 \right]
 \end{equation}
-
-The initial of densities are given as 
-\begin{equation}
-  \rho_{L(0)}^* = \rho_L \quad \rho_{R(0)}^* = \rho_R.
-\end{equation}
-The  convergence is meassured by 
-\begin{equation}
-\text{CHA} = \text{max} \left[  
-\frac{|\rho_{L(k+1)}^*- \rho_{L,(k)}^*|}{\frac{1}{2}|\rho_{L(k+1)}^*+\rho_{L(k)}^*|},   \frac{|\rho_{R(k+1)}^*- \rho_{R,(k)}^*|}{\frac{1}{2}|\rho_{R(k+1)}^*+\rho_{R(k)}^*|},|f_{u}|,|f_{\sigma}|\right].
-\end{equation}
-and the tolerance is taken as $\text{TOL} = 10^{-4}$. It usually takes 3-4 step to get a convergence result.
-
 The derivatives of $f_{u}$ and $f_{\sigma}$ are given by
 \begin{equation}
   \frac{\partial f_{u,(k+1)}}{\partial \rho^*_{L(R)}} = \frac{f_{u,(k+1)}-f_{u,(k)}}{\rho_{L(R),(k+1)}^* - \rho_{L(R),(k)}},\quad
@@ -741,52 +739,64 @@ where $\Delta \rho$ is a little quatity, we can choose it as
 \begin{equation}
   \Delta \rho_{L(R)} = \frac{\rho_{L(R),(0)}^*}{100}.
 \end{equation}
+\item Convergence test:
+The  convergence is meassured by 
+\begin{equation}
+\text{CHA} = \text{max} \left[  
+\frac{|\rho_{L(k+1)}^*- \rho_{L,(k)}^*|}{\frac{1}{2}|\rho_{L(k+1)}^*+\rho_{L(k)}^*|},   \frac{|\rho_{R(k+1)}^*- \rho_{R,(k)}^*|}{\frac{1}{2}|\rho_{R(k+1)}^*+\rho_{R(k)}^*|},|f_{u}|,|f_{\sigma}|\right].
+\end{equation}
+and the tolerance is taken as $\text{TOL} = 10^{-4}$.
 
-A flow chat of this process is shown in Fig.\ref{fig:newton}.
-\subsection{Pre-evaluation of densities}\label{sec:eva}
-At first, we assume that there are only one elastic shock wave in the left side and another one  elastic shock in the right side as shown in Fig.\ref{fig:HLLC}. According to the conservation relations across the shocks, we have    
-\begin{equation}
-  \left\{
-  \begin{aligned}
-	&\hat{\rho}_L\hat{u}^*_L = \rho_L u_L +s_L(\hat{\rho}_L^*-\rho_L), \\
-	&\hat{\rho}_L\hat{u}_L^{*2}-\sigma_L^* = \rho_L u_L^2 -\sigma_L +s_L(\hat{\rho}_L^* \hat{u}_L^*-\rho_L u_L), 
-  \end{aligned}
-\right.
-\end{equation}
-and
-\begin{equation}
-  \left\{
-  \begin{aligned}
-	&\hat{\rho}_R\hat{u}^*_R = \rho_R u_R +s_R(\hat{\rho}_R^*-\rho_R), \\
-	&\hat{\rho}_R\hat{u}_R^{*2}-\sigma_R^* = \rho_R u_R^2 -\sigma_R +s_R(\hat{\rho}_R^* \hat{u}_R^*-\rho_R u_R). 
-  \end{aligned}
-\right.
-\end{equation}
-\begin{figure}
-  \centering
-  \includegraphics[width=8cm]{Tikz-figure7.eps}
-  \caption{Pre-evaluation with a three-waves structure.}
-  \label{fig:HLLC}
-\end{figure}
+If $ \text{CHA} \le \text{TOL} $, the iteration ends. 
+It usually takes 2-4 step to get a convergence result.
+\end{enumerate}
 
-
-Using the relation across the interface,
-\begin{equation}
-  \hat{u}_L^* = \hat{u}_R^* =\hat{s}^*,\quad \hat{\sigma}_L^* = \hat{\sigma}_R^*.
-\end{equation}
-the speed of contact wave can be evaluated as 
-\begin{equation}
-\hat{s}^* = \frac{\sigma_L-\sigma_R+\rho_L u_L(s_L-u_L)-\rho_R u_R(s_R-u_R)}{\rho_L(s_L-u_L)-\rho_R(s_R-u_R)},
-\end{equation}
-the density is solved as 
-\begin{equation}
-\hat{\rho}_L^* = \frac{\rho_L(u_L-s_L)}{\hat{s}^*-s_L}, \quad
-\hat{\rho}_R^* = \frac{\rho_R(u_R-s_R)}{\hat{s}^*-s_R}.
-\end{equation}
-Here we define the speeds of left and right going waves as
- \begin{equation}
-      s_L = \text{min} (u_L-c_L, u_R-c_R, 0),  \quad s_R = \text{max}(u_L+c_L, u_R+c_R, 0).
-\end{equation}
+\noindent
+\textbf{Iteration end}
+%\subsection{Pre-evaluation of densities}\label{sec:eva}
+%At first, we assume that there are only one elastic shock wave in the left side and another one  elastic shock in the right side as shown in Fig.\ref{fig:HLLC}. According to the conservation relations across the shocks, we have    
+%\begin{equation}
+%  \left\{
+%  \begin{aligned}
+%	&\hat{\rho}_L\hat{u}^*_L = \rho_L u_L +s_L(\hat{\rho}_L^*-\rho_L), \\
+%	&\hat{\rho}_L\hat{u}_L^{*2}-\sigma_L^* = \rho_L u_L^2 -\sigma_L +s_L(\hat{\rho}_L^* \hat{u}_L^*-\rho_L u_L), 
+%  \end{aligned}
+%\right.
+%\end{equation}
+%and
+%\begin{equation}
+%  \left\{
+%  \begin{aligned}
+%	&\hat{\rho}_R\hat{u}^*_R = \rho_R u_R +s_R(\hat{\rho}_R^*-\rho_R), \\
+%	&\hat{\rho}_R\hat{u}_R^{*2}-\sigma_R^* = \rho_R u_R^2 -\sigma_R +s_R(\hat{\rho}_R^* \hat{u}_R^*-\rho_R u_R). 
+%  \end{aligned}
+%\right.
+%\end{equation}
+%\begin{figure}
+%  \centering
+%  \includegraphics[width=8cm]{Tikz-figure7.eps}
+%  \caption{Pre-evaluation with a three-waves structure.}
+%  \label{fig:HLLC}
+%\end{figure}
+%
+%
+%Using the relation across the interface,
+%\begin{equation}
+%  \hat{u}_L^* = \hat{u}_R^* =\hat{s}^*,\quad \hat{\sigma}_L^* = \hat{\sigma}_R^*.
+%\end{equation}
+%the speed of contact wave can be evaluated as 
+%\begin{equation}
+%\hat{s}^* = \frac{\sigma_L-\sigma_R+\rho_L u_L(s_L-u_L)-\rho_R u_R(s_R-u_R)}{\rho_L(s_L-u_L)-\rho_R(s_R-u_R)},
+%\end{equation}
+%the density is solved as 
+%\begin{equation}
+%\hat{\rho}_L^* = \frac{\rho_L(u_L-s_L)}{\hat{s}^*-s_L}, \quad
+%\hat{\rho}_R^* = \frac{\rho_R(u_R-s_R)}{\hat{s}^*-s_R}.
+%\end{equation}
+%Here we define the speeds of left and right going waves as
+% \begin{equation}
+%      s_L = \text{min} (u_L-c_L, u_R-c_R, 0),  \quad s_R = \text{max}(u_L+c_L, u_R+c_R, 0).
+%\end{equation}
 \subsection{Determining the case of structures} \label{sec:deter}
 
 Using a given density $\rho^*_L$, we can distinguish the shock and rarefaction in the left side.  This is done easily by comparing $\rho^*_L$ with $\rho_L$,
@@ -821,10 +831,14 @@ the devaitoric stress can be evaluated as
 \label{tab:cases}
 \end{table}
 
-\subsection{Functions of the pressure, derivative stress and velocity}\label{sec:functions}
-\subsubsection{State in $\tilde{\mathbf{Q}}_{L(R)}$ in cases (c,f)}
 
-For cases (c,f), the meterial periods a yielding process from elastic to plastic. There are two waves and  one more state $\tilde{\mathbf{Q}}_{L(R)}$ exists. In state $\tilde{\mathbf{Q}}_{L(R)}$, the derivative stress achieves the elastic limit. 
+\subsection{States in  regions $\tilde{\mathbf{Q}}_{L}$ and   $\tilde{\mathbf{Q}}_{R}$}
+ For cases (a,b,d,e) in Fig.\ref{fig:cases}, the material is totally yielding or totally not yielding, there is no midlle state $\tilde{\mathbf{Q}}_{L(R)}$. For  expression conveience, we let    
+ \begin{equation}
+   (\tilde{\rho}_{L(R)},\tilde{u}_{L(R)},\tilde{p}_{L(R)},\tilde{s}_{xx}) =(\rho_{L(R)}, u_{L(R)},p_{L(R)},s_{xxL(R)}),
+\end{equation}
+
+For cases (c,f), the meterial periods a yielding process from elastic to plastic. There are two waves and  one more state $\tilde{\mathbf{Q}}_{L(R)}$ exist. In state $\tilde{\mathbf{Q}}_{L(R)}$, the derivative stress achieves the elastic limit. 
 \begin{equation}
  \tilde{s}_{xxL(R)} = \left\{ \begin{aligned}
 	 &\frac{2}{3}Y_0 \quad  &\text{Case (c)},\\
@@ -832,7 +846,7 @@ For cases (c,f), the meterial periods a yielding process from elastic to plastic
 	\end{aligned}
   \right.
 \end{equation}
-By (\ref{eq:rhosxx}),at state $\tilde{\mathbf{Q}}_{L(R)}$ we can solve the density out as 
+By  the relation in (\ref{eq:rhosxx}),  we can solve the density out as 
 \begin{equation}
   \tilde{\rho}_{L(R)}= \left\{ \begin{aligned}
 	  & \rho_{L(R)} \text{exp}\left(-\frac{Y_0}{2\mu}+\frac{3 s_{xxL(R)}}{4\mu}\right), \quad  & \text{Case (c)}, \\ 
@@ -851,11 +865,11 @@ we give the function of $s_{xx}$ at first,
 The pressure is given as 
 \begin{equation}
   p(\rho)=
-	  p_{L(R)}e^{\frac{\lambda_1}{\rho_{L(R)}}-\frac{\lambda_1}{\rho}} +e^{-\frac{\lambda_1}{\rho}}\int_{\rho_{L(R)}}^{\rho} f_2(x) e^{\frac{\lambda_1}{x}}dx,\quad  \rho_{L(R)}\ge \rho \ge \tilde{\rho}_{L(R)},
+	  p_{L(R)}e^{\frac{\lambda}{\rho_{L(R)}}-\frac{\lambda}{\rho}} +e^{-\frac{\lambda}{\rho}}\int_{\rho_{L(R)}}^{\rho} f_2(x) e^{\frac{\lambda}{x}}dx,\quad  \rho_{L(R)}\ge \rho \ge \tilde{\rho}_{L(R)},
 \end{equation}
 where 
 \begin{equation}
-  \lambda_1 = \rho_0 \Gamma_0 \quad f_2(\rho) = a_0^2\frac{\partial f}{\partial \eta}- \lambda_1\frac{s_{xx}(\rho)}{\rho^2}.
+  \lambda = \rho_0 \Gamma_0 \quad f_2(\rho) = a_0^2\frac{\partial f}{\partial \eta}- \lambda\frac{s_{xx}(\rho)}{\rho^2}.
 \end{equation}
 
 And sonic speed,
@@ -902,16 +916,9 @@ At last the velocity is
    \tilde{\sigma}_{L(R)} = -\tilde{p}_{L(R)} + \tilde{s}_{L(R)}.
  \end{equation}
 
+ \subsection{States in regions $\mathbf{Q}_{L}^*$  and  $\mathbf{Q}_{R}^*$}\label{sec:functions}
 
- \subsubsection{State in $\mathbf{Q}_{L(R)}^*$}
-
- For cases (a,b,d,e) in Fig.\ref{fig:cases}, the material is totally yielding or totally not yielding, there is no midlle state $\tilde{\mathbf{Q}}_{L(R)}$. For  expression conveience, we let    
- \begin{equation}
-   (\tilde{\rho}_{L(R)},\tilde{u}_{L(R)},\tilde{p}_{L(R)},\tilde{s}_{xx}) =(\rho_{L(R)}, u_{L(R)},p_{L(R)},s_{xxL(R)}),
-\end{equation}
-in cases (a,b,d,e). Then we can solve the states in region $\mathbf{Q}_{L(R)}^*$ from region  $\tilde{\mathbf{Q}}_{L(R)}$ with a given $\rho^*_{L(R)}$.     
-
-\emph{\textbf{Rarefaction wave cases (a,b,c)}} For rarefaction wave, 
+\emph{\textbf{Rarefaction wave}} For rarefaction wave, 
 we not only  need to solve the state after the wave in region $\mathbf{Q}_{L(R)}^*$, but also  need to know the states inside the expansion region. 
 
 First we give the function of $s_{xx}$,
@@ -923,11 +930,11 @@ First we give the function of $s_{xx}$,
   \end{equation}
 Then we give the pressure,
 \begin{equation}
-  p(\rho)=\tilde{p}_{L(R)}e^{\frac{\lambda_1}{\rho_{L(R)}}-\frac{\lambda_1}{\rho}} +e^{-\frac{\lambda_1}{\rho}}\int_{\tilde{\rho}_{L(R)}}^{\rho} f_2(x) e^{\frac{\lambda_1}{x}}dx, \quad   \tilde{\rho}_{L(R)} \ge \rho \ge \rho_{L(R)}^*
+  p(\rho)=\tilde{p}_{L(R)}e^{\frac{\lambda}{\rho_{L(R)}}-\frac{\lambda}{\rho}} +e^{-\frac{\lambda}{\rho}}\int_{\tilde{\rho}_{L(R)}}^{\rho} f_2(x) e^{\frac{\lambda}{x}}dx, \quad   \tilde{\rho}_{L(R)} \ge \rho \ge \rho_{L(R)}^*
 \end{equation}
 where 
 \begin{equation}
-  \lambda_1 = \rho_0 \Gamma_0 \quad f_2(\rho) = a_0^2\frac{\partial f}{\partial \eta}- \lambda_1\frac{s_{xx}(\rho)}{\rho^2}.
+  \lambda = \rho_0 \Gamma_0 \quad f_2(\rho) = a_0^2\frac{\partial f}{\partial \eta}- \lambda\frac{s_{xx}(\rho)}{\rho^2}.
 \end{equation}
 And sonic speed,
 \begin{equation}
@@ -949,11 +956,11 @@ By now, we can get the state in star regions as
   p^*_{L(R)} = p(\rho_{L(R)}^*),\quad s_{xxL(R)}^* = s_{xx}(\rho_{L(R)}^*),\quad  u^*_{L(R)} = u(\rho_{L(R)}^*).
 \end{equation}
 
-\emph{\textbf{Shock wave cases (d,e,f)}} 
+\emph{\textbf{Shock wave}} 
 For shock waves, the  deviatoric stress is given as 
 \begin{equation}
-  s_{xxL(R)}^* = \left\{\begin{aligned}
-	  & -\frac{4}{3}\mu\text{ln}\left(\frac{\rho_{L(R)}^*}{\tilde{\rho}_{L(R)}}\right)+\tilde{s}_{xxL(R)},
+s_{xx}(\rho) = \left\{\begin{aligned}
+	  & -\frac{4}{3}\mu\text{ln}\left(\frac{\rho}{\tilde{\rho}_{L(R)}}\right)+\tilde{s}_{xxL(R)},
 	\quad  &\text{case (d)},\\
 	& -\frac{2}{3}Y_0,   \quad
 	&\text{cases (e, f)}.
@@ -961,18 +968,23 @@ For shock waves, the  deviatoric stress is given as
   \end{equation}
 And the pressure is given as
 \begin{equation}
-  p^*_{L(R)}= 
-  \frac{2t(c_1f(\rho^*_{L(R)}/\rho_0)+\tilde{e}_{L(R)})-(\tilde{\sigma}_{L(R)}+{s}_{xxL(R)}^*)}{2tc_0-1},
+  p(\rho)= 
+  \frac{2t(c_1f(\rho/\rho_0)+\tilde{e}_{L(R)})-(\tilde{\sigma}_{L(R)}+{s}_{xx}(\rho))}{2tc_0-1},
 \end{equation}
-where $c_0 = \frac{1}{\rho_0\Gamma_0}$ and $c_1 = \frac{a_0^2}{\Gamma_0}$ and $ t=\frac{\tilde{\rho}_{L(R)} \rho_{L(R)}^*}{\rho_{L(R)}^*-\tilde{\rho}_{L(R)}}$. 
+where $c_0 = \frac{1}{\rho_0\Gamma_0}$ and $c_1 = \frac{a_0^2}{\Gamma_0}$ and $ t=\frac{\tilde{\rho}_{L(R)} \rho}{\rho-\tilde{\rho}_{L(R)}}$. 
 And the velocity is given as
 \begin{equation}
-  u_{L(R)}^* = \left\{ \begin{array}{l}
-	  \tilde{u}_L -\sqrt{\frac{\tilde{\sigma}_L-\sigma_{L(R)}^*}{t}},\\ 
-	  \tilde{u}_R +\sqrt{\frac{\tilde{\sigma}_R-\sigma_{L(R)}^*}{t}}.\\
+  u(\rho)= \left\{ \begin{array}{l}
+	  \tilde{u}_L -\sqrt{\frac{\tilde{\sigma}_L-\sigma(\rho)}{t}},\\ 
+	  \tilde{u}_R +\sqrt{\frac{\tilde{\sigma}_R-\sigma(\rho)}{t}},\\
   \end{array}
 \right.
 \end{equation}
+where $\sigma(\rho) = -p(\rho)+s_{xx}(\rho)$. And the state in  the star region is given as
+\begin{equation}
+  p^*_{L(R)} = p(\rho_{L(R)}^*),\quad s_{xxL(R)}^* = s_{xx}(\rho_{L(R)}^*),\quad  u^*_{L(R)} = u(\rho_{L(R)}^*).
+\end{equation}
+
 
 %\subsubsection{Rarefaction  wave cases (a,b)}
 %For Rarefaction wave, we not only  need to solve the state after the wave in region $\mathbf{Q}_{L(R)}^*$, but also  need to know the states inside the expansion region. 
@@ -1123,7 +1135,7 @@ And the velocity is given as
 %
 %
 \section{Half Riemann problem and its solver}
-Some times we need to analyse a half Riemann problem with a given velocity or Cauchy stress in one side. Shown in Fig.\ref{fig:half} , in these cases, we only need to solve the states in another side. There are six possible cases just like them in Section \ref{sec:riemann}.
+Some time we need to analyse a half Riemann problem with a given velocity or Cauchy stress. Shown in Fig.\ref{fig:half} , in these cases, we only need to solve the states in one side. There are six possible cases just like them in Section \ref{sec:riemann}.
 
 \begin{figure}
   \centering
@@ -1132,78 +1144,58 @@ Some times we need to analyse a half Riemann problem with a given velocity or Ca
   \label{fig:half}
 \end{figure}
 
-The process of solving a half Riemann problem is also in five steps just like the full Riemann problem:
-
-\begin{enumerate}
-\item First we  evaluate the density in the star region $\mathbf{Q}^*$ with a  elastic shock assumption. 
-\item By the evaluated density $\rho^*$, we can determine the structures case.
-\item Solving the functions of $\sigma(\rho)$ or $u(\rho)$ according to the wave case.
-  \item 
-	Then using the function of $f_\sigma(\rho^*) = \sigma(\rho^*) - \sigma^*$ (or  $f_u(\rho^*)=u(\rho^*) - u^*$) to take a  convergent decision, if not,  using   the  Newton iteration process to get a new $\rho^*$ and then take the steps 2-5 again. 
-  \end{enumerate}
-\subsection{Evaluate of the density $\hat{\rho}$ in region $\mathbf{Q}^*$ }
-As shown in Fig.\ref{fig:half:shock}, we  assume there is only one elastic shock wave between region $\mathbf{Q}$ and region $\mathbf{Q}^*$.
-
-\begin{figure}
-  \centering
-  \includegraphics[width= 10cm] {Tikz-figure9.eps}
-  \caption{Pre-evaluation of the half Riemann problem  with a elastic shock assumeption.}
-  \label{fig:half:shock}
-\end{figure}
-Then use the shock relation in Section \ref{sec:shock}, we can get the functions of Cauchy stress as 
+As we know the velocity $u^*$ or the Cauchy stress $\sigma ^*$, there is only one function need to be solved as  
 \begin{equation}
-  \sigma(\rho) = -p(\rho) +s_{xx}(\rho),
+  f(\rho^*) =u(\rho^*) - u^* = 0,
 \end{equation}
-where 
+or
 \begin{equation}
-  p(\rho)= \frac{2t(c_1f(\rho/\rho_0)+e_R)-(\sigma_R+s_{xx}(\rho))}{2tc_0-1},
-\end{equation}
-and $c_0 = \frac{1}{\rho_0\Gamma_0}$ and $c_1 = \frac{a_0^2}{\Gamma_0}$, and  $ t=\frac{\rho\rho_R}{\rho-\rho_R}$. And the derivative stress is 
-\begin{equation}
-  s_{xx}(\rho) = 
-	   -\frac{4}{3}\mu\text{ln}\left(\frac{\rho}{\rho_{R}}\right)+s_{xxR},
- \end{equation}
- and the velocity is given as
- \begin{equation}
-   u(\rho) = u_R+ \sqrt{\frac{\sigma_R- \sigma(\rho)}{t}}.
- \end{equation}
-
-
-
-
-If the Cauchy stress  in region $\mathbf{Q}^*$ is given, let
-\begin{equation}
-  f(\rho) = \sigma(\rho) -\sigma_R,
-\end{equation}
-if the velocity is given, let
-\begin{equation}
-  f(\rho) = u(\rho) -u_R.
+  f(\rho^*) =\sigma(\rho^*) - \sigma^* = 0.
 \end{equation}
 
-The  Newton iteration is given as
+
+\noindent  \textbf{Initial:}
+
+	The initial densitie is  given as 
 \begin{equation}
-  \hat{\rho}_{(k+1)} = \hat{\rho}_{(k)}- f/\frac{\partial f_{(k)}}{\partial \rho},
+\rho_{(0)}^* = \rho_R, 
 \end{equation}
-and the initial is given as 
-\begin{equation}
-  \hat{\rho}_{(0)} = \rho_R.
-\end{equation}
-The  congergence is meassured by
-\begin{equation}
-  \text{CHA} = \text{max} \left[\frac{|\hat{\rho}_{(k+1)}-\hat{\rho}_{(k)}|}{\frac{1}{2}|\hat{\rho}_{(k+1)}+\hat{\rho}_{(k)|}},|f_{(k+1)}|\right].
-\end{equation}
-\subsection{Resolve the state in region $\mathbf{Q}^*$}
-With a given density $\rho^*$ in region $\mathbf{Q}^*$, a same case determining process is taken as in Section \ref{sec:deter} to determining the structures case in Table \ref{tab:cases}.  By  an exact same iteration process in above   
+\textbf{Iteration begin:}
+\begin{enumerate}[Step 1]
+  \item Case select:
+	By a given  $\rho _{(k)}^*$ in $k$ iteration step, we need to determine the case of the wave structures in the left side. The determining  process is  also done in Section \ref{sec:deter}.
+
+  \item Solving $f$:  After determining the structure case, we need to solve the velocity ( or  the Cauchy stress )in region $\mathbf{Q}^*$, this is  given in Section \ref{sec:functions}.
+
+  \item  Updating   $\rho^*$:   By the Newton iteration equation, a new density can be updated as
+
 \begin{equation}
  \rho^*_{(k+1)} = \rho^*_{(k)}- f/\frac{\partial f_{(k)}}{\partial \rho},
 \end{equation}
-with the initial condition of 
+The derivatives of $f$ is  given by
 \begin{equation}
-  \rho^*_{(0)} = \hat{\rho},
+  \frac{\partial f_{(k+1)}}{\partial \rho^*} = \frac{f_{(k+1)}-f_{(k)}}{\rho_{(k+1)}^* - \rho^*_{(k)}},
 \end{equation}
-we can solve the $\rho^*$ out. 
+At the first step, we use a simple  numerical difference  method
+\begin{equation}
+  \frac{\partial f_{(1)}}{\partial \rho^*} = \frac{f(\rho^*+\Delta \rho)-f(\rho^*)}{\Delta \rho},
+\end{equation}
+where $\Delta \rho$ is a little quatity, we can choose it as
+\begin{equation}
+  \Delta \rho = \frac{\rho_{(0)}^*}{100}.
+\end{equation}
+\item Convergence test:
+The  convergence is meassured by 
+\begin{equation}
+\text{CHA} = \text{max} \left[  
+\frac{|\rho_{(k+1)}^*- \rho_{(k)}^*|}{\frac{1}{2}|\rho_{(k+1)}^*+\rho_{(k)}^*|},|f|\right].
+\end{equation}
+and the tolerance is taken as $\text{TOL} = 10^{-4}$.
 
-In the iteration process the Cauchy stress $\sigma^*(\rho)$ or the velocity $\sigma^*(\rho)$ is given by the relations in Section \ref{sec:functions} for different cases.
+If $ \text{CHA} \le \text{TOL} $, the iteration ends. 
+It usually takes 2-4 step to get a convergence result.
+\end{enumerate}
+\textbf{Iteration end.}
 \section{Numerical  tests }
 In this section, by choosing suitable initial conditions, we will solve the Riemann problem with several different structure cases in the solution. For simple  expression, in figures, we use same representations as those in \cite{gao2018complete}. ``$|$'' means the contact wave, and capital letters ''S'' and ''R'' means the shock and rarefaction wave. Superscript letters ''E'' and  ''P'' indicate the elastic or plastic state of a wave.  Numerical results by the method  in \cite{liumulti} is used to verified the correctness of the exact solution. In the following tests, the materials are taken as  aluminium and copper. The parameters for the EOS and constitutive model for aluminum and copper  are
 $ (\rho_0, a_0, \Gamma_0, s, \mu)_{\text{Al}} =(8930 \text{kg}/\text{m}^3, 3940 \text{m}/\text{s},2, 1.49, 2.76 ,2.76\times 10^{10} \text{Pa} )$ and   $(\rho_0, a_0, \Gamma_0, s, \mu)_{\text{copper}} =(2785 \text{kg}/\text{m}^3, 5328 \text{m}/\text{s},2, 1.338,4.5\times 10^{10}\text{Pa})$, respectively. The computational domain is set to be $[0,1m]$ with 800 cell points and the intial interface is located at $0.5m$, the terminal time is $t=5\times 10^{-5}s$.
