@@ -13,10 +13,12 @@
 \usepackage{amsthm}
 \usepackage{enumerate}
 \usepackage{listings}
+\usepackage{appendix}
 \usepackage{setspace}
 \graphicspath{{TikzFig/}{Picture/}}
 \usepackage{hyperref}
 %\usepackage{stackengine}
+\usepackage{multirow}
 \usepackage[demo]{graphicx}
 \usepackage[margin=2.5cm]{geometry}
 \intextsep=8pt plus 3pt minus 1pt
@@ -927,12 +929,13 @@ Combining (\ref{shock1}) and (\ref{yield1}), we can find, in any side of the wav
 \begin{table}
   \centering
   \caption{The condition of  cases classification.}
-  \begin{tabular}{c|cccc}
+  \begin{tabular}{c|ccc}
 	\toprule
-	Conditions & $|s_{xx}|<\frac{2}{3}Y_0$ and $|\hat{s}_{xx}|<\frac{2}{3}Y_0$ & $s_{xx}=\frac{2}{3}Y_0$  and  $|\hat{s}_{xx}| \geq \frac{2}{3}Y_0$&  other\\
-  \midrule
-  $\hat{\rho^*} <\rho$ & case a: $R^{E}$ & case b: $ R^{P}$ & case c: $R^{E}R^{P}$ \\
-  $\hat{\rho^*} >\rho$ & case d: $S^{E}$ & case e: $ S^{P}$ & case f: $S^{E}S^{P}$ \\
+	\multirow{2}{*}{  $\hat{\rho^*} <\rho$ }  &  $\hat{s}_{xx}<\frac{2}{3}Y_0$ & $s_{xx}=\frac{2}{3}Y_0$ and  $\hat{s}_{xx} \geq \frac{2}{3}Y_0$ &  other\\
+ & case a: $R^{E}$ & case b: $ R^{P}$ & case c: $R^{E}R^{P}$ \\
+ \hline
+ \multirow{2}{*}{  $\hat{\rho^*} >\rho$ } & $\hat{s}_{xx} > -\frac{2}{3}Y_0$ & $s_{xx}=-\frac{2}{3}Y_0$  and  $\hat{s}_{xx} \leq -\frac{2}{3}Y_0$&  other\\
+  & case d: $S^{E}$ & case e: $ S^{P}$ & case f: $S^{E}S^{P}$ \\
   %\hline
   \bottomrule
 \end{tabular}
@@ -1565,12 +1568,43 @@ In this paper, we give a detailed analysis of the Riemann problem for one-dimens
 	\end{enumerate}
 	  Then, based on the analysis, we have constructed exact Riemann solvers for  both the Riemann problem  and the half Riemann problem, separately. Tested by  a large number of examples, the exact Riemann solver is reasonable and matching  well with the numerical method for both  single material problems and multi-material Riemann problems.
 
-\section*{Acknowledgement}
+\section*{Acknowledgement}r
 This work was supported by NSFC(Grant No. 11672047) and Science Challenge Project (Grant No. TZ2016002).
 
 \bibliography{mybibfile}
   \appendix
   \renewcommand{\appendixname}{Appendix~}
 
+  \section{Gauss-Legendre  quadrature}
+  In this paper, we use Gauss-Legendre quadrature to  take  numerical integrations. 
+For a function $f(x)$,  the intergration from $-1$ to $1$ is given as
+$$ 
+  \int_{-1}^1 f(x)dx \approx \sum_{i=0}^n \omega_i f(x_i)
+$$
+$\omega_i$ is the weight, and $x_i$ is the integrating point.
+For different orders they are listed in Table \ref{tab:coe}. 
+
+\subsection{}
+\begin{table}\label{tab:coe}
+  \centering
+  \caption{Coefficiences for Guass-Legendere quadrature}
+  \begin{tabular}{cccc}
+	\toprule
+	Number of points, $n$ &  Order & Points, $x_i$ & Weights, $\omega_i$ \\
+	\midrule
+	1 & 1  & 0 & 2 \\
+	\hline
+	2 & 3  & $\pm \frac{1}{\sqrt{3}}$ & 1 \\
+	\hline
+	\multirow{4}{*}{3} &\multirow{4}{*}{3} & 0  & $\frac{8}{9}$ \\
+	\cline{3-4}
+	& & $\pm\sqrt{\frac{3}{5}}$ & $\frac{5}{9} $\\
+	\hline
+	\multirow{4}{*}{\makecell{4}} & \multirow{4}{*}{7}  & $\pm \sqrt{\frac{3}{7} -\frac{2}{7}\sqrt{\frac{6}{5}}}$  & $\frac{18+\sqrt{30}}{36}$ \\
+	\cline{3-4}
+  &  &  $\pm \sqrt{\frac{3}{7} +\frac{2}{7}\sqrt{\frac{6}{5}}}$  & $\frac{18-\sqrt{30}}{36}$ \\
+  \bottomrule
+\end{tabular}
+\end{table}
 
 \end{document}
