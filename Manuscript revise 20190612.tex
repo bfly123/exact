@@ -508,7 +508,7 @@ By the above deductions for the moving shock wave, we can find that, if the dens
 \subsection{Plastic state}
 
 When the material is yielding,
-\begin{equation}
+\begin{equation}\label{eq:sxxp}
   |s_{xx}| = \frac{2}{3}Y_0,
 \end{equation}
 the equations of Riemann problem  can be written as
@@ -910,6 +910,7 @@ the deviatoric stress can be evaluated as
 
 According to the values of initial and evaluated deviatoric stresses in (\ref{sxx1}) in one side of the contact wave, the non-linear wave in this side may be:
 
+{\color{red}
 \begin{equation} \label{yield1}
   \left\{
   \begin{aligned}
@@ -921,27 +922,31 @@ According to the values of initial and evaluated deviatoric stresses in (\ref{sx
 	& \text{an elastic shock and a following plastic shock} &  \text{if} \ {s}_{xxL(R)} > -\frac{2}{3}Y^{0} \ \text{and} \ \hat{s}_{xxL(R)} \leq -\frac{2}{3}Y_{0}.
 \end{aligned}\right.
 \end{equation}
+}
 
 Combining (\ref{shock1}) and (\ref{yield1}), we can find, in any side of the wave structure of this Riemann problem, there are six cases showed in Table \ref{tab:cases}, where capital letters ''S'' and ''R'' mean the shock and rarefaction wave, respectively; superscript letters ''E'' and  ''P'' indicate the elastic or plastic state of a wave, respectively. Otherwise, the  subscript $L$ or  $R$  are omitted for simplification.
 
 %  Then we can classify every side into six cases, and conditions for the classfication are  shown in Table \ref{tab:cases}, the  subscripts $_L$ and  $_R$  are omitted for simplication.
 
+{\color{red}
 \begin{table}
   \centering
   \caption{The condition of  cases classification.}
   \begin{tabular}{c|ccc}
 	\toprule
 	\multirow{2}{*}{  $\hat{\rho^*} <\rho$ }  &  $\hat{s}_{xx}<\frac{2}{3}Y_0$ & $s_{xx}=\frac{2}{3}Y_0$ and  $\hat{s}_{xx} \geq \frac{2}{3}Y_0$ &  other\\
+	\cline{2-4}
  & case a: $R^{E}$ & case b: $ R^{P}$ & case c: $R^{E}R^{P}$ \\
  \hline
  \multirow{2}{*}{  $\hat{\rho^*} >\rho$ } & $\hat{s}_{xx} > -\frac{2}{3}Y_0$ & $s_{xx}=-\frac{2}{3}Y_0$  and  $\hat{s}_{xx} \leq -\frac{2}{3}Y_0$&  other\\
+	\cline{2-4}
   & case d: $S^{E}$ & case e: $ S^{P}$ & case f: $S^{E}S^{P}$ \\
   %\hline
   \bottomrule
 \end{tabular}
 \label{tab:cases}
 \end{table}
-
+}
 
 \subsection{States in  middle regions ($\tilde{\mathbf{Q}}_{L}$ and   $\tilde{\mathbf{Q}}_{R}$) }
 
@@ -1067,36 +1072,31 @@ Thanks to (\ref{eq:shocku}), the velocity can be written as
 
  \subsection{States in regions $\mathbf{Q}_{L}^*$  and  $\mathbf{Q}_{R}^*$}\label{sec:functions}
 
-\emph{\textbf{Rarefaction wave}} For rarefaction wave,
-we not only  need to solve the state after the wave in region $\mathbf{Q}_{L(R)}^*$, but also  need to know  states inside the expansion region.
-
-First we give the function of $s_{xx}$,
+\emph{\textbf{Case ($R^E$, $R^P$ and $R^ER^P$)}} For rarefaction wave case, by the equations of  (\ref{eq:rhosxx}) in elastic state  and  (\ref{eq:sxxp}) in plastic state, we can get
+the function of  deviatoric stress $s_{xx}$ as,
 \begin{equation}
   s_{xx}(\rho) = \left\{\begin{aligned}
-	  & -\frac{4}{3}\mu\text{ln}\left(\frac{\rho}{\tilde{\rho}_{L(R)}}\right)+s_{xxL(R)}, \quad & \tilde{\rho}_{L(R)} \ge \rho \ge \rho_{L(R)}^*,  \quad &\text{case (a)},\\
-	  & \frac{2}{3}Y_0,  \quad & \tilde{\rho}_{L(R)} \ge \rho \ge \rho_{L(R)}^*,  \quad &\text{case (b,c)}.
+	  & -\frac{4}{3}\mu\text{ln}\left(\frac{\rho}{\tilde{\rho}_{L(R)}}\right)+s_{xxL(R)},  \quad &\text{case ($R^E$)},\\
+	  & \frac{2}{3}Y_0 ,  \quad &\text{case ($R^P$ and $R^ER^P$)}.
   \end{aligned} \right.
   \end{equation}
-Then we give the pressure,
+Just like the process in (\ref{rerpp}) the pressure is given as,
 \begin{equation}
   p(\rho)=\tilde{p}_{L(R)}e^{\frac{\lambda}{\rho_{L(R)}}-\frac{\lambda}{\rho}} +e^{-\frac{\lambda}{\rho}}\int_{\tilde{\rho}_{L(R)}}^{\rho} f_2(x) e^{\frac{\lambda}{x}}dx, \quad   \tilde{\rho}_{L(R)} \ge \rho \ge \rho_{L(R)}^*
 \end{equation}
-where
-\begin{equation}
-  \lambda = \rho_0 \Gamma_0 \quad f_2(\rho) = a_0^2\frac{\partial f}{\partial \eta}- \lambda\frac{s_{xx}(\rho)}{\rho^2}.
-\end{equation}
-And sonic speed,
+And the  sonic speed,
 \begin{equation}
   c(\rho) = \left\{ \begin{aligned}
-	&  \sqrt{a_0^2 \frac{\partial f}{\partial \eta} + \frac{p(\rho)}{\rho^2}\rho_0\Gamma_0 -\frac{\rho_0}{\rho^2}\Gamma_0 s_{xx}(\rho) +\frac{4}{3}\frac{\mu}{\rho}} \quad & \text{case (a)},\\
-	&	\sqrt{a_0^2 \frac{\partial f}{\partial \eta} + \frac{p(\rho)}{\rho^2}\rho_0\Gamma_0 -\frac{\rho_0}{\rho^2}\Gamma_0 s_{xx}(\rho)}  \quad  & \text{case (b,c)}.
+	&  \sqrt{a_0^2 \frac{\partial f}{\partial \eta} + \frac{p(\rho)}{\rho^2}\rho_0\Gamma_0 -\frac{\rho_0}{\rho^2}\Gamma_0 s_{xx}(\rho) +\frac{4}{3}\frac{\mu}{\rho}} \quad & \text{case ($R^E$)},\\
+	&	\sqrt{a_0^2 \frac{\partial f}{\partial \eta} + \frac{p(\rho)}{\rho^2}\rho_0\Gamma_0 -\frac{\rho_0}{\rho^2}\Gamma_0 s_{xx}(\rho)}  \quad  & \text{case ($R^P$ and  $R^ER^P$)}.
 	\end{aligned}\right.
 \end{equation}
-Then we can get  the  function of  velocity
+ By relations (\ref{eq:urhoEL}) and (\ref{eq:urhoER})
+ we can get  the  function of  velocity as
 \begin{equation}
   u(\rho) =\left\{ \begin{aligned}
-	  &\tilde{u}_L - \int_{\rho_L}^{\rho} \frac{c(x)}{x} dx, \quad  & \tilde{\rho}_L \ge \rho \ge \rho_L^*,   \\
-	  &\tilde{u}_R + \int_{\rho_R}^{\rho} \frac{c(x)}{x} dx, \quad  & \tilde{\rho}_R \ge \rho \ge \rho_R^*, \\
+	  &\tilde{u}_L - \int_{\rho_L}^{\rho} \frac{c(x)}{x} dx,  \\
+	  &\tilde{u}_R + \int_{\rho_R}^{\rho} \frac{c(x)}{x} dx, \\
 	\end{aligned}
   \right.
 \end{equation}
@@ -1105,28 +1105,27 @@ By now, we can get the state in star regions as
   p^*_{L(R)} = p(\rho_{L(R)}^*),\quad s_{xxL(R)}^* = s_{xx}(\rho_{L(R)}^*),\quad  u^*_{L(R)} = u(\rho_{L(R)}^*).
 \end{equation}
 
-\emph{\textbf{Shock wave}}
+\emph{\textbf{Shock wave cases ($S^E$, $S^P$ and $S^ES^P$}}
 For shock waves, the  deviatoric stress is given as
 \begin{equation}
 s_{xx}(\rho) = \left\{\begin{aligned}
 	  & -\frac{4}{3}\mu\text{ln}\left(\frac{\rho}{\tilde{\rho}_{L(R)}}\right)+\tilde{s}_{xxL(R)},
-	\quad  &\text{case (d)},\\
+	\quad  &\text{case ($S^E$)},\\
 	& -\frac{2}{3}Y_0,   \quad
-	&\text{cases (e, f)}.
+	&\text{cases ( $S^P$ and $S^ES^P$)}.
   \end{aligned} \right.
   \end{equation}
-And the pressure is given as
+By the equation of (\ref{eq:shocke}), the pressure is given as
 \begin{equation}
   p(\rho)=
   \frac{2t(c_1f(\rho/\rho_0)+\tilde{e}_{L(R)})-(\tilde{\sigma}_{L(R)}+{s}_{xx}(\rho))}{2tc_0-1},
 \end{equation}
-where $c_0 = \frac{1}{\rho_0\Gamma_0}$ and $c_1 = \frac{a_0^2}{\Gamma_0}$ and $ t=\frac{\tilde{\rho}_{L(R)} \rho}{\rho-\tilde{\rho}_{L(R)}}$.
-And the velocity is given as
+And the velocity is
 \begin{equation}
-  u(\rho)= \left\{ \begin{array}{l}
-	  \tilde{u}_L -\sqrt{\frac{\tilde{\sigma}_L-\sigma(\rho)}{t}},\\
-	  \tilde{u}_R +\sqrt{\frac{\tilde{\sigma}_R-\sigma(\rho)}{t}},\\
-  \end{array}
+  u(\rho)= \left\{ \begin{aligned}
+	&	\tilde{u}_L -\sqrt{\frac{\tilde{\sigma}_L-\sigma(\rho)}{t}}, \quad \text{For the left-going shock wave},\\
+	&  \tilde{u}_R +\sqrt{\frac{\tilde{\sigma}_R-\sigma(\rho)}{t}}, \quad \text{For the right-going shock wave}.\\
+  \end{aligned}
 \right.
 \end{equation}
 where $\sigma(\rho) = -p(\rho)+s_{xx}(\rho)$. And the state in  the star region is given as
@@ -1284,7 +1283,7 @@ where $\sigma(\rho) = -p(\rho)+s_{xx}(\rho)$. And the state in  the star region 
 %
 %
 \section{Half Riemann problem and its solver}
-Some time we need to analyse a half Riemann problem with a given velocity or Cauchy stress. Shown in Fig.\ref{fig:half} , in these cases, we only need to solve states in one side. There are six possible cases just like them in Section \ref{sec:riemann}.
+Some time we need to analyse a half Riemann problem with a given velocity or Cauchy stress. Shown in Fig.\ref{fig:half} , in these cases, we only need to solve states in one side. There are six possible cases just like them in Section \ref{sec:Riemann}.
 
 \begin{figure}
   \centering
@@ -1294,15 +1293,15 @@ Some time we need to analyse a half Riemann problem with a given velocity or Cau
 \end{figure}
 
 As we know the velocity $u^*$ or the Cauchy stress $\sigma ^*$, there is only one function need to be solved as
-\begin{equation}
-  f(\rho^*) =u(\rho^*) - u^* = 0,
+\begin{equation}\label{eq:halfu}
+  f(\rho^*,\mathbf{Q}_R) =u(\rho^*,\mathbf{Q}_R) - u^* = 0,
 \end{equation}
 or
-\begin{equation}
-  f(\rho^*) =\sigma(\rho^*) - \sigma^* = 0.
+\begin{equation}\label{eq:halfs}
+  f(\rho^*,\mathbf{Q}_R) =\sigma(\rho^*,\mathbf{Q}_R) - \sigma^* = 0.
 \end{equation}
-
-The solving process is list in the following.
+Samilar to the process in Section (\ref{sec:iteration}), we have to use an iteration procedure to solve (\ref{exact1}) and
+the solving process is list in the following.
 
 \noindent  \textbf{Initial:}
 
@@ -1596,11 +1595,11 @@ For different orders they are listed in Table \ref{tab:coe}.
 	\hline
 	2 & 3  & $\pm \frac{1}{\sqrt{3}}$ & 1 \\
 	\hline
-	\multirow{4}{*}{3} &\multirow{4}{*}{3} & 0  & $\frac{8}{9}$ \\
+	\multirow{2}{*}{3} &\multirow{2}{*}{3} & 0  & $\frac{8}{9}$ \\
 	\cline{3-4}
 	& & $\pm\sqrt{\frac{3}{5}}$ & $\frac{5}{9} $\\
 	\hline
-	\multirow{4}{*}{\makecell{4}} & \multirow{4}{*}{7}  & $\pm \sqrt{\frac{3}{7} -\frac{2}{7}\sqrt{\frac{6}{5}}}$  & $\frac{18+\sqrt{30}}{36}$ \\
+	\multirow{2}{*}{\makecell{4}} & \multirow{2}{*}{7}  & $\pm \sqrt{\frac{3}{7} -\frac{2}{7}\sqrt{\frac{6}{5}}}$  & $\frac{18+\sqrt{30}}{36}$ \\
 	\cline{3-4}
   &  &  $\pm \sqrt{\frac{3}{7} +\frac{2}{7}\sqrt{\frac{6}{5}}}$  & $\frac{18-\sqrt{30}}{36}$ \\
   \bottomrule
