@@ -57,7 +57,7 @@ The  elastic-plastic flow  is  used to describe the deformation process of solid
 
 In the development history of hydrodynamic numerical methods, the exact Riemann solver has played a very important role {\color{red}as} it not only can give a guide and reference to the construction of approximate Riemann solvers, but also can be used to determine {\color{red}the convergence and stability of numerical schemes}. However, building the exact Riemann solver for 1D elastic-plastic flows is not that easy. Comparing with the governing equations system of 1D pure fluids, for 1D elastic-plastic flows, there are two more equations: a non-conservative constitutive equation and the von Mises yielding condition.  The non-conservative character of the constitutive equation increases the difficulty in constructing  Riemann solvers, while the von Mises yielding condition may leads to more non-linear waves in the structure of Riemann solvers. Moreover, in a general way, the equation of state(EOS) for solid materials is more complex than that for pure fluids, which directly increases the difficulty in solving the Riemann problem.
 
-For the elastic-plastic flow with the hypo-elastic constitutive model and  the von Mises' yielding condition,  some approximate Riemann solvers\cite{gavrilyuk2008modelling,cheng2015high,cheng2016harten,liumulti}  {\color{red}have been developed recently. However, for the exact Riemann solver, the research is relatively few, and them are only considered with  simple constitutive models and simple EOSs.} For example, Garaizar \cite{garaizar1991solution} and Miller \cite{miller2004iterative} introduced  an exact Riemann solver for elastic or hyper-elastic materials, Gao and Liu \cite{gao20171d,gao2018complete} firstly considered the yielding effect and developed an exact elastic-perfectly plastic solid Riemann solver, but the EOS used by them is very simple: in the elastic state, the material derivative of pressure is the linear function of the strain rate, which means the energy equation is not necessary; in the plastic state,  a linear  "stiffened-gas" EOS was used. All these makes easily deduce the relation across a non-linear wave. Although there are many  cases considered in their works \cite{gao20171d,gao2018complete}, for every case, they can easily obtain the exact solution. But for many engineering problems, the EOS is more complex, and the energy equation has to be included during simulating. For these engineering solid problems with a complex constitutive and a complex EOS, such as the Mie-Gr\"uneisen EOS, up to now, there is no  exact Riemann solution.
+For the elastic-plastic flow with the hypo-elastic constitutive model and  the von Mises' yielding condition,  some approximate Riemann solvers\cite{gavrilyuk2008modelling,cheng2015high,cheng2016harten,liumulti}  {\color{red}have been developed recently. However, for the exact Riemann solver, the research is relatively few, and them are only considered with  simple constitutive models and simple EOSs.} For example, Garaizar \cite{garaizar1991solution} and Miller \cite{miller2004iterative} introduced  an exact Riemann solver for elastic or hyper-elastic materials, Gao and Liu \cite{gao20171d,gao2018complete} firstly considered the yielding effect and developed an exact elastic-perfectly plastic solid Riemann solver. But there are three shotcomings in their works. {\color{red}Firstly, the EOS used by them is very simple: in the elastic state, the material derivative of pressure is the linear function of the strain rate, which means the energy equation is not necessary; in the plastic state,  a linear  "stiffened-gas" EOS was used.  Secondly, the states of elastic and plastic is using with very different equations systems and parameters, the seperation  deduces to more non-physical wave-structures cases in which the plastic wave  may be faster than the elastic wave. Thirdly, only the changing from  elastic to plastic is considered in their works, however, in fact  through an unloading and reloading process the plastic material also can change to elastic.}
 
 %Although the control equations of elastic-plastic flow is similar to the equations in computational fluid dynamics (CFD). But there are mainly three difficulties  of constructing  Riemann solvers in elastic-plastic flows.  Firstly, the constitutive models used in elastic-plastic flows are more complicated. Secondly, the EOS for solid materials is also with more characters. Finally, the yielding process of materials may lead to more wave structures.
 
@@ -72,7 +72,7 @@ For the elastic-plastic flow with the hypo-elastic constitutive model and  the v
 
 %For example, Garaizar \cite{garaizar1991solution} designed an exact Riemann solution of isotropic hyperelastic material theoretically.  Miller \cite{miller2004iterative} presented a general iterative method for the solution of the Riemann problem for hyperbolic elastic systems. Gao and Liu \cite{gao20171d,gao2018complete} firstly considered the yielding condition in, and proposed an exact elastic-perfectly plastic solid Riemann solver with both elastic and plastic states. As many as thirty-six \cite{gao20171d} and sixty-four \cite{gao2018complete} different solution types are considered in their works. However, in their papers,  a linear  "stiffened-gas" EOS was used in the plastic state and a more simple linear relation of pressure and strain rate is used in the elastic state. This simplification can truly deduce to simple relations  across the shock wave and rarefaction wave, but we still need an exact Riemann solver with a uniform and more common used EOS and equations system for different elastic-plastic materials.
 
-In this paper, we want to construct an exact Riemann solver for the system of 1D elastic-plastic flows with the Mie-Gr\"uneisen EOS, the hypo-elastic constitutive model and the von Mises' yielding condition. As every knows, the Mie-Gr\"uneisen EOS is complex and is used widely  in many engineering problems, which makes the energy equation must be included in the system of elastic-plastic flows and so we have to use some special methods to resolve the rarefaction wave. Otherwise, we analyse the Jacobian matrix and find, in the wave structures of Riemann solvers, there may be three to five waves, including one contact wave and other two to four non-linear waves. These nonlinear waves may be elastic shock waves, elastic rarefaction waves,  plastic shock waves or plastic rarefaction waves. Moreover, elastic wave runs always faster than the followed plastic wave. So there are thirty-six possible cases of the wave structures in the Riemann solver.
+In this paper, we want to construct an exact Riemann solver for the system of 1D elastic-plastic flows with the Mie-Gr\"uneisen EOS, the hypo-elastic constitutive model and the von Mises' yielding condition. As every knows, the Mie-Gr\"uneisen EOS is complex and is used widely  in many engineering problems, which makes the energy equation must be included in the system of elastic-plastic flows and so we have to use some special methods to resolve the rarefaction wave. Otherwise, we analyse the Jacobian matrix and find, in the wave structures of Riemann solvers, there may be three to five waves, including one contact wave and other two to four non-linear waves. These nonlinear waves may be elastic shock waves, elastic rarefaction waves,  plastic shock waves or plastic rarefaction waves. Moreover, elastic wave runs always faster than the followed plastic wave. So there are thirty-six possible cases of the wave structures in the Riemann solver. {\color{red} Both the  changing from elastic to plastic and  the converse changing from plastic to elastic are considered.}
 %For a given case, we will obtain theoretical relations of all the states as functions of density. At last,  through an iteration process of densities at both sides of the contact wave, the  exact solution will be obtained. Also, the half Riemann problem and its exact solution are considered in this paper.
 
 %the Mie-Gr\"uneisen EOS is used for both the elastic state and plastic state of the material, which is an adequate approximation to a wide variety of materials of interest, includes some gaseous or solid explosives and solid metals under high pressure \ref{ shyue2001fluid}.  According to both the theoretical analysation and numerical tests \cite{xiao1996numerical}, in this system, there may be three to five waves, including one contact wave and elastic wave (shock or rarefaction wave) or plastic wave or both the elastic and plastic waves in each side of the contact wave. We will prove this, the elastic wave always faster than the plastic wave of  one side, so varying from the initial condition, there are $6\times 6$ thirty-six possible cases of the structures in the solution. For a given case, we will obtain theoretical relations of all the states as functions of density. At last,  through an iteration process of densities at both sides of the contact wave, the  exact solution will be obtained. Also, the half Riemann problem and its exact solution are considered in this paper.
@@ -797,7 +797,7 @@ At the first step, we use a simple  numerical difference  method
   \frac{\partial f_{u(1)}}{\partial \rho^*_{L(R)}} = \frac{f_{u}(\rho^*_{L(R)}+\Delta \rho)-f_{u}(\rho^*_{L(R)})}{\Delta \rho_{L(R)}},\quad
   \frac{\partial f_{u(1)}}{\partial \rho^*_{L(R)}} = \frac{f_{u}(\rho^*_{L(R)}+\Delta \rho)-f_{u}(\rho^*_{L(R)})}{\Delta \rho_{L(R)}},
 \end{equation}
-where $\Delta \rho$ is a little quantity, we define
+where $\Delta \rho$ is a small quantity, we define
 \begin{equation}
   \Delta \rho = \frac{\rho_{L(R)(1)}^*}{100}.
 \end{equation}
@@ -916,10 +916,10 @@ According to the values of initial and evaluated deviatoric stresses in (\ref{sx
   \begin{aligned}
 	& \text{an elastic  rarefaction} & \text{if}  \ \hat{s}_{xxL(R)}<\frac{2}{3}Y^{0},\\
 	& \text{a plastic rarefaction} & \text{if} \ {s}_{xxL(R)} = \frac{2}{3}Y^{0} \ \text{and} \ \hat{s}_{xxL(R)} \geq \frac{2}{3}Y_{0},\\
-	& \text{an elastic rarefaction  and a following plastic rarefaction} &  \text{if} \ {s}_{xxL(R)} < \frac{2}{3}Y^{0} \ \text{and} \ \hat{s}_{xxL(R)} \geq \frac{2}{3}Y_{0},\\
+	& \text{an elastic rarefaction  and a following plastic rarefaction} &  \text{if} \ {s}_{xxL(R)} < \frac{2}{3}Y_{0} \ \text{and} \ \hat{s}_{xxL(R)} \geq \frac{2}{3}Y_{0},\\
 	& \text{an elastic shock} & \text{if}  \ \hat{s}_{xxL(R)}> -\frac{2}{3}Y_{0},\\
-	& \text{a plastic shock} & \text{if} \ {s}_{xxL(R)} = -\frac{2}{3}Y^{0} \ \text{and} \ \hat{s}_{xxL(R)} \leq -\frac{2}{3}Y_{0},\\
-	& \text{an elastic shock and a following plastic shock} &  \text{if} \ {s}_{xxL(R)} > -\frac{2}{3}Y^{0} \ \text{and} \ \hat{s}_{xxL(R)} \leq -\frac{2}{3}Y_{0}.
+	& \text{a plastic shock} & \text{if} \ {s}_{xxL(R)} = -\frac{2}{3}Y_{0} \ \text{and} \ \hat{s}_{xxL(R)} \leq -\frac{2}{3}Y_{0},\\
+	& \text{an elastic shock and a following plastic shock} &  \text{if} \ {s}_{xxL(R)} > -\frac{2}{3}Y_{0} \ \text{and} \ \hat{s}_{xxL(R)} \leq -\frac{2}{3}Y_{0}.
 \end{aligned}\right.
 \end{equation}
 }
@@ -1027,7 +1027,7 @@ States in region $\tilde{\mathbf{Q}}_{L(R)}$ can be solved as
   \tilde{p}_{L(R)} = p(\rho_{L(R)}), \quad \tilde{u}_{L(R)} = u(\rho_{L(R)}).
 \end{equation}
 
-\textbf{Remark}:  In (\ref{rerpp}) and (\ref{rerpu}), there are two integral terms. Obviously, because of the complexity of the EOS, we can not get the exact integral values. We have to use the numerical methods to approximate the two integral terms with high order of accuracy. The approximation methods are introduced in the Appendix 1. 
+\textbf{Remark}:  In (\ref{rerpp}) and (\ref{rerpu}), there are two integral terms. Obviously, because of the complexity of the EOS, we can not get the exact integral values. We have to use the numerical methods to approximate the two integral terms with high order of accuracy. The approximation methods are introduced in the Appendix A. 
 
 
 \emph{\textbf{Case ($S^{E}S^{P}$)}}
@@ -1307,20 +1307,20 @@ the solving process is list in the following.
 
 	The initial density is  given as
 \begin{equation}
-\rho_{(0)}^* = \rho_R.
+\rho_{(1)}^* = \rho_R.
 \end{equation}
 \textbf{Iteration begin:}
 \begin{enumerate}[Step 1]
-  \item Case select:
-	By a given  $\rho _{(k)}^*$ in $k$ iteration step, we need to determine the case of the wave structures in the left side. The determining  process is  also done in Section \ref{sec:deter}.
+  \item Determining the case of the wave structure:
+	By a given  $\rho _{(k)}^*$ in the $k$-th iteration step, we can use the methods introduced in Section \ref{sec:deter} to determine the case of wave structure of this Riemann problem. In this procedure for solving this Riemann problem, the subscript $(k)$ means the variable in the $k$-th  iteration step.
 
-  \item Solving $f$:  After determining the structure case, we need to solve the velocity ( or  the Cauchy stress) in  the region $\mathbf{Q}^*$, this is  given in Section \ref{sec:functions}.
 
-  \item  Updating   $\rho^*$:   By the Newton iteration equation, a new density can be updated as
+  \item Solving $f(\rho^*,\mathbf{Q}_R)$: 
+	
+	After determining the structure case, we need to solve the velocity ( or  the Cauchy stress) in  the region $\mathbf{Q}^*$, this is  given in Section \ref{sec:functions}.
 
-\begin{equation}
- \rho^*_{(k+1)} = \rho^*_{(k)}- f/\frac{\partial f_{(k)}}{\partial \rho},
-\end{equation}
+  \item Evaluating the derivative of  $f(\rho^*,\mathbf{Q}_R)$:
+
 The derivatives of $f$ is  given by
 \begin{equation}
   \frac{\partial f_{(k+1)}}{\partial \rho^*} = \frac{f_{(k+1)}-f_{(k)}}{\rho_{(k+1)}^* - \rho^*_{(k)}},
@@ -1329,24 +1329,38 @@ At the first step, we use a simple  numerical difference  method
 \begin{equation}
   \frac{\partial f_{(1)}}{\partial \rho^*} = \frac{f(\rho^*+\Delta \rho)-f(\rho^*)}{\Delta \rho},
 \end{equation}
-where $\Delta \rho$ is a little quatity, we can choose it as
+where $\Delta \rho$ is a small quatity, we define
 \begin{equation}
-  \Delta \rho = \frac{\rho_{(0)}^*}{100}.
+  \Delta \rho = \frac{\rho_{(1)}^*}{100}.
 \end{equation}
+  \item  Evaluating  $\rho^*_{(k+1)}$: 
+	
+	By the Newton iteration equation, a new density can be updated as
+
+\begin{equation}
+ \rho^*_{(k+1)} = \rho^*_{(k)}- f/\frac{\partial f_{(k)}}{\partial \rho},
+\end{equation}
+
 \item Convergence test:
+
+
+The iteration is convergent if
 The  convergence is meassured by
+\begin{equation}{\label{conv1}}
+  \text{CHA} \le \text{TOL},
+\end{equation}
+where
 \begin{equation}
 \text{CHA} = \text{max} \left[
 \frac{|\rho_{(k+1)}^*- \rho_{(k)}^*|}{\frac{1}{2}|\rho_{(k+1)}^*+\rho_{(k)}^*|},|f|\right].
 \end{equation}
 and the tolerance is taken as $\text{TOL} = 10^{-4}$.
 
-If $ \text{CHA} \le \text{TOL} $, the iteration ends.
-It usually takes 2-4 step to get a convergence result.
+If not, go to Step 1 and continue the iteration procedure until convergent. Numerical examples show, after 2-4 iterations, the condition (\ref{conv1} ) is satisfied.
 \end{enumerate}
 \textbf{Iteration end.}
 \section{Numerical  tests }
-In this section, by choosing suitable initial conditions, we will solve the Riemann problem with several different structure cases in the solution. For simple  expression, in figures, we use same representations as those in \cite{gao2018complete}. ``$|$'' means the contact wave, and capital letters ''S'' and ''R'' means the shock and rarefaction wave. Superscript letters ''E'' and  ''P'' indicate the elastic or plastic state of a wave.  Numerical results by the method  in \cite{liumulti} is used to verified the correctness of the exact solution. In the following tests, the materials are taken as  aluminium and copper. The parameters for the EOS and constitutive model for aluminum and copper  are
+In this section, by choosing suitable initial conditions, we will solve the Riemann problem with several different structure cases in the solution.   Numerical results by the method  in \cite{liumulti} is used to verified the correctness of the exact solution. In the following tests, the materials are taken as  aluminium and copper. The parameters for the EOS and constitutive model for aluminum and copper  are
 $ (\rho_0, a_0, \Gamma_0, s, \mu)_{\text{Al}} =(8930 \text{kg}/\text{m}^3, 3940 \text{m}/\text{s},2, 1.49, 2.76 ,2.76\times 10^{10} \text{Pa} )$ and   $(\rho_0, a_0, \Gamma_0, s, \mu)_{\text{copper}} =(2785 \text{kg}/\text{m}^3, 5328 \text{m}/\text{s},2, 1.338,4.5\times 10^{10}\text{Pa})$, respectively. The computational domain is set to be $[0,1m]$ with 800 cell points and the intial interface is located at $0.5m$, the terminal time is $t=5\times 10^{-5}s$.
 
 \subsection{Test 1}
@@ -1363,10 +1377,10 @@ It can be seen that the exact solution matches the numerical results very well i
 \begin{figure}
   \centering
 
-  %\includegraphics[width= 8cm] {case1rho.pdf}
-  %\includegraphics[width= 8cm] {case1u.pdf}
-  %\includegraphics[width= 8cm] {case1p.pdf}
-  %\includegraphics[width= 8cm] {case1sigma.pdf}
+\includegraphics[width= 8cm] {case1rho.pdf}
+\includegraphics[width= 8cm] {case1u.pdf}
+\includegraphics[width= 8cm] {case1p.pdf}
+\includegraphics[width= 8cm] {case1sigma.pdf}
 
     \caption{Comparison resutls for Test 1 with the structrures of $S^P|S^P$.  }
   \label{fig:case1}
@@ -1383,16 +1397,16 @@ Next, we consider a case with yielding process at both sides, so the result has 
 Shown in Fig.\ref{fig:case2}, the exact solution matches the numerical results well generally, besides the under-cooling effect performed in the numerical results, but it is not considered in the designing of the exact Riemann solver.
 \begin{figure}
   \centering
-  %\includegraphics[width= 8cm] {case2rho.pdf}
-  %\includegraphics[width= 8cm] {case2u.pdf}
-  %\includegraphics[width= 8cm] {case2p.pdf}
-  %\includegraphics[width= 8cm] {case2sxx.pdf}
-  \caption{Comparison resutls for Test 1 with the structrures of $S^ES^P|S^PS^E$.  }
+  \includegraphics[width= 8cm] {case2rho.pdf}
+  \includegraphics[width= 8cm] {case2u.pdf}
+  \includegraphics[width= 8cm] {case2p.pdf}
+  \includegraphics[width= 8cm] {case2sxx.pdf}
+  \caption{Comparison resutls for Test 2 with the structrures of $S^ES^P|S^PS^E$.  }
   \label{fig:case2}
 \end{figure}
 
 \subsection{Test 3}
-In this example, we test the elastic rarefaction waves case. In the structrues there  is one  elastic rarefaction wave on each side of the contace wave. The initial condition is given as
+In this example, we test the elastic rarefaction waves case. In the structrues there is one elastic rarefaction wave on each side of the contace wave. The initial condition is given as
 \begin{equation}
  \left\{ \begin{aligned}
 	 &	 \text{L: Al,}\quad  \rho = 2785 \text{kg}/\text{m}^3, \quad  u = -2.0\text{m}/\text{s}, \quad  p = 1.0\time 10^7\text{Pa}, \quad  s_{xx}=0.0 \text{Pa},\\
@@ -1406,10 +1420,10 @@ We can see that the results of the exact solution match the numerical results ve
 \begin{figure}
   \centering
 
- % \includegraphics[width= 8cm] {case4rho.pdf}
- % \includegraphics[width= 8cm] {case4u.pdf}
- % \includegraphics[width= 8cm] {case4p.pdf}
- % \includegraphics[width= 8cm] {case4sxx.pdf}
+  \includegraphics[width= 8cm] {case4rho.pdf}
+  \includegraphics[width= 8cm] {case4u.pdf}
+  \includegraphics[width= 8cm] {case4p.pdf}
+  \includegraphics[width= 8cm] {case4sxx.pdf}
 
     \caption{Comparison resutls for Test 3 with the structrures of $R^E|R^E$.  }
   \label{fig:case3}
@@ -1428,16 +1442,35 @@ Results are shown in Fig.\ref{fig:case4},  the results of the exact solver match
 \begin{figure}
   \centering
 
-%  \includegraphics[width= 8cm] {case3rho.pdf}
-%  \includegraphics[width= 8cm] {case3u.pdf}
-%  \includegraphics[width= 8cm] {case3p.pdf}
-%  \includegraphics[width= 8cm] {case3sxx.pdf}
+ \includegraphics[width= 8cm] {case3rho.pdf}
+  \includegraphics[width= 8cm] {case3u.pdf}
+  \includegraphics[width= 8cm] {case3p.pdf}
+  \includegraphics[width= 8cm] {case3sxx.pdf}
 
     \caption{Comparison resutls for Test 4 with the structrures of $R^ER^P|R^PR^E$.  }
   \label{fig:case4}
 \end{figure}
 \subsection{Test 5}
-All the above four tests have symmetrical wave  structrues, next we will test an example with different structrues on different sides. The initial condition is given as
+In Test 4, the material is  yielding from a elastic state to a plastic state through  an elastic rarefaction wave, just as we say in the introduction, 
+even when it is in the plastic state at the beginning, after a rarefaction wave, the material will return into an elastic state and then may change into the  plastic by an  expandation yielding process. This is shown in Fig.\ref{fig:case20} both by the numerical and theoretical results, the material truely change from plastic state to elastic then to plastic state again. The initial conditions are 
+\begin{equation}
+ \left\{ \begin{aligned}
+	 &	 \text{L: Al,}\quad  \rho = 2785 \text{kg}/\text{m}^3, \quad  u = -200\text{m}/\text{s}, \quad  p = 1.0 \text{Pa}, \quad  s_{xx}=-2.0\time 10^8 \text{Pa},\\
+	 &	 \text{R: Al,}\quad  \rho = 2785 \text{kg}/\text{m}^3, \quad  u = 0\text{m}/\text{s}, \quad  p = 1.0\text{Pa}, \quad  s_{xx}= -2.0 \time 10^8 \text{Pa}.\\
+   \end{aligned}
+ \right.
+\end{equation}
+\begin{figure}
+  \centering
+ \includegraphics[width= 8cm] {case20rho.pdf}
+  \includegraphics[width= 8cm] {case20u.pdf}
+  \includegraphics[width= 8cm] {case20p.pdf}
+  \includegraphics[width= 8cm] {case20sxx.pdf}
+    \caption{Comparison resutls for Test 5 with the structrures of $R^ER^P|R^PR^E$.  }
+  \label{fig:case20}
+\end{figure}
+\subsection{Test 6}
+All the above five tests have symmetrical wave  structrues, next we will test an example with different structrues on different sides. The initial condition is given as
 \begin{equation}
  \left\{ \begin{aligned}
 &	 \text{L: Al,}\quad  \rho = 2785 \text{kg}/\text{m}^3, \quad  u = 40\text{m}/\text{s}, \quad  p = 1.0\times 10^8\text{Pa}, \quad  s_{xx}=-2.0\times 10^8 \text{Pa},\\
@@ -1450,15 +1483,15 @@ In the Fig.\ref{fig:case5} shown in both the numerical and exact solutions, ther
 \begin{figure}
   \centering
 
- % \includegraphics[width= 8cm] {case5rho.pdf}
- % \includegraphics[width= 8cm] {case5u.pdf}
- % \includegraphics[width= 8cm] {case5p.pdf}
- % \includegraphics[width= 8cm] {case5sxx.pdf}
+  \includegraphics[width= 8cm] {case5rho.pdf}
+  \includegraphics[width= 8cm] {case5u.pdf}
+  \includegraphics[width= 8cm] {case5p.pdf}
+  \includegraphics[width= 8cm] {case5sxx.pdf}
 
-    \caption{Comparison resutls for Test 5 with the structrures of $R^P|R^PR^E$.  }
+    \caption{Comparison resutls for Test 6 with the structrures of $R^P|R^PR^E$.  }
   \label{fig:case5}
 \end{figure}
-\subsection{Test 6}
+\subsection{Test 7}
 In this test, we consider an example with zero initial velocities on both sides, driving by the gradient of the pressure, there are rarefaction waves producted into the higher pressure side and shock waves generated into the lower pressure side. The initial condition is given as
 \begin{equation}
  \left\{ \begin{aligned}
@@ -1471,15 +1504,15 @@ Shown in Fig.\ref{fig:case9}, we can see there are two shocks in the right side 
 \begin{figure}
   \centering
 
- % \includegraphics[width= 8cm] {case9rho.pdf}
- % \includegraphics[width= 8cm] {case9u.pdf}
- % \includegraphics[width= 8cm] {case9p.pdf}
- % \includegraphics[width= 8cm] {case9sxx.pdf}
+  \includegraphics[width= 8cm] {case9rho.pdf}
+  \includegraphics[width= 8cm] {case9u.pdf}
+  \includegraphics[width= 8cm] {case9p.pdf}
+  \includegraphics[width= 8cm] {case9sxx.pdf}
 
-    \caption{Comparison resutls for Test 6 with the structrures of $R^ER^P|S^PS^E$.  }
+    \caption{Comparison resutls for Test 7 with the structrures of $R^ER^P|S^PS^E$.  }
   \label{fig:case9}
 \end{figure}
-\subsection{Test 7}
+\subsection{Test 8}
 Now we will consider two multi-material tests with different materials on different sides. In this test, on the left side, a lighter material of aluminum with a velocity impacts to a heavier material of copper. The initial condition is given as
 \begin{equation}
  \left\{ \begin{aligned}
@@ -1492,12 +1525,12 @@ Show in the Fig.\ref{fig:case7}, there is a large jump of density at the materia
 
 \begin{figure}
   \centering
- % \includegraphics[width= 8cm] {case6rho.pdf}
- % \includegraphics[width= 8cm] {case6u.pdf}
- % \includegraphics[width= 8cm] {case6p.pdf}
- % \includegraphics[width= 8cm] {case6sigma.pdf}
+  \includegraphics[width= 8cm] {case6rho.pdf}
+  \includegraphics[width= 8cm] {case6u.pdf}
+  \includegraphics[width= 8cm] {case6p.pdf}
+  \includegraphics[width= 8cm] {case6sigma.pdf}
 
-    \caption{Comparison results for Test 7 with structrures of $R^ER^P|R^PR^E$.  }
+    \caption{Comparison results for Test 8 with structrures of $R^ER^P|R^PR^E$.  }
   \label{fig:case7}
 \end{figure}
 
@@ -1505,7 +1538,7 @@ Show in the Fig.\ref{fig:case7}, there is a large jump of density at the materia
 %combining with the third-order ghost-cell reconstruction method and the third-order TVD-Runge-Kutta method in time, a high-order cell-centered Lagrangian scheme for 1D multi-material elastic flows is built. Verified by the numerical experiments, both the plastic waves and elastic waves can be resolved correctly, our scheme appears to be convergent, stable, essentially non-oscillatory and can reach third-order accuracy for smooth problems. Especially for multi-material elastic-plastic flows, the results solved by the scheme with HLLCE are with large errors, but our new scheme can eliminate these errors and leads to the reasonable numerical results.
 %
 %
-\subsection{Test 8}
+\subsection{Test 9}
 At last, we test another multi-materials case, in this test the initial condtion is given as
 \begin{equation}
  \left\{ \begin{aligned}
@@ -1517,15 +1550,15 @@ At last, we test another multi-materials case, in this test the initial condtion
 Shown in Fig.\ref{fig:case8}, there are two rarefaction waves on the left side and two shocks on the right side, there is a discontinuity of pressure on the interface, and the Cauchy stress is continuous, which  meets with the theoretical analysis.
 \begin{figure}
   \centering
- % \includegraphics[width= 8cm] {case8rho.pdf}
- % \includegraphics[width= 8cm] {case8u.pdf}
- % \includegraphics[width= 8cm] {case8p.pdf}
- % \includegraphics[width= 8cm] {case8sigma.pdf}
+  \includegraphics[width= 8cm] {case8rho.pdf}
+  \includegraphics[width= 8cm] {case8u.pdf}
+  \includegraphics[width= 8cm] {case8p.pdf}
+  \includegraphics[width= 8cm] {case8sigma.pdf}
 
-    \caption{Comparison results for Test 8 with the structrures of $R^ER^P|S^ES^P$.  }
+    \caption{Comparison results for Test 9 with the structrures of $R^ER^P|S^ES^P$.  }
   \label{fig:case8}
 \end{figure}
-\subsection{Test 9}
+\subsection{Test 10}
 Then we give two tests of  half Riemann problem, the first is with a given left velocity $u^* = -20\text{m/s}$, and the right initial condition is
 \begin{equation}
  \text{Copper,}\quad\rho = 8930\text{kg}/\text{m}^3, \quad  u = 0.0\text{m}/\text{s}, \quad  p =0.1\text{Pa}, \quad  s_{xx}=0.0\text{Pa}.
@@ -1533,15 +1566,15 @@ Then we give two tests of  half Riemann problem, the first is with a given left 
 In Fig.\ref{fig:case9}, comparason results are given by the exact half Riemann solver and the numerical method. We can see that the exact solver  can resolve both the elastic and plastic shock waves well.
 \begin{figure}
   \centering
- % \includegraphics[width= 8cm] {case10rho.pdf}
- % \includegraphics[width= 8cm] {case10u.pdf}
- % \includegraphics[width= 8cm] {case10p.pdf}
- % \includegraphics[width= 8cm] {case10sxx.pdf}
+  \includegraphics[width= 8cm] {case10rho.pdf}
+  \includegraphics[width= 8cm] {case10u.pdf}
+  \includegraphics[width= 8cm] {case10p.pdf}
+  \includegraphics[width= 8cm] {case10sxx.pdf}
 
-    \caption{Comparison results for Test 9 with the structrures of $S^ES^P$.  }
+    \caption{Comparison results for Test 10 with the structrures of $S^ES^P$.  }
   \label{fig:case9}
 \end{figure}
-\subsection{Test 10}
+\subsection{Test 11}
 The second half Riemann case is with  a given left Cauchy stress $\sigma^* = 0 \text{Pa}$, and the right initial condition is
 \begin{equation}
   \text{Copper,}\quad\rho = 8930\text{kg}/\text{m}^3, \quad  u = 0.0\text{m}/\text{s}, \quad  p =1.0\times 10^9 \text{Pa}, \quad  s_{xx}=0.0\text{Pa}.
@@ -1549,11 +1582,11 @@ The second half Riemann case is with  a given left Cauchy stress $\sigma^* = 0 \
 In Fig.\ref{fig:case10}, we give the results computed by the exact Riemann solver and the numerical simulation, shown in it, the exact solver can resolve the elastic and plastic rarefaction waves well.
 \begin{figure}
   \centering
-%  \includegraphics[width= 8cm] {case11rho.pdf}
-%  \includegraphics[width= 8cm] {case11u.pdf}
-%  \includegraphics[width= 8cm] {case11p.pdf}
-%  \includegraphics[width= 8cm] {case11sigma.pdf}
-    \caption{Comparison results for Test 10 with the structrures of $R^ER^P$.  }
+ \includegraphics[width= 8cm] {case11rho.pdf}
+  \includegraphics[width= 8cm] {case11u.pdf}
+  \includegraphics[width= 8cm] {case11p.pdf}
+  \includegraphics[width= 8cm] {case11sigma.pdf}
+    \caption{Comparison results for Test 11 with the structrures of $R^ER^P$.  }
   \label{fig:case10}
 \end{figure}
 \section{Results}
@@ -1567,24 +1600,30 @@ In this paper, we give a detailed analysis of the Riemann problem for one-dimens
 	\end{enumerate}
 	  Then, based on the analysis, we have constructed exact Riemann solvers for  both the Riemann problem  and the half Riemann problem, separately. Tested by  a large number of examples, the exact Riemann solver is reasonable and matching  well with the numerical method for both  single material problems and multi-material Riemann problems.
 
-\section*{Acknowledgement}r
+\section*{Acknowledgement}
 This work was supported by NSFC(Grant No. 11672047) and Science Challenge Project (Grant No. TZ2016002).
 
 \bibliography{mybibfile}
+
   \appendix
-  \renewcommand{\appendixname}{Appendix~}
+  \begin{appendices}
+
+  \renewcommand{\appendixname}{Appendix~\Alph{section}}
 
   \section{Gauss-Legendre  quadrature}
   In this paper, we use Gauss-Legendre quadrature to  take  numerical integrations. 
 For a function $f(x)$,  the intergration from $-1$ to $1$ is given as
 $$ 
-  \int_{-1}^1 f(x)dx \approx \sum_{i=0}^n \omega_i f(x_i)
+\int_{-1}^1 f(x)dx \approx \sum_{i=0}^n \omega_i f(x_i),
 $$
 $\omega_i$ is the weight, and $x_i$ is the integrating point.
 For different orders they are listed in Table \ref{tab:coe}. 
 
-\subsection{}
-\begin{table}\label{tab:coe}
+\subsection{Change of interval}
+An integral over  $[x_0,x_1]$ must be changed into an integral over $[−1, 1]$ before applying the Gaussian quadrature rule. This change of interval can be done in the following way:
+$$ \int_{x_0}^{x_1}f(x) dx= \frac{x_1-x_0}{2}\int_{-1}^{1} f(\frac{x_1-x_0}{2}x+\frac{x_0+x_1}{2})dx.
+ $$
+ \begin{table}[htp]\label{tab:coe}
   \centering
   \caption{Coefficiences for Guass-Legendere quadrature}
   \begin{tabular}{cccc}
@@ -1605,5 +1644,5 @@ For different orders they are listed in Table \ref{tab:coe}.
   \bottomrule
 \end{tabular}
 \end{table}
-
+\end{appendices}
 \end{document}
