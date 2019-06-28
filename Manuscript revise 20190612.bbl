@@ -25,8 +25,10 @@ J.~Cheng, Harten-{L}ax-van {L}eer-contact ({HLLC}) approximation {R}iemann
   Applied Mathematics and Mechanics 37~(11) (2016) 1517--1538.
 
 \bibitem{liumulti}
-L.~Liu, J.-b. Cheng, A multi-material hllc riemann solver with both elastic and
-  plastic waves for 1d elastic-plastic flows.
+L.~Liu, J.-b. Cheng, A multi-material {HLLC} {R}iemann solver with both elastic
+  and plastic waves for 1{D} elastic-plastic flows,
+  https://www.researchgate.net/publication/332709456\_{A}\_multi\-material\_{HLLC}\_{R}iemann\_solver\_with\_both\_elastic\_and\_plastic\_waves\_for\_1{D}\_elastic-plastic\_flows,
+  (preprint).
 
 \bibitem{garaizar1991solution}
 X.~Garaizar, Solution of a {R}iemann problem for elasticity, Journal of

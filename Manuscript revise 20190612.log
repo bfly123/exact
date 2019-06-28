@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2019.5.30)  17 JUN 2019 17:00
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2019.5.30)  26 JUN 2019 15:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -449,7 +449,14 @@ LaTeX Info: Redefining \ref on input line 29.
 LaTeX Info: Redefining \pageref on input line 29.
 LaTeX Info: Redefining \nameref on input line 29.
 
-(./Manuscript revise 20190612.out) (./Manuscript revise 20190612.out)
+(./Manuscript revise 20190612.out) (./Manuscript revise 20190612.out
+! Undefined control sequence.
+<argument> Appendix\unhbox \voidb 
+                                  @x \penalty \@M \ {}A.a.A
+l.38 ...on\040for\040the\040rarefaction\040wave}{}
+                                                  % 38
+? 
+)
 \@outlinefile=\write3
 \openout3 = `"Manuscript revise 20190612.out"'.
 
@@ -534,11 +541,8 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 258.
 
 [4] [5] [6] [7] [8]
-
-LaTeX Warning: Reference `sec:riemann' on page 9 undefined on input line 672.
-
 File: TikzFig/Tikz-figure0.eps Graphic file (type eps)
-<TikzFig/Tikz-figure0.eps>
+ <TikzFig/Tikz-figure0.eps>
 File: TikzFig/Tikz-figure1.eps Graphic file (type eps)
  <TikzFig/Tikz-figure1.eps>
 File: TikzFig/Tikz-figure2.eps Graphic file (type eps)
@@ -550,10 +554,10 @@ File: TikzFig/Tikz-figure4.eps Graphic file (type eps)
 
 <TikzFig/Tikz-figure4.eps>
 File: TikzFig/Tikz-figure5.eps Graphic file (type eps)
- <TikzFig/Tikz-figure5.eps>
+ <TikzFig/Tikz-figure5.eps> [9]
 File: TikzFig/Tikz-figure6.eps Graphic file (type eps)
 
-<TikzFig/Tikz-figure6.eps> [9] [10] [11]
+<TikzFig/Tikz-figure6.eps> [10] [11]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 951.
@@ -737,43 +741,49 @@ File: Picture/case11p.pdf Graphic file (type QTm)
 File: Picture/case11sigma.pdf Graphic file (type QTm)
  <use  "Picture/case11sigma.pdf" > [25] [26]
 [27]
-Overfull \hbox (11.84001pt too wide) in paragraph at lines 1604--1605
+Overfull \hbox (11.84001pt too wide) in paragraph at lines 1606--1607
 \OT1/cmr/m/n/10 This work was sup-ported by NSFC(Grant No. 11672047) and Sci-en
 ce Chal-lenge Project (Grant No. TZ2016002). 
  []
 
-(./Manuscript revise 20190612.bbl) [28]
-Missing character: There is no − in font cmr10!
+(./Manuscript revise 20190612.bbl
+Underfull \hbox (badness 1776) in paragraph at lines 28--32
+[]\OT1/cmr/m/n/10 L. Liu, J.-b. Cheng, A multi-material HLLC Rie-mann solver wi
+th both elas-tic and plas-tic
+ []
 
-! Undefined control sequence.
-<argument> \makecell 
-                     {4}
-l.1641 ^^I\multirow{2}{*}{\makecell{4}}
-                                        & \multirow{2}{*}{7}  & $\pm \sqrt{\...
 
-? 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1648.
-[29]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1648.
+Underfull \hbox (badness 2856) in paragraph at lines 28--32
+\OT1/cmr/m/n/10 waves for 1D elastic-plastic flows, https://www.researchgate.ne
+t/publication/332709456[]A[]multi-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 28--32
+\OT1/cmr/m/n/10 material[]HLLC[]Riemann[]solver[]with[]both[]elastic[]and[]plas
+tic[]waves[]for[]1D[]elastic-plastic[]flows,
+ []
+
+) [28]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1662.
+ [29]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1662.
  (./Manuscript revise 20190612.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1648.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1648.
-
-
-LaTeX Warning: There were undefined references.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1662.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1662.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1648.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1662.
  ) 
 Here is how much of TeX's memory you used:
- 11657 strings out of 493638
- 161790 string characters out of 6146796
- 249189 words of memory out of 5000000
- 14865 multiletter control sequences out of 15000+600000
+ 11656 strings out of 493638
+ 161779 string characters out of 6146796
+ 249217 words of memory out of 5000000
+ 14864 multiletter control sequences out of 15000+600000
  19075 words of font info for 72 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 29i,17n,45p,1536b,436s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 29i,17n,45p,1576b,432s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on Manuscript revise 20190612.pdf (29 pages).
