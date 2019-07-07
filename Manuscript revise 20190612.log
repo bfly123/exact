@@ -1,11 +1,11 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2019.5.30)  7 JUL 2019 13:54
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2018.11.1)  7 JUL 2019 22:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **"Manuscript revise 20190612.tex"
 (./Manuscript revise 20190612.tex
-LaTeX2e <2016/02/01>
-Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
+LaTeX2e <2017-04-15>
+Babel <3.18> and hyphenation patterns for 26 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
@@ -54,23 +54,16 @@ Invalid UTF-8 byte or sequence at line 296 replaced by U+FFFD.
 LaTeX Info: Redefining \\ on input line 3056.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
-Package: color 2016/01/03 v1.1b Standard LaTeX Color (DPC)
+Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
 
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
-File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package color Info: Driver file: xetex.def on input line 143.
+Package color Info: Driver file: xetex.def on input line 147.
 
-(/usr/share/texlive/texmf-dist/tex/xelatex/xetex-def/xetex.def
-File: xetex.def 2015/09/11 v4.06 LaTeX color/graphics driver for XeTeX (TeX Liv
-e/RRM/JK)
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
-)
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
-Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
-)))
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/xetex.def
+File: xetex.def 2017/06/24 v5.0h Graphics/color driver for xetex
+))
 (/usr/share/texlive/texmf-dist/tex/latex/preprint/authblk.sty
 Package: authblk 2001/02/27 1.3 (PWD)
 \affilsep=\skip43
@@ -80,22 +73,22 @@ Package: authblk 2001/02/27 1.3 (PWD)
 \c@affil=\count96
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2016/01/03 v1.0q Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
-File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: xetex.def on input line 95.
+Package graphics Info: Driver file: xetex.def on input line 99.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
 Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 \symrsfs=\mathgroup6
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2016/03/03 v2.15a AMS math features
+Package: amsmath 2017/09/02 v2.17a AMS math features
 \@mathmargin=\skip45
 
 For additional information on amsmath, use the `?' option.
@@ -112,23 +105,23 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen109
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
-Package: amsopn 1999/12/14 v2.01 operator names
+Package: amsopn 2016/03/08 v2.02 operator names
 )
 \inf@bad=\count97
-LaTeX Info: Redefining \frac on input line 199.
+LaTeX Info: Redefining \frac on input line 213.
 \uproot@=\count98
 \leftroot@=\count99
-LaTeX Info: Redefining \overline on input line 297.
+LaTeX Info: Redefining \overline on input line 375.
 \classnum@=\count100
 \DOTSCASE@=\count101
-LaTeX Info: Redefining \ldots on input line 394.
-LaTeX Info: Redefining \dots on input line 397.
-LaTeX Info: Redefining \cdots on input line 518.
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
 \Mathstrutbox@=\box27
 \strutbox@=\box28
 \big@size=\dimen110
-LaTeX Font Info:    Redeclaring font encoding OML on input line 630.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 631.
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
 \macc@depth=\count102
 \c@MaxMatrixCols=\count103
 \dotsspace@=\muskip10
@@ -149,11 +142,11 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 631.
 \multlinegap=\skip46
 \multlinetaggap=\skip47
 \mathdisplay@stack=\toks20
-LaTeX Info: Redefining \[ on input line 2735.
-LaTeX Info: Redefining \] on input line 2736.
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/bm.sty
-Package: bm 2014/10/28 v1.1c Bold Symbol Support (DPC/FMi)
+Package: bm 2017/01/16 v1.2c Bold Symbol Support (DPC/FMi)
 \symboldoperators=\mathgroup7
 \symboldletters=\mathgroup8
 \symboldsymbols=\mathgroup9
@@ -181,7 +174,7 @@ Package: subfigure 2002/03/15 v2.1.5 subfigure package
 \subfig@bottom=\skip53
 )
 (/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
-Package: booktabs 2005/04/14 v1.61803 publication quality tables
+Package: booktabs 2016/04/27 v1.618033 publication quality tables
 \heavyrulewidth=\dimen119
 \lightrulewidth=\dimen120
 \cmidrulewidth=\dimen121
@@ -201,7 +194,7 @@ Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \@thisrulewidth=\dimen131
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
-Package: amsthm 2015/03/04 v2.20.2
+Package: amsthm 2017/10/31 v2.20.4
 \thm@style=\toks21
 \thm@bodyfont=\toks22
 \thm@headfont=\toks23
@@ -255,117 +248,115 @@ Package: appendix 2009/09/02 v1.2b extra appendix facilities
 Package: setspace 2011/12/19 v6.7a set line spacing
 )
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
+Package: hyperref 2018/02/06 v6.86b Hypertext links for LaTeX
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
-Package: hobsub-hyperref 2012/05/28 v1.13 Bundle oberdiek, subset hyperref (HO)
+Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
 
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
-Package: hobsub-generic 2012/05/28 v1.13 Bundle oberdiek, subset generic (HO)
-Package: hobsub 2012/05/28 v1.13 Construct package bundles (HO)
-Package hobsub Info: Skipping package `infwarerr' (already loaded).
-Package hobsub Info: Skipping package `ltxcmds' (already loaded).
-Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
-Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
-Package: intcalc 2007/09/27 v1.1 Expandable calculations with integers (HO)
-Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in PDF mode is not detected.
-Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
 Package etexcmds Info: Could not find \expanded.
 (etexcmds)             That can mean that you are not using pdfTeX 1.50 or
 (etexcmds)             that some package has redefined \expanded.
 (etexcmds)             In the latter case, load this package earlier.
-Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
-Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
-Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+Package: pdftexcmds 2018/01/21 v0.26 Utility functions of pdfTeX for LuaTeX (HO
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: pdfTeX >= 1.30 not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode not found.
-Package: pdfescape 2011/11/25 v1.13 Implements pdfTeX's escape features (HO)
-Package: bigintcalc 2012/04/08 v1.3 Expandable calculations on big integers (HO
+Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
 )
-Package: bitset 2011/01/30 v1.1 Handle bit-vector datatype (HO)
-Package: uniquecounter 2011/01/30 v1.2 Provide unlimited unique counter (HO)
+Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
+Package: uniquecounter 2016/05/16 v1.3 Provide unlimited unique counter (HO)
 )
 Package hobsub Info: Skipping package `hobsub' (already loaded).
-Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
-Package: hopatch 2012/05/28 v1.2 Wrapper for package hooks (HO)
-Package: xcolor-patch 2011/01/30 xcolor patch
-Package: atveryend 2011/06/30 v1.8 Hooks at the very end of document (HO)
+Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
+Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
+Package: xcolor-patch 2016/05/16 xcolor patch
+Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
 Package atveryend Info: \enddocument detected (standard20110627).
-Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
-Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
-Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
+Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
+Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
+Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
 )
 (/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
-Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
+Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
 \@linkdim=\dimen136
 \Hy@linkcounter=\count128
 \Hy@pagecounter=\count129
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2018/02/06 v6.86b Hyperref: PDFDocEncoding definition (HO)
 )
 \Hy@SavedSpaceFactor=\count130
 
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
-Package hyperref Info: Hyper figures OFF on input line 4443.
-Package hyperref Info: Link nesting OFF on input line 4448.
-Package hyperref Info: Hyper index ON on input line 4451.
-Package hyperref Info: Plain pages OFF on input line 4458.
-Package hyperref Info: Backreferencing OFF on input line 4463.
+Package hyperref Info: Hyper figures OFF on input line 4509.
+Package hyperref Info: Link nesting OFF on input line 4514.
+Package hyperref Info: Hyper index ON on input line 4517.
+Package hyperref Info: Plain pages OFF on input line 4524.
+Package hyperref Info: Backreferencing OFF on input line 4529.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4688.
+Package hyperref Info: Bookmarks ON on input line 4762.
 \c@Hy@tempcnt=\count131
 
 (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 5041.
+LaTeX Info: Redefining \url on input line 5115.
 \XeTeXLinkMargin=\dimen137
 \Fld@menulength=\count132
 \Field@Width=\dimen138
 \Fld@charsize=\dimen139
-Package hyperref Info: Hyper figures OFF on input line 6295.
-Package hyperref Info: Link nesting OFF on input line 6300.
-Package hyperref Info: Hyper index ON on input line 6303.
-Package hyperref Info: backreferencing OFF on input line 6310.
-Package hyperref Info: Link coloring OFF on input line 6315.
-Package hyperref Info: Link coloring with OCG OFF on input line 6320.
-Package hyperref Info: PDF/A mode OFF on input line 6325.
-LaTeX Info: Redefining \ref on input line 6365.
-LaTeX Info: Redefining \pageref on input line 6369.
+Package hyperref Info: Hyper figures OFF on input line 6369.
+Package hyperref Info: Link nesting OFF on input line 6374.
+Package hyperref Info: Hyper index ON on input line 6377.
+Package hyperref Info: backreferencing OFF on input line 6384.
+Package hyperref Info: Link coloring OFF on input line 6389.
+Package hyperref Info: Link coloring with OCG OFF on input line 6394.
+Package hyperref Info: PDF/A mode OFF on input line 6399.
+LaTeX Info: Redefining \ref on input line 6439.
+LaTeX Info: Redefining \pageref on input line 6443.
 \Hy@abspage=\count133
 \c@Item=\count134
 \c@Hfootnote=\count135
 )
-
-Package hyperref Message: Driver (autodetected): hxetex.
+Package hyperref Info: Driver (autodetected): hxetex.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hxetex.def
-File: hxetex.def 2012/11/06 v6.83m Hyperref driver for XeTeX
+File: hxetex.def 2018/02/06 v6.86b Hyperref driver for XeTeX
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2012/11/06 v6.83m Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2018/02/06 v6.86b Hyperref: PDF Unicode definition (HO)
 )
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/stringenc.sty
-Package: stringenc 2011/12/02 v1.10 Convert strings between diff. encodings (HO
+Package: stringenc 2016/05/16 v1.11 Convert strings between diff. encodings (HO
 )
 )
 \pdfm@box=\box31
@@ -375,7 +366,7 @@ Package: stringenc 2011/12/02 v1.10 Convert strings between diff. encodings (HO
 \c@bookmark@seq@number=\count139
 
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
-Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
+Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
 Package rerunfilecheck Info: Feature \pdfmdfivesum is not available
 (rerunfilecheck)             (e.g. pdfTeX or LuaTeX with package `pdftexcmds').
 
@@ -386,18 +377,22 @@ tly
 \Hy@SectionHShift=\skip57
 )
 (/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
+\multirow@colwidth=\skip58
+\multirow@cntb=\count140
+\multirow@dima=\skip59
 \bigstrutjot=\dimen140
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 \Gin@req@height=\dimen141
 \Gin@req@width=\dimen142
 )
 (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
-\Gm@cnth=\count140
-\Gm@cntv=\count141
-\c@Gm@tempcnt=\count142
+\Gm@cnth=\count141
+\Gm@cntv=\count142
+\c@Gm@tempcnt=\count143
 \Gm@bindingoffset=\dimen143
 \Gm@wd@mp=\dimen144
 \Gm@odd@mp=\dimen145
@@ -426,6 +421,8 @@ LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
 LaTeX Font Info:    ... okay on input line 29.
 LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
 LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
 LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
 LaTeX Font Info:    ... okay on input line 29.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
@@ -434,16 +431,16 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 29.
 LaTeX Font Info:    ... okay on input line 29.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 29.
 LaTeX Font Info:    ... okay on input line 29.
-\c@lstlisting=\count143
+\c@lstlisting=\count144
 \AtBeginShipoutBox=\box32
 Package hyperref Info: Link coloring OFF on input line 29.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
+Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
-Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
+Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count144
+\c@section@level=\count145
 )
 LaTeX Info: Redefining \ref on input line 29.
 LaTeX Info: Redefining \pageref on input line 29.
@@ -503,7 +500,7 @@ LaTeX Font Info:    Try loading font information for U+rsfs on input line 38.
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
-File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
+File: se-ascii-print.def 2016/05/16 v1.11 stringenc: Printable ASCII characters
 
 )
 [1
@@ -535,22 +532,21 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 [4] [5] [6] [7] [8]
 File: TikzFig/Tikz-figure0.eps Graphic file (type eps)
- <TikzFig/Tikz-figure0.eps>
+<TikzFig/Tikz-figure0.eps>
 File: TikzFig/Tikz-figure1.eps Graphic file (type eps)
- <TikzFig/Tikz-figure1.eps>
+<TikzFig/Tikz-figure1.eps>
 File: TikzFig/Tikz-figure2.eps Graphic file (type eps)
-
 <TikzFig/Tikz-figure2.eps>
 File: TikzFig/Tikz-figure3.eps Graphic file (type eps)
- <TikzFig/Tikz-figure3.eps>
+<TikzFig/Tikz-figure3.eps>
 File: TikzFig/Tikz-figure4.eps Graphic file (type eps)
-
 <TikzFig/Tikz-figure4.eps>
 File: TikzFig/Tikz-figure5.eps Graphic file (type eps)
- <TikzFig/Tikz-figure5.eps> [9]
+<TikzFig/Tikz-figure5.eps>
+ [9]
 File: TikzFig/Tikz-figure6.eps Graphic file (type eps)
-
-<TikzFig/Tikz-figure6.eps> [10] [11]
+<TikzFig/Tikz-figure6.eps>
+ [10] [11]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 954.
@@ -608,152 +604,133 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1076.
 
-[14] [15]
-Overfull \hbox (1.36064pt too wide) in paragraph at lines 1391--1393
-\OT1/cmr/m/n/10 con-sti-tu-tive model for alu-minum and cop-per are $(\OML/cmm/
-m/it/10 ^^Z[]; a[]; \OT1/cmr/m/n/10 ^^@[]\OML/cmm/m/it/10 ; s; ^^V\OT1/cmr/m/n/
-10 )[] = (8930[]\OML/cmm/m/it/10 =[][]; \OT1/cmr/m/n/10 3940[]\OML/cmm/m/it/10 
-=[]; \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT
-1/cmr/m/n/10 49\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 :\OT1/cmr/m
-/n/10 76\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 7
-6 \OMS/cmsy/m/n/10 ^^B
+[14]
+File: TikzFig/Tikz-figure8.eps Graphic file (type eps)
+<TikzFig/Tikz-figure8.eps>
+ [15]
+Overfull \hbox (1.36542pt too wide) in paragraph at lines 1391--1393
+\TU/lmr/m/n/10 constitutive model for aluminum and copper are $\OT1/cmr/m/n/10 
+(\OML/cmm/m/it/10 ^^Z[]; a[]; \OT1/cmr/m/n/10 ^^@[]\OML/cmm/m/it/10 ; s; ^^V\OT
+1/cmr/m/n/10 )[] = (8930[]\OML/cmm/m/it/10 =[][]; \OT1/cmr/m/n/10 3940[]\OML/cm
+m/m/it/10 =[]; \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1\OML/cmm/m/
+it/10 :\OT1/cmr/m/n/10 49\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 :
+\OT1/cmr/m/n/10 76\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 :\OT1/cm
+r/m/n/10 76 \OMS/cmsy/m/n/10 ^^B
  []
 
-File: Picture/case1rho.pdf Graphic file (type QTm)
-<use  "Picture/case1rho.pdf" >
-File: Picture/case1u.pdf Graphic file (type QTm)
- <use  "Picture/case1u.pdf" >
-File: Picture/case1p.pdf Graphic file (type QTm)
-
-<use  "Picture/case1p.pdf" >
-File: Picture/case1sigma.pdf Graphic file (type QTm)
- <use  "Picture/case1sigma.pdf" >
-File: Picture/case2rho.pdf Graphic file (type QTm)
-
-<use  "Picture/case2rho.pdf" >
-File: Picture/case2u.pdf Graphic file (type QTm)
- <use  "Picture/case2u.pdf" >
-File: Picture/case2p.pdf Graphic file (type QTm)
-
-<use  "Picture/case2p.pdf" >
-File: Picture/case2sxx.pdf Graphic file (type QTm)
- <use  "Picture/case2sxx.pdf" > [16]
-File: Picture/case4rho.pdf Graphic file (type QTm)
-
-<use  "Picture/case4rho.pdf" >
-File: Picture/case4u.pdf Graphic file (type QTm)
- <use  "Picture/case4u.pdf" >
-File: Picture/case4p.pdf Graphic file (type QTm)
-
-<use  "Picture/case4p.pdf" >
-File: Picture/case4sxx.pdf Graphic file (type QTm)
- <use  "Picture/case4sxx.pdf" >
-File: Picture/case3rho.pdf Graphic file (type QTm)
-
-<use  "Picture/case3rho.pdf" >
-File: Picture/case3u.pdf Graphic file (type QTm)
- <use  "Picture/case3u.pdf" >
-File: Picture/case3p.pdf Graphic file (type QTm)
-
-<use  "Picture/case3p.pdf" >
-File: Picture/case3sxx.pdf Graphic file (type QTm)
- <use  "Picture/case3sxx.pdf" > [17] [18]
-File: Picture/case20rho.pdf Graphic file (type QTm)
-
-<use  "Picture/case20rho.pdf" >
-File: Picture/case20u.pdf Graphic file (type QTm)
- <use  "Picture/case20u.pdf" >
-File: Picture/case20p.pdf Graphic file (type QTm)
-
-<use  "Picture/case20p.pdf" >
-File: Picture/case20sxx.pdf Graphic file (type QTm)
- <use  "Picture/case20sxx.pdf" >
-File: Picture/case5rho.pdf Graphic file (type QTm)
-
-<use  "Picture/case5rho.pdf" >
-File: Picture/case5u.pdf Graphic file (type QTm)
- <use  "Picture/case5u.pdf" >
-File: Picture/case5p.pdf Graphic file (type QTm)
-
-<use  "Picture/case5p.pdf" >
-File: Picture/case5sxx.pdf Graphic file (type QTm)
- <use  "Picture/case5sxx.pdf" > [19]
-File: Picture/case9rho.pdf Graphic file (type QTm)
-
-<use  "Picture/case9rho.pdf" >
-File: Picture/case9u.pdf Graphic file (type QTm)
- <use  "Picture/case9u.pdf" >
-File: Picture/case9p.pdf Graphic file (type QTm)
-
-<use  "Picture/case9p.pdf" >
-File: Picture/case9sxx.pdf Graphic file (type QTm)
- <use  "Picture/case9sxx.pdf" >
-File: Picture/case6rho.pdf Graphic file (type QTm)
-
-<use  "Picture/case6rho.pdf" >
-File: Picture/case6u.pdf Graphic file (type QTm)
- <use  "Picture/case6u.pdf" >
-File: Picture/case6p.pdf Graphic file (type QTm)
-
-<use  "Picture/case6p.pdf" >
-File: Picture/case6sigma.pdf Graphic file (type QTm)
- <use  "Picture/case6sigma.pdf" > [20]
-File: Picture/case8rho.pdf Graphic file (type QTm)
-
-<use  "Picture/case8rho.pdf" >
-File: Picture/case8u.pdf Graphic file (type QTm)
- <use  "Picture/case8u.pdf" >
-File: Picture/case8p.pdf Graphic file (type QTm)
-
-<use  "Picture/case8p.pdf" >
-File: Picture/case8sigma.pdf Graphic file (type QTm)
- <use  "Picture/case8sigma.pdf" >
-File: Picture/case10rho.pdf Graphic file (type QTm)
-
-<use  "Picture/case10rho.pdf" >
-File: Picture/case10u.pdf Graphic file (type QTm)
- <use  "Picture/case10u.pdf" >
-File: Picture/case10p.pdf Graphic file (type QTm)
-
-<use  "Picture/case10p.pdf" >
-File: Picture/case10sxx.pdf Graphic file (type QTm)
- <use  "Picture/case10sxx.pdf" >
-File: Picture/case11rho.pdf Graphic file (type QTm)
-
-<use  "Picture/case11rho.pdf" >
-File: Picture/case11u.pdf Graphic file (type QTm)
- <use  "Picture/case11u.pdf" >
-File: Picture/case11p.pdf Graphic file (type QTm)
-
-<use  "Picture/case11p.pdf" >
-File: Picture/case11sigma.pdf Graphic file (type QTm)
- <use  "Picture/case11sigma.pdf" > [21]
-Overfull \hbox (11.84001pt too wide) in paragraph at lines 1644--1645
-\OT1/cmr/m/n/10 This work was sup-ported by NSFC(Grant No. 11672047) and Sci-en
-ce Chal-lenge Project (Grant No. TZ2016002). 
+[16]
+File: Picture/case1rho.pdf Graphic file (type pdf)
+<use Picture/case1rho.pdf>
+File: Picture/case1u.pdf Graphic file (type pdf)
+<use Picture/case1u.pdf>
+File: Picture/case1p.pdf Graphic file (type pdf)
+<use Picture/case1p.pdf>
+File: Picture/case1sigma.pdf Graphic file (type pdf)
+<use Picture/case1sigma.pdf>
+File: Picture/case2rho.pdf Graphic file (type pdf)
+<use Picture/case2rho.pdf>
+File: Picture/case2u.pdf Graphic file (type pdf)
+<use Picture/case2u.pdf>
+File: Picture/case2p.pdf Graphic file (type pdf)
+<use Picture/case2p.pdf>
+File: Picture/case2sxx.pdf Graphic file (type pdf)
+<use Picture/case2sxx.pdf>
+File: Picture/case4rho.pdf Graphic file (type pdf)
+<use Picture/case4rho.pdf>
+File: Picture/case4u.pdf Graphic file (type pdf)
+<use Picture/case4u.pdf>
+File: Picture/case4p.pdf Graphic file (type pdf)
+<use Picture/case4p.pdf>
+File: Picture/case4sxx.pdf Graphic file (type pdf)
+<use Picture/case4sxx.pdf>
+ [17]
+File: Picture/case3rho.pdf Graphic file (type pdf)
+<use Picture/case3rho.pdf>
+File: Picture/case3u.pdf Graphic file (type pdf)
+<use Picture/case3u.pdf>
+File: Picture/case3p.pdf Graphic file (type pdf)
+<use Picture/case3p.pdf>
+File: Picture/case3sxx.pdf Graphic file (type pdf)
+<use Picture/case3sxx.pdf>
+File: Picture/case20rho.pdf Graphic file (type pdf)
+<use Picture/case20rho.pdf>
+File: Picture/case20u.pdf Graphic file (type pdf)
+<use Picture/case20u.pdf>
+File: Picture/case20p.pdf Graphic file (type pdf)
+<use Picture/case20p.pdf>
+File: Picture/case20sxx.pdf Graphic file (type pdf)
+<use Picture/case20sxx.pdf>
+ [18]
+File: Picture/case5rho.pdf Graphic file (type pdf)
+<use Picture/case5rho.pdf>
+File: Picture/case5u.pdf Graphic file (type pdf)
+<use Picture/case5u.pdf>
+File: Picture/case5p.pdf Graphic file (type pdf)
+<use Picture/case5p.pdf>
+File: Picture/case5sxx.pdf Graphic file (type pdf)
+<use Picture/case5sxx.pdf>
+File: Picture/case9rho.pdf Graphic file (type pdf)
+<use Picture/case9rho.pdf>
+File: Picture/case9u.pdf Graphic file (type pdf)
+<use Picture/case9u.pdf>
+File: Picture/case9p.pdf Graphic file (type pdf)
+<use Picture/case9p.pdf>
+File: Picture/case9sxx.pdf Graphic file (type pdf)
+<use Picture/case9sxx.pdf>
+File: Picture/case6rho.pdf Graphic file (type pdf)
+<use Picture/case6rho.pdf>
+File: Picture/case6u.pdf Graphic file (type pdf)
+<use Picture/case6u.pdf>
+File: Picture/case6p.pdf Graphic file (type pdf)
+<use Picture/case6p.pdf>
+File: Picture/case6sigma.pdf Graphic file (type pdf)
+<use Picture/case6sigma.pdf>
+ [19]
+File: Picture/case8rho.pdf Graphic file (type pdf)
+<use Picture/case8rho.pdf>
+File: Picture/case8u.pdf Graphic file (type pdf)
+<use Picture/case8u.pdf>
+File: Picture/case8p.pdf Graphic file (type pdf)
+<use Picture/case8p.pdf>
+File: Picture/case8sigma.pdf Graphic file (type pdf)
+<use Picture/case8sigma.pdf>
+File: Picture/case10rho.pdf Graphic file (type pdf)
+<use Picture/case10rho.pdf>
+File: Picture/case10u.pdf Graphic file (type pdf)
+<use Picture/case10u.pdf>
+File: Picture/case10p.pdf Graphic file (type pdf)
+<use Picture/case10p.pdf>
+File: Picture/case10sxx.pdf Graphic file (type pdf)
+<use Picture/case10sxx.pdf>
+File: Picture/case11rho.pdf Graphic file (type pdf)
+<use Picture/case11rho.pdf>
+File: Picture/case11u.pdf Graphic file (type pdf)
+<use Picture/case11u.pdf>
+File: Picture/case11p.pdf Graphic file (type pdf)
+<use Picture/case11p.pdf>
+File: Picture/case11sigma.pdf Graphic file (type pdf)
+<use Picture/case11sigma.pdf>
+ [20]
+Overfull \hbox (11.5788pt too wide) in paragraph at lines 1644--1645
+\TU/lmr/m/n/10 This work was supported by NSFC(Grant No. 11672047) and Science 
+Challenge Project (Grant No. TZ2016002). 
  []
 
-(./Manuscript revise 20190612.bbl [22]
-Underfull \hbox (badness 1776) in paragraph at lines 28--32
-[]\OT1/cmr/m/n/10 L. Liu, J.-b. Cheng, A multi-material HLLC Rie-mann solver wi
-th both elas-tic and plas-tic
- []
-
-
-Underfull \hbox (badness 2856) in paragraph at lines 28--32
-\OT1/cmr/m/n/10 waves for 1D elastic-plastic flows, https://www.researchgate.ne
-t/publication/332709456[]A[]multi-
+(./Manuscript revise 20190612.bbl [21]
+Underfull \hbox (badness 10000) in paragraph at lines 28--32
+\TU/lmr/m/n/10 for 1D elastic-plastic flows, https://www.researchgate.net/publi
+cation/332709456_A_multi-
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 28--32
-\OT1/cmr/m/n/10 material[]HLLC[]Riemann[]solver[]with[]both[]elastic[]and[]plas
-tic[]waves[]for[]1D[]elastic-plastic[]flows,
+\TU/lmr/m/n/10 material_HLLC_Riemann_solver_with_both_elastic_and_plastic_waves
+_for_1D_elastic-
  []
 
-[23]) [24] [25]
+[22]) [23] [24]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1716.
- [26]
+ [25] [26]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 1716.
  (./Manuscript revise 20190612.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1716.
@@ -765,12 +742,12 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1716.
  ) 
 Here is how much of TeX's memory you used:
- 11656 strings out of 493638
- 161756 string characters out of 6146796
- 249490 words of memory out of 5000000
- 14865 multiletter control sequences out of 15000+600000
- 19075 words of font info for 72 fonts, out of 8000000 for 9000
- 1328 hyphenation exceptions out of 8191
- 29i,17n,45p,1303b,444s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 11769 strings out of 494558
+ 165992 string characters out of 6167440
+ 256903 words of memory out of 5000000
+ 15433 multiletter control sequences out of 15000+600000
+ 16971 words of font info for 79 fonts, out of 8000000 for 9000
+ 264 hyphenation exceptions out of 8191
+ 30i,17n,45p,1303b,443s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on Manuscript revise 20190612.pdf (26 pages).

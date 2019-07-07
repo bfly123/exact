@@ -443,7 +443,7 @@ Now we consider a shock wave moving with the speed of $s$. The data in front of 
 %  &\rho_2u_2^2-\sigma_{2} = \rho_1u_1^2-\sigma_{1}+s(\rho_2u_2-\rho_1u_1), \\
 %  &(\rho_2E_2-\sigma_{2})u_2 = (\rho_1E_1-\sigma_{1})u_1+s(\rho_2E_2-\rho_1E_1),
 %\end{align}above relations also can be written as
-We transform the equations  to a frame of reference moving with the shock and the Rankine-Hugoniot Conditions give
+We transform the equations  to a frame of reference moving with the shock and the Rankine-Hugoniot conditions give
 \begin{align}
 \label{eq:RH1}
   &\rho_2(u_2-s) = \rho_1(u_1-s), \\
@@ -780,7 +780,7 @@ the solving process is shown in Fig.\ref{fig:newton}. The details are introduced
 \end{equation}
 
 \noindent
-\textbf{Iteration begin:}
+\textbf{Iterations begin:}
 \begin{enumerate}[Step 1]
   \item Determining the case of the wave structure:
 
@@ -850,7 +850,7 @@ If not, go to Step 1 and continue the iteration procedure until convergent. Nume
 \end{enumerate}
 
 \noindent
-\textbf{Iteration end}
+\textbf{Iterations end}
 %\subsection{Pre-evaluation of densities}\label{sec:eva}
 %At first, we assume that there are only one elastic shock wave in the left side and another one  elastic shock in the right side as shown in Fig.\ref{fig:HLLC}. According to the conservation relations across the shocks, we have
 %\begin{equation}
@@ -929,7 +929,7 @@ According to the values of initial and evaluated deviatoric stresses in (\ref{sx
 \end{equation}
 
 
-Combining (\ref{shock1}) and (\ref{yield1}), we can find, in any side of the wave structure of this Riemann problem, there are six cases showed in Table \ref{tab:cases}, where capital letters ''S'' and ''R'' mean the shock and rarefaction wave, respectively; superscript letters ''E'' and  ''P'' indicate the elastic or plastic state of a wave, respectively. Otherwise, the  subscript $L$ or  $R$  are omitted for simplification.
+Combining (\ref{shock1}) and (\ref{yield1}), we can find, in any side of the wave structure of this Riemann problem, there are six cases showed in Table \ref{tab:cases}, where capital letters ``$S$'' and ``$R$'' mean the shock and rarefaction wave, respectively; superscript letters ``$E$'' and  ``$P$'' indicate the elastic or plastic state of a wave, respectively. Otherwise, the  subscript $L$ or  $R$  are omitted for simplification.
 
 %  Then we can classify every side into six cases, and conditions for the classfication are  shown in Table \ref{tab:cases}, the  subscripts $_L$ and  $_R$  are omitted for simplication.
 
@@ -981,7 +981,7 @@ Combining (\ref{shock1}) and (\ref{yield1}), we can find, in any side of the wav
 
 	\emph{\textbf{Case ($R^{E}R^{P}$)}}
 
-Using the methods introduced in  the Section (\ref{sec:rarefaction}), we can easily deduce the formulation of all unknown variables after the rarefaction wave. Here we do not show the details of deduction.
+Using the methods introduced in  the Section (\ref{sec:rarefaction}), we can easily deduce the formulation of all unknown variables after the rarefaction wave. Here we do not show the details of the  deduction.
 
 %For rarefaction wave case, we give the function of $s_{xx}$ at first,
 %\begin{equation}
@@ -1308,8 +1308,8 @@ Sometimes we need to analyse a half Riemann problem with a given velocity or Cau
 
 \begin{figure}
   \centering
-%  \includegraphics[width= 10cm] {Tikz-figure8.eps}
-  \caption{Half Riemann problem  with a given left velocity or Cauchy stress..}
+  \includegraphics[width= 10cm] {Tikz-figure8.eps}
+  \caption{Half Riemann problem  with a given left velocity or Cauchy stress.}
   \label{fig:half}
 \end{figure}
 
@@ -1330,7 +1330,7 @@ the solving process is list in the following.
 \begin{equation}
 \rho_{(1)}^* = \rho_R.
 \end{equation}
-\textbf{Iteration begin:}
+\textbf{Iterations begin:}
 \begin{enumerate}[Step 1]
   \item Determine the case of the wave structure:
 
@@ -1381,7 +1381,7 @@ where
 
 If not, go to Step 1 and continue the iteration procedure until convergent. Numerical examples show, after 2-4 iterations, the condition (\ref{conv1}) is satisfied.
 \end{enumerate}
-\textbf{Iteration end.}
+\textbf{Iterations end.}
 
 
 \section{Numerical  tests }
@@ -1392,7 +1392,7 @@ In the following tests, the materials are taken as  aluminium and copper. The pa
 $ (\rho_0, a_0, \Gamma_0, s, \mu)_{\text{Al}} =(8930 \text{kg}/\text{m}^3, 3940 \text{m}/\text{s},2, 1.49, 2.76 ,2.76\times 10^{10} \text{Pa} )$ and   $(\rho_0, a_0, \Gamma_0, s, \mu)_{\text{copper}} =(2785 \text{kg}/\text{m}^3, 5328 \text{m}/\text{s},2, 1.338,4.5\times 10^{10}\text{Pa})$, respectively.  The yielding strengths of the two materials are $Y_{0,\text{Al}} = 3\times 10^8 \text{Pa}$ and   $Y_{0,\text{Copper}} = 9\times 10^7 \text{Pa}$, respectively.  The computational domain is set to be $[0,1m]$ with 800 cell points and the intial interface is located at $0.5m$, the terminal time is $t=5\times 10^{-5}s$. Otherwise, in the initial condition, "L" and "R" mean $x<0.5m$ and $x>0.5m$, respectively.
 
 \subsection{Test 1}
-In this case, the material is yielding at both sides, so the solution structure has three wave with two plastic shock waves and one contact.
+In this case, the material is yielding at both sides, so the solution structure has three waves with two plastic shock waves and one contact.
 The initial condition is
 \begin{equation}
  \left\{ \begin{aligned}
@@ -1410,7 +1410,7 @@ It can be seen that the exact solution matches the numerical results very well i
 \includegraphics[width= 7cm] {case1p.pdf}
 \includegraphics[width= 7cm] {case1sigma.pdf}
 
-    \caption{Comparison results for Test 1 with the structures of $S^P|S^P$.  }
+    \caption{Comparison results for Test 1 with the structure of $S^P|S^P$.  }
   \label{fig:case1}
 \end{figure}
 \subsection{Test 2}
@@ -1423,13 +1423,13 @@ Here we consider a case with yielding process at both sides, so there are five w
  \right.
 \end{equation}
 Shown in Fig.\ref{fig:case2}, the exact solution matches the numerical results well generally, except the under-cooling effect performed in the numerical results, but it is not considered in the designing of the exact Riemann solver.
-\begin{figure}{ht}
+\begin{figure}[ht]
   \centering
   \includegraphics[width= 7cm] {case2rho.pdf}
   \includegraphics[width= 7cm] {case2u.pdf}
   \includegraphics[width= 7cm] {case2p.pdf}
   \includegraphics[width= 7cm] {case2sxx.pdf}
-  \caption{Comparison results for Test 2 with the structures of $S^ES^P|S^PS^E$.  }
+  \caption{Comparison results for Test 2 with the structure of $S^ES^P|S^PS^E$.  }
   \label{fig:case2}
 \end{figure}
 
@@ -1467,7 +1467,7 @@ In this test we test the example with both elastic and plastic rarefaction waves
 \end{equation}
 Results are shown in Fig.\ref{fig:case4},  the results of the exact solver matches the numerical results very well.
 
-\begin{figure}{ht}
+\begin{figure}[ht]
   \centering
 
  \includegraphics[width= 7cm] {case3rho.pdf}
@@ -1489,7 +1489,7 @@ The initial condition of this Riemann problem is
    \end{aligned}
  \right.
 \end{equation}
-From the initial condition, at the beginning, the material is in the negative plastic state (i.e. $s_{xxL(R)}=-\frac{2}{3}{Y}^{0}$). If using the thought introduced by Gao and Liu, the material will be always in the negative plastic state. Exact solutions based on this thought are denoted by blue solid lines in Fig.\ref{fig:case20}. Obviously, from Fig.\ref{fig:case20}, one can find that the exact solutions denoted by blue solid lines are wrong because they do not match the numerical results very seriously. On the contrary, according to the analysis introduced in Section "Introduction", we can get the right exact solutions which match the numerical solutions very well in Fig.\ref{fig:case20} . This shows our analysis in  Section "Introduction" is right.
+From the initial condition, at the beginning, the material is in the negative plastic state (i.e. $s_{xxL(R)}=-\frac{2}{3}{Y}^{0}$). If using the thought introduced by Gao and Liu, the material will be always in the negative plastic state. Exact solutions based on this thought are denoted by red dashed lines in Fig.\ref{fig:case20}. Obviously, from Fig.\ref{fig:case20}, one can find that the exact solutions denoted by red dashed lines are wrong because they do not match the numerical results very seriously. In fact, on the contrary, after an unloading process the material will turn back into a  elastic state, and will yielding again after a reloading process, we can get the right exact solutions which match the numerical solutions very well by the new Riemann solver in Fig.\ref{fig:case20}. 
  %In the previous test, the material is  yielding from the elastic state to the plastic state through the elastic rarefaction wave. In this test, we will show, even if the material is in the negative plastic state at the beginning (i.e. $s_{xxL(R)}=-\frac{2}{3}{Y}^{0}$), after being expanded, the material can be into an elastic state or the positive plastic state, just as we analyze in the introduction. Solving this Rieman problem. This is proved in Fig.\ref{fig:case20} not only by the numerical and theoretical results, the material truly change from a plastic state to an elastic then to a plastic state again. However, if we do not consider the plastic to elastic process there maybe significant wrong in the numerical results as the red line shows.
 \begin{figure}[ht]
   \centering
@@ -1497,7 +1497,7 @@ From the initial condition, at the beginning, the material is in the negative pl
   \includegraphics[width= 7cm] {case20u.pdf}
   \includegraphics[width= 7cm] {case20p.pdf}
   \includegraphics[width= 7cm] {case20sxx.pdf}
-    \caption{Comparison results for Test 5 with the structures of $R^ER^P|R^PR^E$.  }
+    \caption{Comparison results for Test 5 with the structure of $R^ER^P|R^PR^E$.  }
   \label{fig:case20}
 \end{figure}
 
@@ -1587,7 +1587,7 @@ Shown in Fig.\ref{fig:case8}, there are two rarefaction waves on the left side a
   \includegraphics[width= 7cm] {case8p.pdf}
   \includegraphics[width= 7cm] {case8sigma.pdf}
 
-    \caption{Comparison results for Test 9 with the structures of $R^ER^P|S^ES^P$.  }
+    \caption{Comparison results for Test 9 with the structure of $R^ER^P|S^ES^P$.  }
   \label{fig:case8}
 \end{figure}
 
@@ -1604,7 +1604,7 @@ In Fig.\ref{fig:case9}, comparison results are given by the exact half Riemann s
   \includegraphics[width= 7cm] {case10p.pdf}
   \includegraphics[width= 7cm] {case10sxx.pdf}
 
-    \caption{Comparison results for Test 10 with the structures of $S^ES^P$.  }
+    \caption{Comparison results for Test 10 with the structure of $S^ES^P$.  }
   \label{fig:case9}
 \end{figure}
 
@@ -1620,7 +1620,7 @@ In Fig.\ref{fig:case10}, we give the results computed by the exact Riemann solve
   \includegraphics[width= 7cm] {case11u.pdf}
   \includegraphics[width= 7cm] {case11p.pdf}
   \includegraphics[width= 7cm] {case11sigma.pdf}
-    \caption{Comparison results for Test 11 with the structures of $R^ER^P$.  }
+    \caption{Comparison results for Test 11 with the structure of $R^ER^P$.  }
   \label{fig:case10}
 \end{figure}
 
