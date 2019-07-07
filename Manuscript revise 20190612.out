@@ -19,8 +19,8 @@
 \BOOKMARK [1][-]{section.4}{Exact\040Riemann\040solver}{}% 19
 \BOOKMARK [2][-]{subsection.4.1}{The\040solving\040process}{section.4}% 20
 \BOOKMARK [2][-]{subsection.4.2}{Determining\040the\040case\040of\040structures}{section.4}% 21
-\BOOKMARK [2][-]{subsection.4.3}{States\040in\040middle\040regions\040\(L\040and\040R\)\040}{section.4}% 22
-\BOOKMARK [2][-]{subsection.4.4}{States\040in\040regions\040QL*\040and\040QR*}{section.4}% 23
+\BOOKMARK [2][-]{subsection.4.3}{Evaluating\040states\040in\040middle\040regions\040\(L\040and\040R\)\040}{section.4}% 22
+\BOOKMARK [2][-]{subsection.4.4}{Evaluating\040states\040in\040regions\040QL*\040and\040QR*}{section.4}% 23
 \BOOKMARK [1][-]{section.5}{Half\040Riemann\040problem\040and\040its\040solver}{}% 24
 \BOOKMARK [1][-]{section.6}{Numerical\040tests\040}{}% 25
 \BOOKMARK [2][-]{subsection.6.1}{Test\0401}{section.6}% 26
@@ -35,4 +35,4 @@
 \BOOKMARK [2][-]{subsection.6.10}{Test\04010}{section.6}% 35
 \BOOKMARK [2][-]{subsection.6.11}{Test\04011}{section.6}% 36
 \BOOKMARK [1][-]{section.7}{Results}{}% 37
-\BOOKMARK [1][-]{Appendix\unhbox \voidb@x \penalty \@M \ {}A.a.A}{Numerical\040intergration\040for\040the\040rarefaction\040wave}{}% 38
+\BOOKMARK [1][-]{AppendixA.a.A}{Numerical\040intergration\040for\040the\040rarefaction\040wave}{}% 38
