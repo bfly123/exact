@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2019.5.30)  12 JUL 2019 09:45
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2019.5.30)  12 JUL 2019 10:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**"Manuscript revise 20190612.tex"
-(./Manuscript revise 20190612.tex
+**Manuscript20190712.tex
+(./Manuscript20190712.tex
 LaTeX2e <2016/02/01>
 Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -408,7 +408,7 @@ Package: geometry 2010/09/12 v5.6 Page Geometry
 \Gm@layoutvoffset=\dimen150
 \Gm@dimlist=\toks30
 )
-(./Manuscript revise 20190612.aux
+(./Manuscript20190712.aux
 
 LaTeX Warning: Label `te2' multiply defined.
 
@@ -416,7 +416,7 @@ LaTeX Warning: Label `te2' multiply defined.
 LaTeX Warning: Label `fig:case9' multiply defined.
 
 )
-\openout1 = `"Manuscript revise 20190612.aux"'.
+\openout1 = `Manuscript20190712.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
 LaTeX Font Info:    ... okay on input line 29.
@@ -449,9 +449,9 @@ LaTeX Info: Redefining \ref on input line 29.
 LaTeX Info: Redefining \pageref on input line 29.
 LaTeX Info: Redefining \nameref on input line 29.
 
-(./Manuscript revise 20190612.out) (./Manuscript revise 20190612.out)
+(./Manuscript20190712.out) (./Manuscript20190712.out)
 \@outlinefile=\write3
-\openout3 = `"Manuscript revise 20190612.out"'.
+\openout3 = `Manuscript20190712.out'.
 
 
 *geometry* driver: auto-detecting
@@ -747,7 +747,7 @@ Overfull \hbox (11.84001pt too wide) in paragraph at lines 1678--1679
 ce Chal-lenge Project (Grant No. TZ2016002). 
  []
 
-(./Manuscript revise 20190612.bbl [22]
+(./Manuscript20190712.bbl [22]
 Underfull \hbox (badness 1776) in paragraph at lines 28--32
 []\OT1/cmr/m/n/10 L. Liu, J.-b. Cheng, A multi-material HLLC Rie-mann solver wi
 th both elas-tic and plas-tic
@@ -769,7 +769,7 @@ tic[]waves[]for[]1D[]elastic-plastic[]flows,
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1750.
  [26] [27]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 1750.
- (./Manuscript revise 20190612.aux)
+ (./Manuscript20190712.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1750.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1750.
 
@@ -783,11 +783,11 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1750.
  ) 
 Here is how much of TeX's memory you used:
  11669 strings out of 493638
- 161962 string characters out of 6146796
- 249703 words of memory out of 5000000
+ 161842 string characters out of 6146796
+ 249693 words of memory out of 5000000
  14873 multiletter control sequences out of 15000+600000
  19075 words of font info for 72 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 30i,17n,45p,1401b,444s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 30i,17n,45p,1395b,444s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Manuscript revise 20190612.pdf (27 pages).
+Output written on Manuscript20190712.pdf (27 pages).

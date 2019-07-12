@@ -48,7 +48,6 @@ In this paper, we present exact Riemann solvers for the Riemann problem and the 
 
 %\end{frontmatter}
 
-
 \section{Introduction}
 
 In this paper, an exact Riemann solver is built for one-dimensional  multi-material elastic-plastic flows with the Mie-Gr\"uneisen EOS, hypo-elastic constitutive model \cite{wilkins1963calculation} and  the von Mises' yielding condition.
@@ -94,6 +93,7 @@ In this paper, we want to construct an exact Riemann solver for the system of 1D
 %the Mie-Gr\"uneisen EOS is used for both the elastic state and plastic state of the material, which is an adequate approximation to a wide variety of materials of interest, includes some gaseous or solid explosives and solid metals under high pressure \ref{ shyue2001fluid}.  According to both the theoretical analysation and numerical tests \cite{xiao1996numerical}, in this system, there may be three to five waves, including one contact wave and elastic wave (shock or rarefaction wave) or plastic wave or both the elastic and plastic waves in each side of the contact wave. We will prove this, the elastic wave always faster than the plastic wave of  one side, so varying from the initial condition, there are $6\times 6$ thirty-six possible cases of the structures in the solution. For a given case, we will obtain theoretical relations of all the states as functions of density. At last,  through an iteration process of densities at both sides of the contact wave, the  exact solution will be obtained. Also, the half Riemann problem and its exact solution are considered in this paper.
 
 This paper is organized as follows. In section 2, we introduce the governing equations to be studied. In section 3, the Riemann problem and the relations for every wave type (contact wave, shock wave and rarefaction wave) are  derived.  Then,  the exact Riemann solver  is given in section 4. The half Riemann problem and its solver is introduced in section 5.  Some numerical examples are presented to validate the method in section 6.  Conclusions are shown in section 7.
+
 \section{Governing equations}
 In this paper, the elastic energy is not included in the total energy. The exclution of the elastic energy is usual for practical engineering problems \cite{maire2013nominally} and is different from that in Ref.\cite{gavrilyuk2008modelling}.
 
@@ -269,6 +269,28 @@ r_4 = \frac{1}{\phi^2}\left[\begin{array}{l}
   \begin{equation}
     \phi^2 = a^2 -\frac{\rho_0}{\rho^2} \Gamma_0 s_{xx}-c_e^2 = -\frac{4\mu}{3}\frac{1}{\rho}.
   \end{equation}
+
+\subsubsection{A relation between $\rho$ and $s_{xx}$ }
+
+Thanks to (\ref{eq:mt}), the equations of the density and the deviatoric stress in Eq.(\ref{eq:1d}) can be written as
+  \begin{equation}\label{eq:d1}
+    \frac{\partial u}{\partial x} = -\frac{1}{\rho}\frac{d\rho}{dt},
+  \end{equation}
+  and
+  \begin{equation}\label{eq:s1}
+    \frac{ds_{xx}}{dt}=\frac{4}{3}\mu\frac{\partial u}{\partial x}.
+  \end{equation}
+
+  Substituting (\ref{eq:d1}) into (\ref{eq:s1}) yields
+%  We can get a relation of density and deviatoric stress,
+  \begin{equation}
+    \frac{ds_{xx}}{dt}=-\frac{4}{3}\mu \frac{1}{\rho}\frac{d\rho}{dt}.
+\end{equation}
+Integrate the above equation from the data in front of a wave to the data behind the wave and perform some simple algebraic manipulations, one can get
+\begin{equation}\label{eq:rhosxx}
+  s_{xx}+\frac{4}{3}\mu\text{ln}(\rho) = \text{constant}
+\end{equation}
+This relation always hold in the elastic state.
 
 \subsubsection{Relations across the contact wave}\label{sec:contacte}
   For  a  system without molecular diffusion, there is no materials convecting  across the contact wave or interface, so the velocities on two sides of  the discontinuity are always equal. % .
@@ -657,38 +679,6 @@ And the shock speed is given as
   s = \frac{\rho_2u_2-\rho_1u_1}{\rho_2-\rho_1}.
 \end{equation}
 
-
-\subsection{A relation between $\rho$ and $s_{xx}$ }
-
-Thanks to (\ref{eq:mt}), the equations of the density and the deviatoric stress in Eq.(\ref{eq:1d}) can be written as
-  \begin{equation}\label{eq:d1}
-    \frac{\partial u}{\partial x} = -\frac{1}{\rho}\frac{d\rho}{dt},
-  \end{equation}
-  and
-  \begin{equation}\label{eq:s1}
-    \frac{ds_{xx}}{dt}=\frac{4}{3}\mu\frac{\partial u}{\partial x}.
-  \end{equation}
-
-  Substituting (\ref{eq:d1}) into (\ref{eq:s1}) yields
-%  We can get a relation of density and deviatoric stress,
-  \begin{equation}
-    \frac{ds_{xx}}{dt}=-\frac{4}{3}\mu \frac{1}{\rho}\frac{d\rho}{dt}.
-\end{equation}
-Integrate the above equation from the data in front of a wave to the data behind the wave and perform some simple algebraic manipulations, one can get
-\begin{equation}\label{eq:rhosxx}
-  s_{xx}+\frac{4}{3}\mu\text{ln}(\rho) = \text{constant}
-\end{equation}
-This relation always hold in the elastic state.
-
-Analyzing the formulation about the deviatoric stress $s_{xx} $ in (\ref{sxx1}) in terms of the density $\rho$, one can find, $\frac{\partial s_{xx}}{\partial \rho}<0$. So, if the material is compressed and $\rho$ increases, $s_{xx}$ will decrease; if the material is expanded and $\rho$ decreases, $s_{xx}$ will increase. According to the compressed or expanded process of the material,  even if the initial material is in the plastic state, the material can be into a different state. With considering of the von Mises yielding condition, all cases are shown as follows:
-\begin{enumerate}
-  \item if $s_{xx}=\frac{2}{3}Y^{0}$, initial material reaches the elastic limit. If the material is compressed so that $\rho_{plastic}>\rho^{*}>\rho$, one can get $|s_{xx}^{*}|<\frac{2}{3}Y^{0}$, the compressed material jumps from the plastic state to the elastic state. Here $\rho$ and $s_{xx}$ mean the initial density and deviatoric stress, respectively, $\rho_{plastic} = \rho e^{\left(-\frac{Y_0}{2\mu}+\frac{3 s_{xx}}{4\mu}\right)}$, $( )^{*}$ denotes the variable $( )$ of the compressed or expanded material.
-  \item if $s_{xx}=\frac{2}{3}Y^{0}$ and the material is compressed greatly so that  $\rho_{plastic}<\rho^{*}$, $s_{xx}^{*}\leq - \frac{2}{3}Y^{0}$, the compressed material will jump from the positive plastic state to the negative plastic state. Here the positive or negative plastic state means $s_{xx}=\frac{2}{3}Y^{0}$ or $s_{xx}=-\frac{2}{3}Y^{0}$, respectively.
-  \item if $s_{xx}=\frac{2}{3}Y^{0}$ and  the material is expanded, $s_{xx}^{*}>\frac{2}{3}Y^{0}$, the material is still in the positive plastic state.
-  \item if $s_{xx}=-\frac{2}{3}Y^{0}$ and the material is expanded so that $\rho_{plastic}<\rho^{*}<\rho$, one can get $|s_{xx}^{*}|<\frac{2}{3}Y^{0}$, the expanded material jumps from the plastic state to the elastic state.
-  \item if $s_{xx}=-\frac{2}{3}Y^{0}$ and the material is expanded greatly so that  $\rho_{plastic}>\rho^{*}$, $s_{xx}^{*}\geq  \frac{2}{3}Y^{0}$, the expanded material will jump from the negative plastic state to the  positive plastic state.
-  \item if $s_{xx}=-\frac{2}{3}Y^{0}$ and  the material is compressed, $s_{xx}^{*}<-\frac{2}{3}Y^{0}$, the material is still in the negative plastic state.
-\end{enumerate}
 
 \section{Exact Riemann solver} %\footnote{\href{https://nbviewer.jupyter.org/github/bfly123/Exact-Elastic-plastic-Riemann-Solver-/blob/master/\%20CharacteristicForPlasticStateAfterYielding.ipynb\#}{Code site link}}} \label{sec:riemann}
 

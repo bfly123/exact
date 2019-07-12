@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2019.5.30)  12 JUL 2019 09:45
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2019.5.30)  12 JUL 2019 09:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**"Manuscript revise 20190612.tex"
-(./Manuscript revise 20190612.tex
+**Manuscript3.tex
+(./Manuscript3.tex
 LaTeX2e <2016/02/01>
 Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -254,161 +254,42 @@ Package: appendix 2009/09/02 v1.2b extra appendix facilities
 (/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
 )
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
+(/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
+\bigstrutjot=\dimen136
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+\Gin@req@height=\dimen137
+\Gin@req@width=\dimen138
+)
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
 
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
-Package: hobsub-hyperref 2012/05/28 v1.13 Bundle oberdiek, subset hyperref (HO)
-
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
-Package: hobsub-generic 2012/05/28 v1.13 Bundle oberdiek, subset generic (HO)
-Package: hobsub 2012/05/28 v1.13 Construct package bundles (HO)
-Package hobsub Info: Skipping package `infwarerr' (already loaded).
-Package hobsub Info: Skipping package `ltxcmds' (already loaded).
-Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
-Package ifluatex Info: LuaTeX not detected.
-Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
-Package ifvtex Info: VTeX not detected.
-Package: intcalc 2007/09/27 v1.1 Expandable calculations with integers (HO)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
 Package ifpdf Info: pdfTeX in PDF mode is not detected.
-Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
-Package etexcmds Info: Could not find \expanded.
-(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
-(etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the latter case, load this package earlier.
-Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
-Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
-Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
-Package pdftexcmds Info: LuaTeX not detected.
-Package pdftexcmds Info: pdfTeX >= 1.30 not detected.
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode not found.
-Package: pdfescape 2011/11/25 v1.13 Implements pdfTeX's escape features (HO)
-Package: bigintcalc 2012/04/08 v1.3 Expandable calculations on big integers (HO
-)
-Package: bitset 2011/01/30 v1.1 Handle bit-vector datatype (HO)
-Package: uniquecounter 2011/01/30 v1.2 Provide unlimited unique counter (HO)
-)
-Package hobsub Info: Skipping package `hobsub' (already loaded).
-Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
-Package: hopatch 2012/05/28 v1.2 Wrapper for package hooks (HO)
-Package: xcolor-patch 2011/01/30 xcolor patch
-Package: atveryend 2011/06/30 v1.8 Hooks at the very end of document (HO)
-Package atveryend Info: \enddocument detected (standard20110627).
-Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
-Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
-Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
 )
 (/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
-Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
-)
-\@linkdim=\dimen136
-\Hy@linkcounter=\count128
-\Hy@pagecounter=\count129
-
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
-)
-\Hy@SavedSpaceFactor=\count130
-
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
-File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
-)
-Package hyperref Info: Hyper figures OFF on input line 4443.
-Package hyperref Info: Link nesting OFF on input line 4448.
-Package hyperref Info: Hyper index ON on input line 4451.
-Package hyperref Info: Plain pages OFF on input line 4458.
-Package hyperref Info: Backreferencing OFF on input line 4463.
-Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4688.
-\c@Hy@tempcnt=\count131
-
-(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
-\Urlmuskip=\muskip11
-Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-)
-LaTeX Info: Redefining \url on input line 5041.
-\XeTeXLinkMargin=\dimen137
-\Fld@menulength=\count132
-\Field@Width=\dimen138
-\Fld@charsize=\dimen139
-Package hyperref Info: Hyper figures OFF on input line 6295.
-Package hyperref Info: Link nesting OFF on input line 6300.
-Package hyperref Info: Hyper index ON on input line 6303.
-Package hyperref Info: backreferencing OFF on input line 6310.
-Package hyperref Info: Link coloring OFF on input line 6315.
-Package hyperref Info: Link coloring with OCG OFF on input line 6320.
-Package hyperref Info: PDF/A mode OFF on input line 6325.
-LaTeX Info: Redefining \ref on input line 6365.
-LaTeX Info: Redefining \pageref on input line 6369.
-\Hy@abspage=\count133
-\c@Item=\count134
-\c@Hfootnote=\count135
-)
-
-Package hyperref Message: Driver (autodetected): hxetex.
-
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hxetex.def
-File: hxetex.def 2012/11/06 v6.83m Hyperref driver for XeTeX
-
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2012/11/06 v6.83m Hyperref: PDF Unicode definition (HO)
-)
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/stringenc.sty
-Package: stringenc 2011/12/02 v1.10 Convert strings between diff. encodings (HO
-)
-)
-\pdfm@box=\box31
-\c@Hy@AnnotLevel=\count136
-\HyField@AnnotCount=\count137
-\Fld@listcount=\count138
-\c@bookmark@seq@number=\count139
-
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
-Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
-Package rerunfilecheck Info: Feature \pdfmdfivesum is not available
-(rerunfilecheck)             (e.g. pdfTeX or LuaTeX with package `pdftexcmds').
-
-(rerunfilecheck)             Therefore file contents cannot be checked efficien
-tly
-(rerunfilecheck)             and the loading of the package is aborted.
-)
-\Hy@SectionHShift=\skip57
-)
-(/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
-\bigstrutjot=\dimen140
-)
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
-\Gin@req@height=\dimen141
-\Gin@req@width=\dimen142
-)
-(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
-Package: geometry 2010/09/12 v5.6 Page Geometry
-\Gm@cnth=\count140
-\Gm@cntv=\count141
-\c@Gm@tempcnt=\count142
-\Gm@bindingoffset=\dimen143
-\Gm@wd@mp=\dimen144
-\Gm@odd@mp=\dimen145
-\Gm@even@mp=\dimen146
-\Gm@layoutwidth=\dimen147
-\Gm@layoutheight=\dimen148
-\Gm@layouthoffset=\dimen149
-\Gm@layoutvoffset=\dimen150
+\Gm@cnth=\count128
+\Gm@cntv=\count129
+\c@Gm@tempcnt=\count130
+\Gm@bindingoffset=\dimen139
+\Gm@wd@mp=\dimen140
+\Gm@odd@mp=\dimen141
+\Gm@even@mp=\dimen142
+\Gm@layoutwidth=\dimen143
+\Gm@layoutheight=\dimen144
+\Gm@layouthoffset=\dimen145
+\Gm@layoutvoffset=\dimen146
 \Gm@dimlist=\toks30
 )
-(./Manuscript revise 20190612.aux
+(./Manuscript3.aux
 
 LaTeX Warning: Label `te2' multiply defined.
 
@@ -416,7 +297,7 @@ LaTeX Warning: Label `te2' multiply defined.
 LaTeX Warning: Label `fig:case9' multiply defined.
 
 )
-\openout1 = `"Manuscript revise 20190612.aux"'.
+\openout1 = `Manuscript3.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
 LaTeX Font Info:    ... okay on input line 29.
@@ -430,29 +311,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
 LaTeX Font Info:    ... okay on input line 29.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
 LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-\c@lstlisting=\count143
-\AtBeginShipoutBox=\box32
-Package hyperref Info: Link coloring OFF on input line 29.
- (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
-Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
-)
-\c@section@level=\count144
-)
-LaTeX Info: Redefining \ref on input line 29.
-LaTeX Info: Redefining \pageref on input line 29.
-LaTeX Info: Redefining \nameref on input line 29.
-
-(./Manuscript revise 20190612.out) (./Manuscript revise 20190612.out)
-\@outlinefile=\write3
-\openout3 = `"Manuscript revise 20190612.out"'.
-
+\c@lstlisting=\count131
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -488,130 +347,328 @@ LaTeX Info: Redefining \nameref on input line 29.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 38.
+LaTeX Font Info:    Try loading font information for U+msa on input line 37.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 38.
+LaTeX Font Info:    Try loading font information for U+msb on input line 37.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 38.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 37.
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
-File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
 
-)
+LaTeX Warning: Citation `wilkins1963calculation' on page 1 undefined on input l
+ine 53.
+
+
+LaTeX Warning: Citation `wilkins1963calculation' on page 1 undefined on input l
+ine 55.
+
+
+LaTeX Warning: Citation `gavrilyuk2008modelling' on page 1 undefined on input l
+ine 59.
+
+
+LaTeX Warning: Citation `cheng2015high' on page 1 undefined on input line 59.
+
+
+LaTeX Warning: Citation `cheng2016harten' on page 1 undefined on input line 59.
+
+
+
+LaTeX Warning: Citation `liumulti' on page 1 undefined on input line 59.
+
+
+LaTeX Warning: Citation `garaizar1991solution' on page 1 undefined on input lin
+e 61.
+
+
+LaTeX Warning: Citation `miller2004iterative' on page 1 undefined on input line
+ 61.
+
+
+LaTeX Warning: Citation `gao20171d' on page 1 undefined on input line 61.
+
+
+LaTeX Warning: Citation `gao2018complete' on page 1 undefined on input line 61.
+
+
 [1
 
-] [2] [3] [4] [5] [6] [7] [8]
+]
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 655.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\rho' on input line 655.
+LaTeX Warning: Citation `maire2013nominally' on page 2 undefined on input line 
+98.
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 655.
+LaTeX Warning: Citation `gavrilyuk2008modelling' on page 2 undefined on input l
+ine 98.
+
+[2] [3] [4] [5] [6] [7] [8] [9]
+
+LaTeX Warning: Reference `sec:riemann' on page 10 undefined on input line 687.
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 655.
+Overfull \hbox (7.52794pt too wide) in paragraph at lines 696--696
+[]\OT1/cmr/m/n/8 (a)
+ []
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 655.
+Overfull \hbox (15.24472pt too wide) in paragraph at lines 696--696
+\OT1/cmr/m/n/8 Elas-
+ []
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 655.
-
-[9]
-File: TikzFig/Tikz-figure0.eps Graphic file (type eps)
- <TikzFig/Tikz-figure0.eps>
-File: TikzFig/Tikz-figure1.eps Graphic file (type eps)
- <TikzFig/Tikz-figure1.eps>
-File: TikzFig/Tikz-figure2.eps Graphic file (type eps)
-
-<TikzFig/Tikz-figure2.eps>
-File: TikzFig/Tikz-figure3.eps Graphic file (type eps)
- <TikzFig/Tikz-figure3.eps>
-File: TikzFig/Tikz-figure4.eps Graphic file (type eps)
-
-<TikzFig/Tikz-figure4.eps>
-File: TikzFig/Tikz-figure5.eps Graphic file (type eps)
- <TikzFig/Tikz-figure5.eps> [10]
-File: TikzFig/Tikz-figure6.eps Graphic file (type eps)
-
-<TikzFig/Tikz-figure6.eps> [11] [12]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 967.
+Overfull \hbox (6.11125pt too wide) in paragraph at lines 696--696
+\OT1/cmr/m/n/8 tic
+ []
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 967.
+Overfull \hbox (10.3752pt too wide) in paragraph at lines 696--696
+\OT1/cmr/m/n/8 rar-
+ []
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 967.
+Overfull \hbox (13.90303pt too wide) in paragraph at lines 696--696
+\OT1/cmr/m/n/8 efac-
+ []
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 967.
+Overfull \hbox (11.30577pt too wide) in paragraph at lines 696--696
+\OT1/cmr/m/n/8 tion
+ []
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 967.
+Overfull \hbox (14.61137pt too wide) in paragraph at lines 696--696
+\OT1/cmr/m/n/8 wave
+ []
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 967.
-
-[13]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1089.
+Overfull \hbox (15.94875pt too wide) in paragraph at lines 696--696
+\OT1/cmr/m/n/8 ($\OML/cmm/m/it/8 R[]$\OT1/cmr/m/n/8 ) 
+ []
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 1089.
+Overfull \hbox (8.00017pt too wide) in paragraph at lines 700--700
+[]\OT1/cmr/m/n/8 (b)
+ []
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 1089.
+Overfull \hbox (15.24472pt too wide) in paragraph at lines 700--700
+\OT1/cmr/m/n/8 Plas-
+ []
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1089.
+Overfull \hbox (6.11125pt too wide) in paragraph at lines 700--700
+\OT1/cmr/m/n/8 tic
+ []
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1089.
+Overfull \hbox (10.3752pt too wide) in paragraph at lines 700--700
+\OT1/cmr/m/n/8 rar-
+ []
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 1089.
+Overfull \hbox (13.90303pt too wide) in paragraph at lines 700--700
+\OT1/cmr/m/n/8 efac-
+ []
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 1089.
+Overfull \hbox (11.30577pt too wide) in paragraph at lines 700--700
+\OT1/cmr/m/n/8 tion
+ []
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1089.
+Overfull \hbox (14.61137pt too wide) in paragraph at lines 700--700
+\OT1/cmr/m/n/8 wave
+ []
 
-[14]
-File: TikzFig/Tikz-figure8.eps Graphic file (type eps)
- <TikzFig/Tikz-figure8.eps> [15] [16]
-Overfull \hbox (1.36064pt too wide) in paragraph at lines 1404--1406
+
+Overfull \hbox (15.88138pt too wide) in paragraph at lines 700--700
+\OT1/cmr/m/n/8 ($\OML/cmm/m/it/8 R[]$\OT1/cmr/m/n/8 ) 
+ []
+
+
+Overfull \hbox (7.05571pt too wide) in paragraph at lines 704--704
+[]\OT1/cmr/m/n/8 (c)
+ []
+
+
+Overfull \hbox (14.96138pt too wide) in paragraph at lines 704--704
+\OT1/cmr/m/n/8 Both
+ []
+
+
+Overfull \hbox (13.24191pt too wide) in paragraph at lines 704--704
+\OT1/cmr/m/n/8 elas-
+ []
+
+
+Overfull \hbox (6.11125pt too wide) in paragraph at lines 704--704
+\OT1/cmr/m/n/8 tic
+ []
+
+
+Overfull \hbox (10.36131pt too wide) in paragraph at lines 704--704
+\OT1/cmr/m/n/8 and
+ []
+
+
+Overfull \hbox (14.18637pt too wide) in paragraph at lines 704--704
+\OT1/cmr/m/n/8 plas-
+ []
+
+
+Overfull \hbox (6.11125pt too wide) in paragraph at lines 704--704
+\OT1/cmr/m/n/8 tic
+ []
+
+
+Overfull \hbox (10.3752pt too wide) in paragraph at lines 704--704
+\OT1/cmr/m/n/8 rar-
+ []
+
+
+Overfull \hbox (13.90303pt too wide) in paragraph at lines 704--704
+\OT1/cmr/m/n/8 efac-
+ []
+
+
+Overfull \hbox (11.30577pt too wide) in paragraph at lines 704--704
+\OT1/cmr/m/n/8 tion
+ []
+
+
+Overfull \hbox (17.9642pt too wide) in paragraph at lines 704--704
+\OT1/cmr/m/n/8 waves
+ []
+
+
+Overfull \hbox (28.55225pt too wide) in paragraph at lines 704--704
+\OT1/cmr/m/n/8 ($\OML/cmm/m/it/8 R[]R[]$\OT1/cmr/m/n/8 ) 
+ []
+
+
+Overfull \hbox (8.00017pt too wide) in paragraph at lines 708--708
+[]\OT1/cmr/m/n/8 (d)
+ []
+
+
+Overfull \hbox (15.24472pt too wide) in paragraph at lines 708--708
+\OT1/cmr/m/n/8 Elas-
+ []
+
+
+Overfull \hbox (6.11125pt too wide) in paragraph at lines 708--708
+\OT1/cmr/m/n/8 tic
+ []
+
+
+Overfull \hbox (17.25586pt too wide) in paragraph at lines 708--708
+\OT1/cmr/m/n/8 shock
+ []
+
+
+Overfull \hbox (14.61137pt too wide) in paragraph at lines 708--708
+\OT1/cmr/m/n/8 wave
+ []
+
+
+Overfull \hbox (15.11401pt too wide) in paragraph at lines 708--708
+\OT1/cmr/m/n/8 ($\OML/cmm/m/it/8 S[]$\OT1/cmr/m/n/8 ) 
+ []
+
+
+Overfull \hbox (7.05571pt too wide) in paragraph at lines 712--712
+[]\OT1/cmr/m/n/8 (e)
+ []
+
+
+Overfull \hbox (15.24472pt too wide) in paragraph at lines 712--712
+\OT1/cmr/m/n/8 Plas-
+ []
+
+
+Overfull \hbox (6.11125pt too wide) in paragraph at lines 712--712
+\OT1/cmr/m/n/8 tic
+ []
+
+
+Overfull \hbox (17.25586pt too wide) in paragraph at lines 712--712
+\OT1/cmr/m/n/8 shock
+ []
+
+
+Overfull \hbox (14.61137pt too wide) in paragraph at lines 712--712
+\OT1/cmr/m/n/8 wave
+ []
+
+
+Overfull \hbox (15.88138pt too wide) in paragraph at lines 712--712
+\OT1/cmr/m/n/8 ($\OML/cmm/m/it/8 R[]$\OT1/cmr/m/n/8 ) 
+ []
+
+
+Overfull \hbox (6.50708pt too wide) in paragraph at lines 716--716
+[]\OT1/cmr/m/n/8 (f)
+ []
+
+
+Overfull \hbox (14.96138pt too wide) in paragraph at lines 716--716
+\OT1/cmr/m/n/8 Both
+ []
+
+
+Overfull \hbox (13.24191pt too wide) in paragraph at lines 716--716
+\OT1/cmr/m/n/8 elas-
+ []
+
+
+Overfull \hbox (6.11125pt too wide) in paragraph at lines 716--716
+\OT1/cmr/m/n/8 tic
+ []
+
+
+Overfull \hbox (10.36131pt too wide) in paragraph at lines 716--716
+\OT1/cmr/m/n/8 and
+ []
+
+
+Overfull \hbox (14.18637pt too wide) in paragraph at lines 716--716
+\OT1/cmr/m/n/8 plas-
+ []
+
+
+Overfull \hbox (6.11125pt too wide) in paragraph at lines 716--716
+\OT1/cmr/m/n/8 tic
+ []
+
+
+Overfull \hbox (17.25586pt too wide) in paragraph at lines 716--716
+\OT1/cmr/m/n/8 shock
+ []
+
+
+Overfull \hbox (17.9642pt too wide) in paragraph at lines 716--716
+\OT1/cmr/m/n/8 waves
+ []
+
+
+Overfull \hbox (26.88278pt too wide) in paragraph at lines 716--716
+\OT1/cmr/m/n/8 ($\OML/cmm/m/it/8 S[]S[]$\OT1/cmr/m/n/8 ) 
+ []
+
+[10] [11] [12] [13] [14] [15]
+
+LaTeX Warning: Citation `liumulti' on page 16 undefined on input line 1406.
+
+
+Overfull \hbox (1.36064pt too wide) in paragraph at lines 1409--1411
 \OT1/cmr/m/n/10 con-sti-tu-tive model for alu-minum and cop-per are $(\OML/cmm/
 m/it/10 ^^Z[]; a[]; \OT1/cmr/m/n/10 ^^@[]\OML/cmm/m/it/10 ; s; ^^V\OT1/cmr/m/n/
 10 )[] = (8930[]\OML/cmm/m/it/10 =[][]; \OT1/cmr/m/n/10 3940[]\OML/cmm/m/it/10 
@@ -629,7 +686,7 @@ File: Picture/case1p.pdf Graphic file (type QTm)
 
 <use  "Picture/case1p.pdf" >
 File: Picture/case1sigma.pdf Graphic file (type QTm)
- <use  "Picture/case1sigma.pdf" > [17]
+ <use  "Picture/case1sigma.pdf" >
 File: Picture/case2rho.pdf Graphic file (type QTm)
 
 <use  "Picture/case2rho.pdf" >
@@ -639,7 +696,7 @@ File: Picture/case2p.pdf Graphic file (type QTm)
 
 <use  "Picture/case2p.pdf" >
 File: Picture/case2sxx.pdf Graphic file (type QTm)
- <use  "Picture/case2sxx.pdf" >
+ <use  "Picture/case2sxx.pdf" > [16]
 File: Picture/case4rho.pdf Graphic file (type QTm)
 
 <use  "Picture/case4rho.pdf" >
@@ -659,27 +716,7 @@ File: Picture/case3p.pdf Graphic file (type QTm)
 
 <use  "Picture/case3p.pdf" >
 File: Picture/case3sxx.pdf Graphic file (type QTm)
- <use  "Picture/case3sxx.pdf" > [18]
-File: Picture/case20rho.pdf Graphic file (type QTm)
-
-<use  "Picture/case20rho.pdf" >
-File: Picture/case20u.pdf Graphic file (type QTm)
- <use  "Picture/case20u.pdf" >
-File: Picture/case20p.pdf Graphic file (type QTm)
-
-<use  "Picture/case20p.pdf" >
-File: Picture/case20sxx.pdf Graphic file (type QTm)
- <use  "Picture/case20sxx.pdf" >
-File: Picture/case21rho.pdf Graphic file (type QTm)
-
-<use  "Picture/case21rho.pdf" >
-File: Picture/case21u.pdf Graphic file (type QTm)
- <use  "Picture/case21u.pdf" >
-File: Picture/case21p.pdf Graphic file (type QTm)
-
-<use  "Picture/case21p.pdf" >
-File: Picture/case21sxx.pdf Graphic file (type QTm)
- <use  "Picture/case21sxx.pdf" > [19]
+ <use  "Picture/case3sxx.pdf" > [17] [18]
 File: Picture/case5rho.pdf Graphic file (type QTm)
 
 <use  "Picture/case5rho.pdf" >
@@ -689,7 +726,7 @@ File: Picture/case5p.pdf Graphic file (type QTm)
 
 <use  "Picture/case5p.pdf" >
 File: Picture/case5sxx.pdf Graphic file (type QTm)
- <use  "Picture/case5sxx.pdf" >
+ <use  "Picture/case5sxx.pdf" > [19]
 File: Picture/case9rho.pdf Graphic file (type QTm)
 
 <use  "Picture/case9rho.pdf" >
@@ -709,7 +746,7 @@ File: Picture/case6p.pdf Graphic file (type QTm)
 
 <use  "Picture/case6p.pdf" >
 File: Picture/case6sigma.pdf Graphic file (type QTm)
- <use  "Picture/case6sigma.pdf" > [20]
+ <use  "Picture/case6sigma.pdf" > [20] [21]
 File: Picture/case8rho.pdf Graphic file (type QTm)
 
 <use  "Picture/case8rho.pdf" >
@@ -730,10 +767,8 @@ File: Picture/case10p.pdf Graphic file (type QTm)
 <use  "Picture/case10p.pdf" >
 File: Picture/case10sxx.pdf Graphic file (type QTm)
  <use  "Picture/case10sxx.pdf" >
-
-LaTeX Warning: Reference `fig:case10' on page 21 undefined on input line 1650.
-
 File: Picture/case11rho.pdf Graphic file (type QTm)
+
 <use  "Picture/case11rho.pdf" >
 File: Picture/case11u.pdf Graphic file (type QTm)
  <use  "Picture/case11u.pdf" >
@@ -741,53 +776,28 @@ File: Picture/case11p.pdf Graphic file (type QTm)
 
 <use  "Picture/case11p.pdf" >
 File: Picture/case11sigma.pdf Graphic file (type QTm)
- <use  "Picture/case11sigma.pdf" > [21]
-Overfull \hbox (11.84001pt too wide) in paragraph at lines 1678--1679
+ <use  "Picture/case11sigma.pdf" > [22] [23]
+Overfull \hbox (11.84001pt too wide) in paragraph at lines 1662--1663
 \OT1/cmr/m/n/10 This work was sup-ported by NSFC(Grant No. 11672047) and Sci-en
 ce Chal-lenge Project (Grant No. TZ2016002). 
  []
 
-(./Manuscript revise 20190612.bbl [22]
-Underfull \hbox (badness 1776) in paragraph at lines 28--32
-[]\OT1/cmr/m/n/10 L. Liu, J.-b. Cheng, A multi-material HLLC Rie-mann solver wi
-th both elas-tic and plas-tic
- []
-
-
-Underfull \hbox (badness 2856) in paragraph at lines 28--32
-\OT1/cmr/m/n/10 waves for 1D elastic-plastic flows, https://www.researchgate.ne
-t/publication/332709456[]A[]multi-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 28--32
-\OT1/cmr/m/n/10 material[]HLLC[]Riemann[]solver[]with[]both[]elastic[]and[]plas
-tic[]waves[]for[]1D[]elastic-plastic[]flows,
- []
-
-[23]) [24] [25]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1750.
- [26] [27]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1750.
- (./Manuscript revise 20190612.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1750.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1750.
-
+No file Manuscript3.bbl.
+[24] [25] (./Manuscript3.aux)
 
 LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1750.
  ) 
 Here is how much of TeX's memory you used:
- 11669 strings out of 493638
- 161962 string characters out of 6146796
- 249703 words of memory out of 5000000
- 14873 multiletter control sequences out of 15000+600000
- 19075 words of font info for 72 fonts, out of 8000000 for 9000
+ 4455 strings out of 493638
+ 59860 string characters out of 6146796
+ 130597 words of memory out of 5000000
+ 7724 multiletter control sequences out of 15000+600000
+ 18715 words of font info for 71 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 30i,17n,45p,1401b,444s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 27i,17n,32p,1856b,268s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Manuscript revise 20190612.pdf (27 pages).
+Output written on Manuscript3.pdf (25 pages).
